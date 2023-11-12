@@ -1,0 +1,207 @@
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.vid-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bgvid {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+}
+
+.inner-container {
+  width: 400px;
+  height: 525px;
+  position: absolute;
+  top: calc(44vh - 200px);
+  left: calc(50vw - 200px);
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.bgvid.inner {
+  background: rgb(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.box {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  font-family: Helvetica;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.13);
+  padding: 20px;
+}
+
+.box h1 {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 30px;
+}
+
+.box input {
+  display: block;
+  width: 300px;
+  margin: 20px auto;
+  padding: 15px;
+  background: rgba(24, 24, 24, 0.392);
+  color: #fff;
+  border: 0;
+}
+
+::placeholder {
+  color: rgb(173, 173, 173);
+  opacity: 1;
+  /* Firefox */
+}
+
+.box input:focus,
+.box input:active,
+.box button:focus,
+.box button:active {
+  outline: none;
+}
+
+.box button {
+
+  margin: 20px auto;
+  display: block;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.box p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.box p span {
+  cursor: pointer;
+  color: #666;
+}
+
+.bdrd {
+  border-radius: 30px;
+}
+
+
+
+/* CSS */
+.button-63 {
+  align-items: center;
+  background-image: linear-gradient(144deg, #000000, #3b3a17 50%, #fbff00);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-weight: bold;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 15px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-63:active,
+.button-63:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-63 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+.cen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.al {
+  position: absolute;
+  z-index: 10;
+  margin: 100px auto;
+}
+
+
+
+.bsk-container {
+  transition: background-color 0.3s, box-shadow 0.3s;
+  padding: 12px 16px 12px 15px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 -1px 0 rgb(0 0 0 / 4%), 0 1px 1px rgb(0 0 0 / 25%);
+  color: #4a4a4a;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 12px 17px;
+  text-decoration: none;
+  text-align: start;
+}
+
+.bsk-container:hover {
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+  color: #000;
+}
+.bsk-container:active {
+  background-color: #000000;
+}
+.bsk-container:focus {
+  outline: none;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25), 0 0 0 3px #c8dafc;
+}
+.bsk-container:disabled {
+  filter: grayscale(100%);
+  background-color: #ebebeb;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+}
+
+.x-icon {
+  height: 1em;
+  width: 1em;
+  top: .125em;
+  position: relative;
+}
+
+.x-alt {
+  color: #000000;
+}
+.h {
+  width: 300px;
+}
+
