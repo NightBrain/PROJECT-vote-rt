@@ -298,4 +298,24 @@
                 ?>
               <?php } ?>
 
+              <?php if(isset($_SESSION['successr'])) { ?>
+                <?php 
+                
+                     echo "<script>
+         
+                         $(document).ready(function() {
+                             Swal.fire({
+                                 title: 'Successfully Reset',
+                                 text: '',
+                                 icon: 'success',
+                                 timer: 3000,
+                                 timerProgressBar: true,
+                             });
+                         });
+                     </script>";
+                    
+                    unset($_SESSION['successr']);
+                ?>
+              <?php } ?>
+
              
