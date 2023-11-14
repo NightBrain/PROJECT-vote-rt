@@ -55,13 +55,35 @@
 
                         if (password_verify($password, $row['password'])) {
 
-                            if ($row['urole'] == 'admin') {
+                            if ($row['urole'] == 'super_admin') {
 
-                                $_SESSION['admin_login'] = $row['id'];
+                                $_SESSION['super_admin_login'] = $row['id'];
 
-                                $_SESSION['successa'] = 'ยินดีต้อนรับ';
+                                $_SESSION['successsa'] = 'ยินดีต้อนรับ';
                     
                                 header("location: role/admin.php");
+
+                        //<=============================================================>
+    
+                            } else  if ($row['urole'] == 'professor_admin') {
+
+                                $_SESSION['professor_admin_login'] = $row['id'];
+
+                                $_SESSION['successpa'] = 'ยินดีต้อนรับ';
+                    
+                                header("location: role/professor/admin_pro.php");
+
+                        //<=============================================================>
+
+                            } else  if ($row['urole'] == 'professor') {
+
+                                $_SESSION['professor_login'] = $row['id'];
+
+                                $_SESSION['successp'] = 'ยินดีต้อนรับ';
+                    
+                                header("location: role/professor/professor_vote.php");
+
+                        //<=============================================================>
     
                             } else  if ($row['urole'] == 'student') {
 
@@ -71,21 +93,16 @@
                     
                                 header("location: role/student.php");
 
-                            } else  if ($row['urole'] == 'complete') {
+                        //<=============================================================>
 
-                                $_SESSION['complete_login'] = $row['id'];
-
-                                $_SESSION['successcom'] = 'ยินดีต้อนรับ';
-                    
-                                header("location: role/complete.php");
     
                             } else {
 
-                                $_SESSION['professor_login'] = $row['id'];
+                                $_SESSION['complete_login'] = $row['id'];
 
-                                $_SESSION['successf'] = 'ยินดีต้อนรับ';
+                                $_SESSION['successc'] = 'ยินดีต้อนรับ';
                     
-                                header("location: role/professor.php");
+                                header("location: role/complete.php");
 
                             }
 

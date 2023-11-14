@@ -15,23 +15,6 @@
     }
 
 ?>
-<?php if(isset($_SESSION['successa'])) { ?>
-	<?php 
-		echo "<script>
-		$(document).ready(function() {
-			Swal.fire({
-				icon: 'success',
-				title: 'Welcome Student',
-				text: 'Chiang Mai Rajabhat University',
-				  timer: 1000,
-				  timerProgressBar: true,
-			  });
-		});
-	</script>";
-		
-		unset($_SESSION['successa']);
-	?>
-<?php } ?>
 
 <!DOCTYPE html>
 <html lang="en">

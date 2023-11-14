@@ -6,7 +6,7 @@
 
     require_once '../config/config.php';
 
-	if (!isset($_SESSION['admin_login'])) {
+	if (!isset($_SESSION['super_admin_login'])) {
 
         $_SESSION['errora'] = 'กรุณาเข้าสู่ระบบ!';
 
@@ -15,7 +15,7 @@
     }
 
 ?>
-<?php if(isset($_SESSION['successa'])) { ?>
+<?php if(isset($_SESSION['successsa'])) { ?>
 	<?php 
 		echo "<script>
 		$(document).ready(function() {
@@ -29,7 +29,7 @@
 		});
 	</script>";
 		
-		unset($_SESSION['successa']);
+		unset($_SESSION['successsa']);
 	?>
 <?php } ?>
 
@@ -409,37 +409,42 @@
 											</div>
 										</div>
 										<div class="table-responsive">
-											<table class="table text-center bg-info-hover tr-rounded order-tbl">
-												<thead>
-													<tr>
-														<th class="text-left">Number</th>
-														<th class="text-center">Student ID</th>
-														<th class="text-center">Time</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class="text-center">01</td>
-														<td>68123800</td>
-														<td class="text-right">2023-11-10 12:32:47</td>
-													</tr>
-													<tr>
-														<td class="text-center">02</td>
-														<td>68123805</td>
-														<td class="text-right">2023-11-12 23:33:22</td>
-													</tr>
-													<tr>
-														<td class="text-center">03</td>
-														<td>68123808</td>
-														<td class="text-right">2023-11-12 23:33:54</td>
-													</tr>
-													<tr>
-														<td class="text-center">04</td>
-														<td>68123804</td>
-														<td class="text-right">2023-11-12 23:34:23</td>
-													</tr>
-												</tbody>
-											</table>
+
+										<table class="table">
+										<thead>
+											<tr>
+											<th  class="text-left">ID</th>
+											<th  class="text-left">Student ID</th>
+											<th  class="text-left">Time</th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php 
+
+											$stmt = $conn->query("SELECT * FROM vote01 LIMIT 5");
+
+											$stmt->execute();
+
+											$userss = $stmt->fetchAll();
+
+											if (!$userss) {
+
+											echo "<tr><td colspan='6' class='text-center'>None vote</td></tr>";
+
+											} else {
+
+											foreach ($userss as $user) {
+
+											?>
+											<tr>
+											<td class="text-center"><?= $user['id']; ?></td>
+											<td class="text-centert"><?= $user['ids']; ?></td>
+											<td class="text-centert"><?= $user['time']; ?></td>
+											</tr>
+											<?php } 
+														} ?>
+										</tbody>
+										</table>
 										</div>
 									</div>
 									<div class="card-footer border-0 p-0 caret">
@@ -465,37 +470,41 @@
 											</div>
 										</div>
 										<div class="table-responsive">
-											<table class="table text-center bg-warning-hover tr-rounded order-tbl">
-												<thead>
-													<tr>
-														<th class="text-left">Number</th>
-														<th class="text-center">Student ID</th>
-														<th class="text-center">Time</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class="text-center">01</td>
-														<td>68123815</td>
-														<td class="text-right">2023-11-10 13:32:47</td>
-													</tr>
-													<tr>
-														<td class="text-center">02</td>
-														<td>68123819</td>
-														<td class="text-right">2023-11-12 02:33:22</td>
-													</tr>
-													<tr>
-														<td class="text-center">03</td>
-														<td>68123825</td>
-														<td class="text-right">2023-11-12 21:33:54</td>
-													</tr>
-													<tr>
-														<td class="text-center">04</td>
-														<td>68123820</td>
-														<td class="text-right">2023-11-12 19:34:23</td>
-													</tr>
-												</tbody>
-											</table>
+										<table class="table">
+										<thead>
+											<tr>
+											<th  class="text-left">ID</th>
+											<th  class="text-left">Student ID</th>
+											<th  class="text-left">Time</th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php 
+
+											$stmt = $conn->query("SELECT * FROM vote02 LIMIT 5");
+
+											$stmt->execute();
+
+											$userss = $stmt->fetchAll();
+
+											if (!$userss) {
+
+											echo "<tr><td colspan='6' class='text-center'>None vote</td></tr>";
+
+											} else {
+
+											foreach ($userss as $user) {
+
+											?>
+											<tr>
+											<td class="text-center"><?= $user['id']; ?></td>
+											<td class="text-centert"><?= $user['ids']; ?></td>
+											<td class="text-centert"><?= $user['time']; ?></td>
+											</tr>
+											<?php } 
+														} ?>
+										</tbody>
+										</table>
 										</div>
 									</div>
 									<div class="card-footer border-0 p-0 caret">
@@ -525,37 +534,41 @@
                                                 </div>
                                             </div>
                                             <div class="table-responsive">
-                                                <table class="table text-center bg-warning-hover tr-rounded order-tbl">
-                                                <thead>
-													<tr>
-														<th class="text-left">Number</th>
-														<th class="text-center">Student ID</th>
-														<th class="text-center">Time</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class="text-center">01</td>
-														<td>68123822</td>
-														<td class="text-right">2023-11-10 05:32:47</td>
-													</tr>
-													<tr>
-														<td class="text-center">02</td>
-														<td>68123834</td>
-														<td class="text-right">2023-11-12 18:33:22</td>
-													</tr>
-													<tr>
-														<td class="text-center">03</td>
-														<td>68123852</td>
-														<td class="text-right">2023-11-12 19:33:54</td>
-													</tr>
-													<tr>
-														<td class="text-center">04</td>
-														<td>68123858</td>
-														<td class="text-right">2023-11-12 22:34:23</td>
-													</tr>
-												</tbody>
-                                                </table>
+											<table class="table">
+										<thead>
+											<tr>
+											<th  class="text-left">ID</th>
+											<th  class="text-left">Student ID</th>
+											<th  class="text-left">Time</th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php 
+
+											$stmt = $conn->query("SELECT * FROM vote03 LIMIT 5");
+
+											$stmt->execute();
+
+											$userss = $stmt->fetchAll();
+
+											if (!$userss) {
+
+											echo "<tr><td colspan='6' class='text-center'>None vote</td></tr>";
+
+											} else {
+
+											foreach ($userss as $user) {
+
+											?>
+											<tr>
+											<td class="text-center"><?= $user['id']; ?></td>
+											<td class="text-centert"><?= $user['ids']; ?></td>
+											<td class="text-centert"><?= $user['time']; ?></td>
+											</tr>
+											<?php } 
+														} ?>
+										</tbody>
+										</table>
                                             </div>
                                         </div>
                                         <div class="card-footer border-0 p-0 caret">
@@ -581,37 +594,41 @@
                                                 </div>
                                             </div>
                                             <div class="table-responsive">
-                                                <table class="table text-center bg-warning-hover tr-rounded order-tbl">
-                                                <thead>
-													<tr>
-														<th class="text-left">Number</th>
-														<th class="text-center">Student ID</th>
-														<th class="text-center">Time</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td class="text-center">01</td>
-														<td>68123861</td>
-														<td class="text-right">2023-11-10 20:32:47</td>
-													</tr>
-													<tr>
-														<td class="text-center">02</td>
-														<td>68123888</td>
-														<td class="text-right">2023-11-12 15:33:22</td>
-													</tr>
-													<tr>
-														<td class="text-center">03</td>
-														<td>68123884</td>
-														<td class="text-right">2023-11-12 18:33:54</td>
-													</tr>
-													<tr>
-														<td class="text-center">04</td>
-														<td>68123899</td>
-														<td class="text-right">2023-11-12 22:34:23</td>
-													</tr>
-												</tbody>
-                                                </table>
+											<table class="table">
+										<thead>
+											<tr>
+											<th  class="text-left">ID</th>
+											<th  class="text-left">Student ID</th>
+											<th  class="text-left">Time</th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php 
+
+											$stmt = $conn->query("SELECT * FROM vote04 LIMIT 5");
+
+											$stmt->execute();
+
+											$userss = $stmt->fetchAll();
+
+											if (!$userss) {
+
+											echo "<tr><td colspan='6' class='text-center'>None vote</td></tr>";
+
+											} else {
+
+											foreach ($userss as $user) {
+
+											?>
+											<tr>
+											<td class="text-center"><?= $user['id']; ?></td>
+											<td class="text-centert"><?= $user['ids']; ?></td>
+											<td class="text-centert"><?= $user['time']; ?></td>
+											</tr>
+											<?php } 
+														} ?>
+										</tbody>
+										</table>
                                             </div>
                                         </div>
                                         <div class="card-footer border-0 p-0 caret">

@@ -88,7 +88,7 @@
                            <input style="display: none;"  type="text" readonly value="หมายเลข 1" required class="form-control" name="number">
                             <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
                           <label for="exampleInputEmail1">(กรอกรหัสนักศึกษาเพื่อลงคะแนน)</label>
-                          <input type="text" readonly value="<?php echo $row['sid'] ?>" required class="form-control" name="ids">
+                          <input type="text" readonly value="<?php echo $row['studentid'] ?>" required class="form-control" name="ids">
                         </div> 
                     </div>
                     <div class="modal-footer">
@@ -138,7 +138,7 @@
                              <input style="display: none;"  type="text" readonly value="หมายเลข 2" required class="form-control" name="number">
                             <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
                             <label for="exampleInputEmail1">(กรอกรหัสนักศึกษาเพื่อลงคะแนน)</label>
-                            <input type="text" readonly value="<?php echo $row['sid'] ?>" required class="form-control" name="ids">
+                            <input type="text" readonly value="<?php echo $row['studentid'] ?>" required class="form-control" name="ids">
                         </div> 
                     </div>
                     <div class="modal-footer">
@@ -188,7 +188,7 @@
                              <input style="display: none;"  type="text" readonly value="หมายเลข 3" required class="form-control" name="number">
                             <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
                             <label for="exampleInputEmail1">(กรอกรหัสนักศึกษาเพื่อลงคะแนน)</label>
-                            <input type="text" readonly value="<?php echo $row['sid'] ?>" required class="form-control" name="ids">
+                            <input type="text" readonly value="<?php echo $row['studentid'] ?>" required class="form-control" name="ids">
                         </div> 
                     </div>
                     <div class="modal-footer">
@@ -238,7 +238,7 @@
                              <input style="display: none;"  type="text" readonly value="หมายเลข 4" required class="form-control" name="number">
                             <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
                             <label for="exampleInputEmail1">(กรอกรหัสนักศึกษาเพื่อลงคะแนน)</label>
-                            <input type="text" readonly value="<?php echo $row['sid'] ?>" required class="form-control" name="ids">
+                            <input type="text" readonly value="<?php echo $row['studentid'] ?>" required class="form-control" name="ids">
                         </div> 
                     </div>
                     <div class="modal-footer">

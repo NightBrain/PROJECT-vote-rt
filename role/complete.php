@@ -21,7 +21,7 @@
                         $(document).ready(function() {
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Welcome Student',
+                                title: 'Welcome',
                                 text: 'Chiang Mai Rajabhat University',
                                   timer: 3000,
                                   timerProgressBar: true,
