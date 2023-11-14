@@ -119,7 +119,7 @@
 									</div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="logout.php" class="dropdown-item ai-icon">
+                                    <a href="../logout.php" class="dropdown-item ai-icon">
                                         <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                         <span class="ml-2">Logout </span>
                                     </a>
@@ -138,14 +138,29 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="deznav">
+		<div class="deznav">
             <div class="deznav-scroll">
 				<div class="main-profile">
 					<div class="image-bx">
 						<img src="../../img/logo.gif" alt="">
 						<a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
 					</div>
-					<h5 class="name"><span class="font-w400">Hello,</span> ADMIN</h5>
+					<?php 
+
+						if (isset($_SESSION['admin_login'])) {
+
+							$admin_id = $_SESSION['admin_login'];
+
+							$stmt = $conn->query("SELECT * FROM users WHERE id = $admin_id");
+
+							$stmt->execute();
+
+							$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+						}
+
+						?>
+					<h5 class="name"><span class="font-w400">Hello,</span> <?php echo $row['firstname'] ?></h5>
 					<p class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="89e4e8fbf8fcecf3f3f3f3c9e4e8e0e5a7eae6e4">[vote-rt@admin.com]</a></p>
 				</div>
 				<ul class="metismenu" id="menu">
@@ -156,18 +171,24 @@
 							<span class="nav-text">Dashboard</span>
 						</a>
 					</li>
-					<li><a href="../info.php" class="ai-icon" aria-expanded="false">
-							<i class='bx bxs-user'></i>
+					
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class='bx bxs-user'></i>
 							<span class="nav-text">personal information</span>
 						</a>
-					</li>
+                        <ul aria-expanded="false">
+                            <li><a href="../infostudent.php">Student</a></li>
+                            <li><a href="../infoprofessor.php">Professor</a></li>
+                        </ul>
+                    </li>
+
                     <li class="nav-label">Vote results</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class='bx bx-line-chart'></i>
 							<span class="nav-text">Vote</span>
 						</a>
                         <ul aria-expanded="false">
-							<li><a href="no1.php">No.1</a></li>
+                            <li><a href="no1.php">No.1</a></li>
                             <li><a href="no2.php">No.2</a></li>
                             <li><a href="no3.php">No.3</a></li>
                             <li><a href="no4.php">No.4</a></li>
@@ -182,8 +203,8 @@
 							<span class="nav-text">Register</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="#">Professor</a></li>
-                            <li><a href="#">Student</a></li>
+                            <li><a href="../reg_p.php">Professor</a></li>
+                            <li><a href="../reg_s.php">Student</a></li>
                         </ul>
                     </li>
 			

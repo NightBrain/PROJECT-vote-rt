@@ -1,42 +1,37 @@
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php 
 
-
-
     session_start();
 
-    require_once '../../config/config.php';
+    require_once '../config/config.php';
 
-    if (!isset($_SESSION['admin_login'])) {
+	if (!isset($_SESSION['admin_login'])) {
 
-      $_SESSION['error'] = 'กรุณาเข้าสู่ระบบ!';
+        $_SESSION['errora'] = 'กรุณาเข้าสู่ระบบ!';
 
-      header('location: index.php');
+        header("location: ../index.php");
 
-  }
-
-  if (isset($_GET['delete'])) {
-
-	$delete_id = $_GET['delete'];
-
-	$deletestmt = $conn->query("DELETE FROM vote01 WHERE id = $delete_id");
-
-	$deletestmt->execute();
-
-	if ($deletestmt) {
-
-		echo "<script>alert('Data has been deleted successfully');</script>";
-
-		$_SESSION['success'] = "Data has been deleted succesfully";
-
-		header("refresh:1; url=no1.php");
-
-	}
-
-}
+    }
 
 ?>
+<?php if(isset($_SESSION['successa'])) { ?>
+	<?php 
+		echo "<script>
+		$(document).ready(function() {
+			Swal.fire({
+				icon: 'success',
+				title: 'Welcome Student',
+				text: 'Chiang Mai Rajabhat University',
+				  timer: 1000,
+				  timerProgressBar: true,
+			  });
+		});
+	</script>";
+		
+		unset($_SESSION['successa']);
+	?>
+<?php } ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,18 +39,38 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>No.1</title>
+    <title>Register Professor</title>
     <!-- Favicon icon -->
 	<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../../img/logov.png">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../img/logov.png">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="login/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="login/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="login/css/main.css">
+<!--===============================================================================================-->
 	
 </head>
 <body>
-
+    <?php include 'alertr.php';?>
     <!--*******************
         Preloader start
     ********************-->
@@ -79,8 +94,8 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="../admin.php" class="brand-logo">
-                <img class="logo-abbr" src="../../img/logov.png" width="50" height="50" >
+            <a href="admin.php" class="brand-logo">
+                <img class="logo-abbr" src="../img/logov.png" width="50" height="50" >
 					<h3 class="brand-title" width="74" height="22">VOTE-RT</h3>
             </a>
 
@@ -112,14 +127,14 @@
                         <ul class="navbar-nav header-right main-notification">
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img src="../../img/logo.gif" width="20" alt="">
+                                    <img src="../img/logo.gif" width="20" alt="">
 									<div class="header-info">
 										<span>CMRU.</span>
 										<small>Super Admin</small>
 									</div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="../logout.php" class="dropdown-item ai-icon">
+                                    <a href="logout.php" class="dropdown-item ai-icon">
                                         <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                         <span class="ml-2">Logout </span>
                                     </a>
@@ -142,7 +157,7 @@
             <div class="deznav-scroll">
 				<div class="main-profile">
 					<div class="image-bx">
-						<img src="../../img/logo.gif" alt="">
+						<img src="../img/logo.gif" alt="">
 						<a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
 					</div>
 					<?php 
@@ -166,7 +181,7 @@
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
                     
-                        <li><a href="../admin.php" class="ai-icon" aria-expanded="false">
+                        <li><a href="admin.php" class="ai-icon" aria-expanded="false">
 							<i class='bx bxs-dashboard'></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
@@ -177,8 +192,8 @@
 							<span class="nav-text">personal information</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="../infostudent.php">Student</a></li>
-                            <li><a href="../infoprofessor.php">Professor</a></li>
+                            <li><a href="infostudent.php">Student</a></li>
+                            <li><a href="infoprofessor.php">Professor</a></li>
                         </ul>
                     </li>
 
@@ -188,11 +203,11 @@
 							<span class="nav-text">Vote</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="no1.php">No.1</a></li>
-                            <li><a href="no2.php">No.2</a></li>
-                            <li><a href="no3.php">No.3</a></li>
-                            <li><a href="no4.php">No.4</a></li>
-                            <li><a href="none.php">None</a></li>
+                            <li><a href="data/no1.php">No.1</a></li>
+                            <li><a href="data/no2.php">No.2</a></li>
+                            <li><a href="data/no3.php">No.3</a></li>
+                            <li><a href="data/no4.php">No.4</a></li>
+                            <li><a href="data/none.php">None</a></li>
                         </ul>
                     </li>
 
@@ -203,8 +218,8 @@
 							<span class="nav-text">Register</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="../reg_p.php">Professor</a></li>
-                            <li><a href="../reg_s.php">Student</a></li>
+                            <li><a href="reg_p.php">Professor</a></li>
+                            <li><a href="reg_s.php">Student</a></li>
                         </ul>
                     </li>
 			
@@ -237,59 +252,61 @@
 			</div> -->
 			<div class="container-fluid">
 				<div class="form-head mb-sm-5 mb-3 d-flex flex-wrap align-items-center">
-					<h2 class="font-w600 title mb-2 mr-auto ">No.1</h2>
+					<h2 class="font-w600 title mb-2 mr-auto ">Register Professor</h2>
 				</div>
 				
 				<div class="row">
-					<div class="col-xl col-xxl">
+					<div class="col-xl col-xxl cen">
 						<div class="card">
-							<div class="table-data">
-								<div class="order">
-									<div class="head">
-										<h3> </h3>
-						
-									</div>
-									<table class="table">
-										<thead>
-											<tr>
-											<th scope="col" style="display: none;"><h2>ID</h2></th>
-											<th scope="col"><h2>Student ID</h2></th>
-											<th scope="col"><h2>Time</h2></th>
-											<th scope="col" class="text-center"><h2>Action</h2></th>
-											</tr>
-										</thead>
-										<tbody>
-										<?php 
+                        <div class="limiter">
+                                <div class="container mb-5">
+                                    <div class="wrap">
+                                        <form class="login100-form validate-form" action="sign/signup_db_p.php" method="post">
+                                            <span class="login100-form-logo">
+                                            <i class='bx bxs-user-plus' style='color:#f0f0f0f' ></i>
+                                            </span>
 
-											$stmt = $conn->query("SELECT * FROM vote01");
+                                            <span class="login100-form-title p-b-34 p-t-27">
+                                                Register
+                                            </span>
 
-											$stmt->execute();
+                                            <div class="wrap-input100 validate-input" data-validate = "Enter Firstname">
+                                                <input class="input100" type="text" name="firstname" placeholder="Enter Firstname">
+                                                <span class="focus-input100" data-placeholder="&#xf1f3;"></span>
+                                            </div>
 
-											$userss = $stmt->fetchAll();
+                                            <div class="wrap-input100 validate-input" data-validate = "Enter Lastname">
+                                                <input class="input100" type="text" name="lastname" placeholder="Enter Lastname">
+                                                <span class="focus-input100" data-placeholder="&#xf1f3;"></span>
+                                            </div>
 
-											if (!$userss) {
+                                            <div class="wrap-input100 validate-input" data-validate = "Enter username">
+                                                <input class="input100" type="text" name="studentid" placeholder="Enter username">
+                                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                                            </div>
 
-											echo "<tr><td colspan='6' class='text-center'>None vote</td></tr>";
+                                            <div class="wrap-input100 validate-input" data-validate="Enter password">
+                                                <input class="input100" type="password" name="password" placeholder="Enter password">
+                                                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                                            </div>
+                                            <div class="wrap-input100 validate-input" data-validate="Enter Comfirm password">
+                                                <input class="input100" type="password" name="c_password" placeholder="Enter Comfirm password">
+                                                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                                            </div>
 
-											} else {
+                                            
 
-											foreach ($userss as $user) {
+                                            <div class="container-login100-form-btn">
+                                                <button class="login100-form-btn" type="submit" name="signup">
+                                                Register
+                                                </button>
+                                            </div>
 
-											?>
-											<tr>
-											<td style="display: none;"><h4><?= $user['id']; ?></h4></td>
-											<td><h4><?= $user['ids']; ?></h4></td>
-											<td><h4><?= $user['time']; ?></h4></td>
-											<td class="text-center">
-												<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-danger delete-btn">ลบ</a>
-											</td>
-											</tr>
-											<?php } 
-														} ?>
-										</tbody>
-										</table>
-								</div>
-							</div>
+                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -323,23 +340,41 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../vendor/global/global.min.js"></script>
-	<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="../vendor/chart.js/Chart.bundle.min.js"></script>
+    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
+	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
 	
 	<!-- Chart piety plugin files -->
-    <script src="../vendor/peity/jquery.peity.min.js"></script>
+    <script src="vendor/peity/jquery.peity.min.js"></script>
 	
 	<!-- Apex Chart -->
-	<script src="../vendor/apexchart/apexchart.js"></script>
+	<script src="vendor/apexchart/apexchart.js"></script>
 	
 	<!-- Dashboard 1 -->
-	<script src="../js/dashboard/dashboard-1.js"></script>
+	<script src="js/dashboard/dashboard-1.js"></script>
 	
-	<script src="../vendor/owl-carousel/owl.carousel.js"></script>
-    <script src="../js/custom.min.js"></script>
-	<script src="../js/deznav-init.js"></script>
-    <script src="../js/demo.js"></script>
+	<script src="vendor/owl-carousel/owl.carousel.js"></script>
+    <script src="js/custom.min.js"></script>
+	<script src="js/deznav-init.js"></script>
+    <script src="js/demo.js"></script>
+
+    <div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="login/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/bootstrap/js/popper.js"></script>
+	<script src="login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/daterangepicker/moment.min.js"></script>
+	<script src="login/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="login/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="login/js/main.js"></script>
+
 
 
 	<script>

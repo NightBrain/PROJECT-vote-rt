@@ -9,13 +9,13 @@
 
     if (isset($_POST['signin'])) {
 
-        $sid = $_POST['sid'];
+        $studentid = $_POST['studentid'];
 
         $password = $_POST['password'];
 
         
 
-        if (empty($sid)) {
+        if (empty($studentid)) {
 
             $_SESSION['errors'] = 'กรุณากรอกรหัสนักศึกษา';
 
@@ -37,9 +37,9 @@
 
             try {
 
-                $check_data = $conn->prepare("SELECT * FROM users WHERE sid = :sid");
+                $check_data = $conn->prepare("SELECT * FROM users WHERE studentid = :studentid");
 
-                $check_data->bindParam(":sid", $sid);
+                $check_data->bindParam(":studentid", $studentid);
 
                 $check_data->execute();
 
@@ -51,7 +51,7 @@
 
 
 
-                    if ($sid == $row['sid']) {
+                    if ($studentid == $row['studentid']) {
 
                         if (password_verify($password, $row['password'])) {
 

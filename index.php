@@ -42,7 +42,7 @@
               <div style="font-size: 18px; font-weight: bold;">มหาวิทยาลัยราชภัฏเชียงใหม่</div>
               <div style="font-size: 14px;">Chiang Mai Rajabhat University</div>
             </div>
-          <input class="bdrd" type="text" placeholder="Username" name="sid">
+          <input class="bdrd" type="text" placeholder="Username" name="studentid">
           <input class="bdrd" type="password" placeholder="Password" name="password">
           <button class="button-63" type="submit" name="signin">LOG IN</button>
           <hr>

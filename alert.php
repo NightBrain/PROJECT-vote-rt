@@ -308,7 +308,7 @@
                                  title: 'Successfully Reset',
                                  text: '',
                                  icon: 'success',
-                                 timer: 3000,
+                                 timer: 1000,
                                  timerProgressBar: true,
                              });
                          });

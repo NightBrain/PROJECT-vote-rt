@@ -15,6 +15,23 @@
     }
 
 ?>
+<?php if(isset($_SESSION['successa'])) { ?>
+	<?php 
+		echo "<script>
+		$(document).ready(function() {
+			Swal.fire({
+				icon: 'success',
+				title: 'Welcome Student',
+				text: 'Chiang Mai Rajabhat University',
+				  timer: 1000,
+				  timerProgressBar: true,
+			  });
+		});
+	</script>";
+		
+		unset($_SESSION['successa']);
+	?>
+<?php } ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -129,7 +146,22 @@
 						<img src="../img/logo.gif" alt="">
 						<a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
 					</div>
-					<h5 class="name"><span class="font-w400">Hello,</span> ADMIN</h5>
+					<?php 
+
+						if (isset($_SESSION['admin_login'])) {
+
+							$admin_id = $_SESSION['admin_login'];
+
+							$stmt = $conn->query("SELECT * FROM users WHERE id = $admin_id");
+
+							$stmt->execute();
+
+							$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+						}
+
+						?>
+					<h5 class="name"><span class="font-w400">Hello,</span> <?php echo $row['firstname'] ?></h5>
 					<p class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="89e4e8fbf8fcecf3f3f3f3c9e4e8e0e5a7eae6e4">[vote-rt@admin.com]</a></p>
 				</div>
 				<ul class="metismenu" id="menu">
@@ -140,11 +172,17 @@
 							<span class="nav-text">Dashboard</span>
 						</a>
 					</li>
-                        <li><a href="info.php" class="ai-icon" aria-expanded="false">
-							<i class='bx bxs-user'></i>
+					
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class='bx bxs-user'></i>
 							<span class="nav-text">personal information</span>
 						</a>
-					</li>
+                        <ul aria-expanded="false">
+                            <li><a href="infostudent.php">Student</a></li>
+                            <li><a href="infoprofessor.php">Professor</a></li>
+                        </ul>
+                    </li>
+
                     <li class="nav-label">Vote results</li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class='bx bx-line-chart'></i>
@@ -166,8 +204,8 @@
 							<span class="nav-text">Register</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="#">Professor</a></li>
-                            <li><a href="#">Student</a></li>
+                            <li><a href="reg_p.php">Professor</a></li>
+                            <li><a href="reg_s.php">Student</a></li>
                         </ul>
                     </li>
 			

@@ -6,7 +6,7 @@
 
     session_start();
 
-    require_once '../../config/config.php';
+    require_once '../config/config.php';
 
     if (!isset($_SESSION['admin_login'])) {
 
@@ -20,7 +20,7 @@
 
 	$delete_id = $_GET['delete'];
 
-	$deletestmt = $conn->query("DELETE FROM vote04 WHERE id = $delete_id");
+	$deletestmt = $conn->query("DELETE FROM users WHERE id = $delete_id");
 
 	$deletestmt->execute();
 
@@ -30,11 +30,12 @@
 
 		$_SESSION['success'] = "Data has been deleted succesfully";
 
-		header("refresh:1; url=no1.php");
+		header("refresh:1; url=infoprofessor.php");
 
 	}
 
 }
+
 
 ?>
 
@@ -44,13 +45,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>No.4</title>
+    <title>Personal information</title>
     <!-- Favicon icon -->
 	<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../../img/logov.png">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../img/logov.png">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	
 </head>
@@ -79,8 +80,8 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="../admin.php" class="brand-logo">
-                <img class="logo-abbr" src="../../img/logov.png" width="50" height="50" >
+            <a href="admin.php" class="brand-logo">
+                <img class="logo-abbr" src="../img/logov.png" width="50" height="50" >
 					<h3 class="brand-title" width="74" height="22">VOTE-RT</h3>
             </a>
 
@@ -112,14 +113,14 @@
                         <ul class="navbar-nav header-right main-notification">
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img src="../../img/logo.gif" width="20" alt="">
+                                    <img src="../img/logo.gif" width="20" alt="">
 									<div class="header-info">
 										<span>CMRU.</span>
 										<small>Super Admin</small>
 									</div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="../logout.php" class="dropdown-item ai-icon">
+                                    <a href="logout.php" class="dropdown-item ai-icon">
                                         <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                                         <span class="ml-2">Logout </span>
                                     </a>
@@ -138,11 +139,11 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-		<div class="deznav">
+        <div class="deznav">
             <div class="deznav-scroll">
 				<div class="main-profile">
 					<div class="image-bx">
-						<img src="../../img/logo.gif" alt="">
+						<img src="../img/logo.gif" alt="">
 						<a href="javascript:void(0);"><i class="fa fa-cog" aria-hidden="true"></i></a>
 					</div>
 					<?php 
@@ -166,7 +167,7 @@
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
                     
-                        <li><a href="../admin.php" class="ai-icon" aria-expanded="false">
+                        <li><a href="admin.php" class="ai-icon" aria-expanded="false">
 							<i class='bx bxs-dashboard'></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
@@ -177,8 +178,8 @@
 							<span class="nav-text">personal information</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="../infostudent.php">Student</a></li>
-                            <li><a href="../infoprofessor.php">Professor</a></li>
+                            <li><a href="infostudent.php">Student</a></li>
+                            <li><a href="infoprofessor.php">Professor</a></li>
                         </ul>
                     </li>
 
@@ -188,11 +189,11 @@
 							<span class="nav-text">Vote</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="no1.php">No.1</a></li>
-                            <li><a href="no2.php">No.2</a></li>
-                            <li><a href="no3.php">No.3</a></li>
-                            <li><a href="no4.php">No.4</a></li>
-                            <li><a href="none.php">None</a></li>
+                            <li><a href="data/no1.php">No.1</a></li>
+                            <li><a href="data/no2.php">No.2</a></li>
+                            <li><a href="data/no3.php">No.3</a></li>
+                            <li><a href="data/no4.php">No.4</a></li>
+                            <li><a href="data/none.php">None</a></li>
                         </ul>
                     </li>
 
@@ -203,8 +204,8 @@
 							<span class="nav-text">Register</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="../reg_p.php">Professor</a></li>
-                            <li><a href="../reg_s.php">Student</a></li>
+                            <li><a href="reg_p.php">Professor</a></li>
+                            <li><a href="reg_s.php">Student</a></li>
                         </ul>
                     </li>
 			
@@ -216,7 +217,7 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-		
+		<?php include '../alert.php';?>
 		<!--**********************************
             Content body start
         ***********************************-->
@@ -237,7 +238,7 @@
 			</div> -->
 			<div class="container-fluid">
 				<div class="form-head mb-sm-5 mb-3 d-flex flex-wrap align-items-center">
-					<h2 class="font-w600 title mb-2 mr-auto ">No.4</h2>
+					<h2 class="font-w600 title mb-2 mr-auto ">Personal information</h2>
 				</div>
 				
 				<div class="row">
@@ -253,15 +254,18 @@
 										<thead>
 											<tr>
 											<th scope="col" style="display: none;"><h2>ID</h2></th>
+											<th scope="col"><h2>Firstname</h2></th>
+											<th scope="col"><h2>lastname</h2></th>
 											<th scope="col"><h2>Student ID</h2></th>
-											<th scope="col"><h2>Time</h2></th>
+											<th scope="col"><h2>urole</h2></th>
+											<th scope="col" style="display: none;" ><h2>id</h2></th>
 											<th scope="col" class="text-center"><h2>Action</h2></th>
 											</tr>
 										</thead>
 										<tbody>
 										<?php 
 
-											$stmt = $conn->query("SELECT * FROM vote04");
+											$stmt = $conn->query("SELECT * FROM users where urole = 'professor'");
 
 											$stmt->execute();
 
@@ -269,7 +273,7 @@
 
 											if (!$userss) {
 
-											echo "<tr><td colspan='6' class='text-center'>None vote</td></tr>";
+											echo "<tr><td colspan='6' class='text-center'>None user</td></tr>";
 
 											} else {
 
@@ -278,11 +282,18 @@
 											?>
 											<tr>
 											<td style="display: none;"><h4><?= $user['id']; ?></h4></td>
-											<td><h4><?= $user['ids']; ?></h4></td>
-											<td><h4><?= $user['time']; ?></h4></td>
+											<td><h4><?= $user['firstname']; ?></h4></td>
+											<td><h4><?= $user['lastname']; ?></h4></td>
+											<td><h4><?= $user['studentid']; ?></h4></td>
+											<td><h4><?= $user['urole']; ?></h4></td>
+                                            <form class="form-detail" action="resetp.php" method="post">
+                                            <td style="display: none;"><h4><input   type="text" readonly value="<?php echo $user['id'] ?>" required class="form-control" name="id"></h4></td>
 											<td class="text-center">
-												<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-danger delete-btn">ลบ</a>
+                                                <button type="submit" name="submitt" class="btn btn-warning">Reset</button> &nbsp; 
+
+												<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-danger delete-btn">Delete</a>
 											</td>
+                                            </form>
 											</tr>
 											<?php } 
 														} ?>
@@ -323,23 +334,23 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../vendor/global/global.min.js"></script>
-	<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="../vendor/chart.js/Chart.bundle.min.js"></script>
+    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
+	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
 	
 	<!-- Chart piety plugin files -->
-    <script src="../vendor/peity/jquery.peity.min.js"></script>
+    <script src="vendor/peity/jquery.peity.min.js"></script>
 	
 	<!-- Apex Chart -->
-	<script src="../vendor/apexchart/apexchart.js"></script>
+	<script src="vendor/apexchart/apexchart.js"></script>
 	
 	<!-- Dashboard 1 -->
-	<script src="../js/dashboard/dashboard-1.js"></script>
+	<script src="js/dashboard/dashboard-1.js"></script>
 	
-	<script src="../vendor/owl-carousel/owl.carousel.js"></script>
-    <script src="../js/custom.min.js"></script>
-	<script src="../js/deznav-init.js"></script>
-    <script src="../js/demo.js"></script>
+	<script src="vendor/owl-carousel/owl.carousel.js"></script>
+    <script src="js/custom.min.js"></script>
+	<script src="js/deznav-init.js"></script>
+    <script src="js/demo.js"></script>
 
 
 	<script>
@@ -388,7 +399,7 @@
 
 				$.ajax({
 
-						url: 'no4.php',
+						url: 'infoprofessor.php',
 
 						type: 'GET',
 
@@ -412,7 +423,7 @@
 
 						}).then(() => {
 
-							document.location.href = 'no4.php';
+							document.location.href = 'infoprofessor.php';
 
 						})
 
