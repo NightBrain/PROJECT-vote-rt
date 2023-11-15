@@ -6,13 +6,13 @@
 
     require_once '../config/config.php';
 
-	if (!isset($_SESSION['student_login'])) {
+    if (!isset($_SESSION['student_login'])) {
 
-        $_SESSION['errora'] = 'กรุณาเข้าสู่ระบบ!';
+      $_SESSION['errorstu'] = 'กรุณาเข้าสู่ระบบ!';
 
-        header("location: ../index.php");
+      header("location: ../index.php");
 
-    }
+  }
 
 ?>
                 <?php if(isset($_SESSION['successstu'])) { ?>
