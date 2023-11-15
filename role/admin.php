@@ -148,9 +148,9 @@
 					</div>
 					<?php 
 
-						if (isset($_SESSION['admin_login'])) {
+						if (isset($_SESSION['super_admin_login'])) {
 
-							$admin_id = $_SESSION['admin_login'];
+							$admin_id = $_SESSION['super_admin_login'];
 
 							$stmt = $conn->query("SELECT * FROM users WHERE id = $admin_id");
 
@@ -178,8 +178,12 @@
 							<span class="nav-text">personal information</span>
 						</a>
                         <ul aria-expanded="false">
+                            <li><a href="infosuper.php">Super_Admin</a></li>
+                            <li><a href="infoadmin_pro.php">Professor_Admin</a></li>
                             <li><a href="infostudent.php">Student</a></li>
                             <li><a href="infoprofessor.php">Professor</a></li>
+                            <li><a href="infostudentc.php">complete_s</a></li>
+                            <li><a href="infoprofessorc.php">complete_p</a></li>
                         </ul>
                     </li>
 
@@ -332,7 +336,7 @@
 					<div class="col-xl-3 col-xxl-4">
 						<div class="card">
 							<div class="card-header border-0 pb-0">
-								<h4 class="fs-20 text-black">VOTE RESULTS</h4>
+								<h4 class="fs-20 text-black">Total <?php include 'serversum.php';?> people</h4>
 							</div>
 							<div class="card-body pb-0">
 								<div id="currentChart" class="current-chart"></div>

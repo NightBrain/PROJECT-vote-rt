@@ -16,6 +16,8 @@
 
         $studentid = $_POST['studentid'];
 
+        $branch = $_POST['branch'];
+
         $password = $_POST['password'];
 
         $c_password = $_POST['c_password'];
@@ -64,15 +66,17 @@
 
                     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-                    $stmt = $conn->prepare("INSERT INTO users(firstname, lastname, studentid, password, urole) 
+                    $stmt = $conn->prepare("INSERT INTO users(firstname, lastname, branch, studentid, password, urole) 
 
-                                            VALUES(:firstname, :lastname, :studentid, :password, :urole)");
+                                            VALUES(:firstname, :lastname, :branch, :studentid, :password, :urole)");
 
                     $stmt->bindParam(":firstname", $firstname);
 
                     $stmt->bindParam(":lastname", $lastname);
 
                     $stmt->bindParam(":studentid", $studentid);
+
+                    $stmt->bindParam(":branch", $branch);
 
                     $stmt->bindParam(":password", $passwordHash);
 

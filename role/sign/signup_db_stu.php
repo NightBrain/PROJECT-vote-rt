@@ -86,13 +86,13 @@
 
                     $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว!";
 
-                    header("location: ../reg_s.php");
+                    header("location: ../professor/reg_stu.php");
 
                 } else {
 
                     $_SESSION['error'] = "มีบางอย่างผิดพลาด";
 
-                    header("location: ../reg_s.php");
+                    header("location: ../professor/reg_stu.php");
 
                 }
 

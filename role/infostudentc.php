@@ -1,21 +1,43 @@
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php 
+
+
 
     session_start();
 
     require_once '../config/config.php';
 
-	if (!isset($_SESSION['super_admin_login'])) {
+    if (!isset($_SESSION['super_admin_login'])) {
 
-        $_SESSION['errora'] = 'กรุณาเข้าสู่ระบบ!';
+      $_SESSION['error'] = 'กรุณาเข้าสู่ระบบ!';
 
-        header("location: ../index.php");
+      header('location: index.php');
 
-    }
+  }
+
+  if (isset($_GET['delete'])) {
+
+	$delete_id = $_GET['delete'];
+
+	$deletestmt = $conn->query("DELETE FROM users WHERE id = $delete_id");
+
+	$deletestmt->execute();
+
+	if ($deletestmt) {
+
+		echo "<script>alert('Data has been deleted successfully');</script>";
+
+		$_SESSION['success'] = "Data has been deleted succesfully";
+
+		header("refresh:1; url=infostudentc.php");
+
+	}
+
+}
+
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +45,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Register Student</title>
+    <title>Personal information</title>
     <!-- Favicon icon -->
 	<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
@@ -31,30 +53,10 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="../img/logov.png">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="login/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="login/vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/css/util.css">
-	<link rel="stylesheet" type="text/css" href="login/css/main.css">
-<!--===============================================================================================-->
 	
 </head>
 <body>
-    <?php include 'alertr.php';?>
+
     <!--*******************
         Preloader start
     ********************-->
@@ -102,11 +104,8 @@
             <div class="header-content">
                 <nav class="navbar navbar-expand">
                     <div class="collapse navbar-collapse justify-content-between">
-                        <div class="header-left">
-							<div class="input-group search-area right d-lg-inline-flex d-none">
-								
-								
-							</div>
+						<div class="header-left">
+						
                         </div>
                         <ul class="navbar-nav header-right main-notification">
                             <li class="nav-item dropdown header-profile">
@@ -176,7 +175,7 @@
 							<span class="nav-text">personal information</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="infosuper.php">Super_Admin</a></li>
+						<li><a href="infosuper.php">Super_Admin</a></li>
                             <li><a href="infoadmin_pro.php">Professor_Admin</a></li>
                             <li><a href="infostudent.php">Student</a></li>
                             <li><a href="infoprofessor.php">Professor</a></li>
@@ -219,7 +218,7 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-		
+		<?php include '../alert.php';?>
 		<!--**********************************
             Content body start
         ***********************************-->
@@ -240,66 +239,69 @@
 			</div> -->
 			<div class="container-fluid">
 				<div class="form-head mb-sm-5 mb-3 d-flex flex-wrap align-items-center">
-					<h2 class="font-w600 title mb-2 mr-auto ">Register Student</h2>
+					<h2 class="font-w600 title mb-2 mr-auto ">Personal information</h2>
 				</div>
 				
 				<div class="row">
-					<div class="col-xl col-xxl cen">
+					<div class="col-xl col-xxl">
 						<div class="card">
-                        <div class="limiter">
-                                <div class="container mb-5">
-                                    <div class="wrap">
-                                        <form class="login100-form validate-form" action="sign/signup_db_s.php" method="post">
-                                            <span class="login100-form-logo">
-                                            <i class='bx bxs-user-plus' style='color:#f0f0f0f' ></i>
-                                            </span>
+							<div class="table-data">
+								<div class="order">
+									<div class="head">
+										<h3> </h3>
+						
+									</div>
+									<table class="table">
+										<thead>
+											<tr>
+											<th scope="col" style="display: none;"><h2>ID</h2></th>
+											<th scope="col"><h2>Firstname</h2></th>
+											<th scope="col"><h2>lastname</h2></th>
+											<th scope="col"><h2>Student ID</h2></th>
+											<th scope="col"><h2>urole</h2></th>
+											<th scope="col" style="display: none;" ><h2>id</h2></th>
+											<th scope="col" class="text-center"><h2>Action</h2></th>
+											</tr>
+										</thead>
+										<tbody>
+										<?php 
 
-                                            <span class="login100-form-title p-b-34 p-t-27">
-                                                Register
-                                            </span>
+											$stmt = $conn->query("SELECT * FROM users where urole = 'complete_s'");
 
-                                            <div class="wrap-input100 validate-input" data-validate = "Enter Firstname">
-                                                <input class="input100" type="text" name="firstname" placeholder="Enter Firstname">
-                                                <span class="focus-input100" data-placeholder="&#xf1f3;"></span>
-                                            </div>
+											$stmt->execute();
 
-                                            <div class="wrap-input100 validate-input" data-validate = "Enter Lastname">
-                                                <input class="input100" type="text" name="lastname" placeholder="Enter Lastname">
-                                                <span class="focus-input100" data-placeholder="&#xf1f3;"></span>
-                                            </div>
+											$userss = $stmt->fetchAll();
 
-                                            <div class="wrap-input100 validate-input" data-validate = "Enter branch">
-                                                <input class="input100" type="text" name="branch" placeholder="Enter branch">
-                                                <span class="focus-input100" data-placeholder="&#xf1f3;"></span>
-                                            </div>
+											if (!$userss) {
 
-                                            <div class="wrap-input100 validate-input" data-validate = "Enter username">
-                                                <input class="input100" type="text" name="studentid" placeholder="Enter username">
-                                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                                            </div>
+											echo "<tr><td colspan='6' class='text-center'>None user</td></tr>";
 
-                                            <div class="wrap-input100 validate-input" data-validate="Enter password">
-                                                <input class="input100" type="password" name="password" placeholder="Enter password">
-                                                <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                                            </div>
-                                            <div class="wrap-input100 validate-input" data-validate="Enter Comfirm password">
-                                                <input class="input100" type="password" name="c_password" placeholder="Enter Comfirm password">
-                                                <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                                            </div>
+											} else {
 
-                                            
+											foreach ($userss as $user) {
 
-                                            <div class="container-login100-form-btn">
-                                                <button class="login100-form-btn" type="submit" name="signup">
-                                                Register
-                                                </button>
-                                            </div>
+											?>
+											<tr>
+											<td style="display: none;"><h4><?= $user['id']; ?></h4></td>
+											<td><h4><?= $user['firstname']; ?></h4></td>
+											<td><h4><?= $user['lastname']; ?></h4></td>
+											<td><h4><?= $user['studentid']; ?></h4></td>
+											<td><h4><?= $user['urole']; ?></h4></td>
+                                            <form class="form-detail" action="resets.php" method="post">
+                                            <td style="display: none;"><h4><input   type="text" readonly value="<?php echo $user['id'] ?>" required class="form-control" name="id"></h4></td>
+											<td class="text-center">
+                                                <button type="submit" name="submitt" class="btn btn-warning">Reset</button> &nbsp; 
 
-                                            
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+												<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-danger delete-btn">Delete</a>
+											</td>
+                                            </form>
+											</tr>
+											<?php } 
+														} ?>
+										</tbody>
+										</table>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -351,24 +353,6 @@
 	<script src="js/deznav-init.js"></script>
     <script src="js/demo.js"></script>
 
-    <div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="login/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/bootstrap/js/popper.js"></script>
-	<script src="login/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/daterangepicker/moment.min.js"></script>
-	<script src="login/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="login/js/main.js"></script>
-
-
 
 	<script>
 		jQuery(document).ready(function(){
@@ -416,7 +400,7 @@
 
 				$.ajax({
 
-						url: 'no1.php',
+						url: 'infostudentc.php',
 
 						type: 'GET',
 
@@ -440,7 +424,7 @@
 
 						}).then(() => {
 
-							document.location.href = 'no1.php';
+							document.location.href = 'infostudentc.php';
 
 						})
 

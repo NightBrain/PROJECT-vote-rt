@@ -3,8 +3,9 @@
 <?php 
 
     session_start();
-    unset($_SESSION['admin_login']);
+    unset($_SESSION['super_admin_login']);
     unset($_SESSION['student_login']);
+    unset($_SESSION['professor_admin_login']);
     unset($_SESSION['professor_login']);
     unset($_SESSION['complete_login']);
     $_SESSION['success'] = 'ออกจากระบบสำเร็จ';
