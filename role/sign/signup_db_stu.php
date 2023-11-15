@@ -32,13 +32,13 @@
 
             $_SESSION['errorpc'] = 'รหัสผ่านต้องมีความยาวระหว่าง 5 ถึง 20 ตัวอักษร';
 
-            header("location: ../reg_p.php");
+            header("location: ../professor/reg_stu.php");
 
         } else if ($password != $c_password) {
 
             $_SESSION['errornm'] = 'รหัสผ่านไม่ตรงกัน';
 
-            header("location: ../reg_p.php");
+            header("location: ../professor/reg_stu.php");
 
         } else {
 
@@ -60,7 +60,7 @@
 
                     $_SESSION['warning'] = "มีอีเมลนี้อยู่ในระบบแล้ว <a href='index.php'>คลิ๊กที่นี่</a> เพื่อเข้าสู่ระบบ";
 
-                    header("location: ../reg_p.php");
+                    header("location: ../professor/reg_stu.php");
 
                 } else if (!isset($_SESSION['error'])) {
 

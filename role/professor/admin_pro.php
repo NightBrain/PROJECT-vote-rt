@@ -137,7 +137,7 @@
 												<div class="col-xl-7 col-sm-6">
 													<h2>ลงทะเบียนโหวตให้กับนักศึกษาของท่าน</h2>
 													<span>(ถ้าท่านไม่ลงทะเบียนให้นักศึกษา นักศึกษาจะไม่สามารถเข้าระบบและโหวตได้)</span>
-													<a href="javascript:void(0);" class="btn btn-rounded  fs-18 font-w500">Register Now</a>
+													<a href="reg_stu.php" class="btn btn-rounded  fs-18 font-w500">Register Now</a>
 												</div>
 												
 											</div>
