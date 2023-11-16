@@ -8,7 +8,7 @@
 
     session_start();
 
-    require_once "../../config/config.php";
+    require_once "../../../config/config.php";
 
 
 
@@ -31,7 +31,7 @@
 
         $number = $_POST['number'];
 
-        $urole = 'complete_s';
+        $urole = 'complete_p';
 
 
 
@@ -51,13 +51,13 @@
 
             $_SESSION['success01'] = "เพิ่มข้อมูลสำเร็จ";
 
-            header("location: ../logoutv.php");
+            header("location: logoutp.php");
 
         } else {
 
             $_SESSION['errorv'] = "มีบางอย่างผิดปกติ";
 
-            header("location: ../logout.php");
+            header("location: ../../logout.php");
 
         }
 

@@ -102,7 +102,7 @@
 
                                 $_SESSION['successc'] = 'ยินดีต้อนรับ';
                     
-                                header("location: role/complete.php");
+                                header("location: ../complete.php");
 
                             }
 

@@ -63,7 +63,7 @@
 	
 </head>
 <body>
-
+<?php include '../../alert.php';?>
     <!--*******************
         Preloader start
     ********************-->

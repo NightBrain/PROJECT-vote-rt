@@ -6,7 +6,7 @@
 
     require_once '../../config/config.php';
 
-	if (!isset($_SESSION['professor_admin_login'])) {
+	if (!isset($_SESSION['professor_login'])) {
 
         $_SESSION['errora'] = 'กรุณาเข้าสู่ระบบ!';
 
@@ -70,7 +70,7 @@
             border-radius: 0.2rem;
             background-color: #F7F7F7;
             border: none;
-            width: 90%;
+            width: 55%;
             display: block;
             border-bottom: 0.3rem solid transparent;
             transition: all 0.3s;
@@ -191,11 +191,11 @@
                                                                             <div class="form-group">
                                                                             <?php 
 
-                                                                                if (isset($_SESSION['student_login'])) {
+                                                                                if (isset($_SESSION['professor_login'])) {
 
-                                                                                    $student_id = $_SESSION['student_login'];
+                                                                                    $professor_id = $_SESSION['professor_login'];
 
-                                                                                    $stmt = $conn->query("SELECT * FROM users WHERE id = $student_id");
+                                                                                    $stmt = $conn->query("SELECT * FROM users WHERE id = $professor_id");
 
                                                                                     $stmt->execute();
 
@@ -208,14 +208,20 @@
                                                                             <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
                                                                             <hr>
                                                                            
+                                                                            <div class="row">
+                                                                                <div class="col mx-4" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
+                                                                                ชื่อจริงของท่านคือ : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                                </div>
+                                                                               
+                                                                            </div>
                                                                             
-                                                                            <input type="text" readonly value="ชื่อจริงของท่านคือ : <?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                            
                                                                             
                                                                             
                                                                             
                                                                             </div> 
 
-                                                                            <button type="button"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
+                                                                            <button type="submit"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                         <p style='color:#ff0000; font-size: 16px;'>( <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> กรุณาตรวจสอบให้แน่ใจว่านี่เป็นหมายเลขที่ท่านจะเลือก <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> )</p>
@@ -246,15 +252,15 @@
                                                                         <div class="modal-bodymb-1">
                                                                         <h2>พรรค...</h2>
                                                                         <br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" alt="..." class="w-50 p-3">
-                                                                        <form class="form-detail" action="vote/vote01.php" method="post">
+                                                                        <form class="form-detail" action="vote/vote02.php" method="post">
                                                                             <div class="form-group">
                                                                             <?php 
 
-                                                                                if (isset($_SESSION['student_login'])) {
+                                                                                if (isset($_SESSION['professor_login'])) {
 
-                                                                                    $student_id = $_SESSION['student_login'];
+                                                                                    $professor_id = $_SESSION['professor_login'];
 
-                                                                                    $stmt = $conn->query("SELECT * FROM users WHERE id = $student_id");
+                                                                                    $stmt = $conn->query("SELECT * FROM users WHERE id = $professor_id");
 
                                                                                     $stmt->execute();
 
@@ -263,18 +269,23 @@
                                                                                 }
 
                                                                             ?> 
-                                                                            <input style="display: none;"  type="text" readonly value="หมายเลข 1" required class="form-control" name="number">
+                                                                            <input style="display: none;"  type="text" readonly value="หมายเลข 2" required class="form-control" name="number">
                                                                             <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
                                                                             <hr>
                                                                            
                                                                             
-                                                                            <input type="text" readonly value="ชื่อจริงของท่านคือ : <?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                            <div class="row">
+                                                                                <div class="col mx-4" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
+                                                                                ชื่อจริงของท่านคือ : <input type="text" readonly value="<?php echo $row['professorid'] ?>" class="form__input" name="ids" >
+                                                                                </div>
+                                                                               
+                                                                            </div>
                                                                             
                                                                             
                                                                             
                                                                             </div> 
 
-                                                                            <button type="button"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
+                                                                            <button type="submit"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                         <p style='color:#ff0000; font-size: 16px;'>( <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> กรุณาตรวจสอบให้แน่ใจว่านี่เป็นหมายเลขที่ท่านจะเลือก <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> )</p>
@@ -303,15 +314,15 @@
                                                                         <div class="modal-bodymb-1">
                                                                         <h2>พรรค...</h2>
                                                                         <br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" alt="..." class="w-50 p-3">
-                                                                        <form class="form-detail" action="vote/vote01.php" method="post">
+                                                                        <form class="form-detail" action="vote/vote03.php" method="post">
                                                                             <div class="form-group">
                                                                             <?php 
 
-                                                                                if (isset($_SESSION['student_login'])) {
+                                                                                if (isset($_SESSION['professor_login'])) {
 
-                                                                                    $student_id = $_SESSION['student_login'];
+                                                                                    $professor_id = $_SESSION['professor_login'];
 
-                                                                                    $stmt = $conn->query("SELECT * FROM users WHERE id = $student_id");
+                                                                                    $stmt = $conn->query("SELECT * FROM users WHERE id = $professor_id");
 
                                                                                     $stmt->execute();
 
@@ -320,18 +331,23 @@
                                                                                 }
 
                                                                             ?> 
-                                                                            <input style="display: none;"  type="text" readonly value="หมายเลข 1" required class="form-control" name="number">
+                                                                            <input style="display: none;"  type="text" readonly value="หมายเลข 3" required class="form-control" name="number">
                                                                             <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
                                                                             <hr>
                                                                            
                                                                             
-                                                                            <input type="text" readonly value="ชื่อจริงของท่านคือ : <?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                            <div class="row">
+                                                                                <div class="col mx-4" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
+                                                                                ชื่อจริงของท่านคือ : <input type="text" readonly value="<?php echo $row['professorid'] ?>" class="form__input" name="ids" >
+                                                                                </div>
+                                                                               
+                                                                            </div>
                                                                             
                                                                             
                                                                             
                                                                             </div> 
 
-                                                                            <button type="button"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
+                                                                            <button type="submit"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                         <p style='color:#ff0000; font-size: 16px;'>( <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> กรุณาตรวจสอบให้แน่ใจว่านี่เป็นหมายเลขที่ท่านจะเลือก <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> )</p>
@@ -360,15 +376,15 @@
                                                                         <div class="modal-bodymb-1">
                                                                         <h2>พรรค...</h2>
                                                                         <br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" alt="..." class="w-50 p-3">
-                                                                        <form class="form-detail" action="vote/vote01.php" method="post">
+                                                                        <form class="form-detail" action="vote/vote04.php" method="post">
                                                                             <div class="form-group">
                                                                             <?php 
 
-                                                                                if (isset($_SESSION['student_login'])) {
+                                                                                if (isset($_SESSION['professor_login'])) {
 
-                                                                                    $student_id = $_SESSION['student_login'];
+                                                                                    $professor_id = $_SESSION['professor_login'];
 
-                                                                                    $stmt = $conn->query("SELECT * FROM users WHERE id = $student_id");
+                                                                                    $stmt = $conn->query("SELECT * FROM users WHERE id = $professor_id");
 
                                                                                     $stmt->execute();
 
@@ -377,18 +393,23 @@
                                                                                 }
 
                                                                             ?> 
-                                                                            <input style="display: none;"  type="text" readonly value="หมายเลข 1" required class="form-control" name="number">
+                                                                            <input style="display: none;"  type="text" readonly value="หมายเลข 4" required class="form-control" name="number">
                                                                             <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
                                                                             <hr>
                                                                            
                                                                             
-                                                                            <input type="text" readonly value="ชื่อจริงของท่านคือ : <?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                            <div class="row">
+                                                                                <div class="col mx-4" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
+                                                                                ชื่อจริงของท่านคือ : <input type="text" readonly value="<?php echo $row['professorid'] ?>" class="form__input" name="ids" >
+                                                                                </div>
+                                                                               
+                                                                            </div>
                                                                             
                                                                             
                                                                             
                                                                             </div> 
 
-                                                                            <button type="button"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
+                                                                            <button type="submit"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                         <p style='color:#ff0000; font-size: 16px;'>( <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> กรุณาตรวจสอบให้แน่ใจว่านี่เป็นหมายเลขที่ท่านจะเลือก <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> )</p>
@@ -417,15 +438,15 @@
                                                                         </div>
                                                                         <div class="modal-bodymb-1">
                                                                         
-                                                                        <form class="form-detail" action="vote/vote01.php" method="post">
+                                                                        <form class="form-detail" action="vote/votenone.php" method="post">
                                                                             <div class="form-group">
                                                                             <?php 
 
-                                                                                if (isset($_SESSION['student_login'])) {
+                                                                                if (isset($_SESSION['professor_login'])) {
 
-                                                                                    $student_id = $_SESSION['student_login'];
+                                                                                    $professor_id = $_SESSION['professor_login'];
 
-                                                                                    $stmt = $conn->query("SELECT * FROM users WHERE id = $student_id");
+                                                                                    $stmt = $conn->query("SELECT * FROM users WHERE id = $professor_id");
 
                                                                                     $stmt->execute();
 
@@ -434,18 +455,23 @@
                                                                                 }
 
                                                                             ?> 
-                                                                            <input style="display: none;"  type="text" readonly value="หมายเลข 1" required class="form-control" name="number">
+                                                                            <input style="display: none;"  type="text" readonly value="ไม่ประสงค์ลงคะแนน" required class="form-control" name="number">
                                                                             <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
                                                                             <hr>
                                                                            
                                                                             
-                                                                            <input type="text" readonly value="ชื่อจริงของท่านคือ : <?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                            <div class="row">
+                                                                                <div class="col mx-4" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
+                                                                                ชื่อจริงของท่านคือ : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                                </div>
+                                                                               
+                                                                            </div>
                                                                             
                                                                             
                                                                             
                                                                             </div> 
 
-                                                                            <button type="button"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
+                                                                            <button type="submit"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                         <p style='color:#ff0000; font-size: 16px;'>( <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> กรุณาตรวจสอบให้แน่ใจว่านี่เป็นหมายเลขที่ท่านจะเลือก <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> )</p>

@@ -7,21 +7,10 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .display-date {
   text-align: center;
-  margin-bottom: 10px;
   font-size: 1.6rem;
   font-weight: 600;
-}
-
-.display-time {
-  font-size: 5rem;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: ease-in-out 0.1s;
-  transition-property: background, box-shadow, color;
 }
 
 
