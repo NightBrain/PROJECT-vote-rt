@@ -243,7 +243,7 @@
 				</div>
 				
 				<div class="row">
-					<div class="col-xl col-xxl cen">
+					<div class="col-xl col-xxl">
 						<div class="card">
                         <div class="limiter">
                                 <div class="container mb-5">
