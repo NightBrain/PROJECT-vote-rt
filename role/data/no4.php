@@ -52,6 +52,7 @@
     <link href="../css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/logov.png">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link href='button.css' rel='stylesheet'>
 	
 </head>
 <body>
@@ -241,7 +242,7 @@
 			</div> -->
 			<div class="container-fluid">
 				<div class="form-head mb-sm-5 mb-3 d-flex flex-wrap align-items-center">
-					<h2 class="font-w600 title mb-2 mr-auto ">No.4</h2>
+					<h2 class="font-w600 title mb-2 mr-auto ">No.4</h2><a href="export/04.php" class="button-87" role="button">EXPORT VOTE NO.4</a>
 				</div>
 				
 				<div class="row">

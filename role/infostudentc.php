@@ -259,6 +259,7 @@
 											<th scope="col"><h2>lastname</h2></th>
 											<th scope="col"><h2>Student ID</h2></th>
 											<th scope="col"><h2>urole</h2></th>
+											<th scope="col"><h2>VOTE</h2></th>
 											<th scope="col" style="display: none;" ><h2>id</h2></th>
 											<th scope="col" class="text-center"><h2>Action</h2></th>
 											</tr>
@@ -287,6 +288,7 @@
 											<td><h4><?= $user['lastname']; ?></h4></td>
 											<td><h4><?= $user['studentid']; ?></h4></td>
 											<td><h4><?= $user['urole']; ?></h4></td>
+											<td><h4><?= $user['number']; ?></h4></td>
                                             <form class="form-detail" action="resets.php" method="post">
                                             <td style="display: none;"><h4><input   type="text" readonly value="<?php echo $user['id'] ?>" required class="form-control" name="id"></h4></td>
 											<td class="text-center">

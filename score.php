@@ -102,7 +102,7 @@
 							
 							
 							<li class="nav-item dropdown  header-profile mt-1 mb-1">
-              <div class="display-time" style="font-size: 1.6rem; font-weight: 600;"></div>  
+              <div class="display-time mt-2 mx-3" style="font-size: 2rem; font-weight: 600;"></div>  
               <div class="display-date mt-2">
                   <span id="day">day</span>,
                   <span id="daynum">00</span>
@@ -163,11 +163,22 @@
                                     </thead>
                                     <tbody>
                                       <tr>
+                                      <?php 
+
+                                        $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '01'");
+
+                                        $stmt->execute();
+
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+
+                                        ?>
                                         <th scope="row"><br><br><h3><b>No.1</b></h3></th>
-                                        <th><br><br><h3>พรรค...</h3></th>
+                                        <th><br><br><h3><?= $row['name']; ?></h3></th>
                                         <th class="text-center">
                                         <picture>
-                                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" class="img-fluid img-thumbnail" style="width:110px;">
+                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
                                         </picture>
                                         </th>
                               
@@ -175,11 +186,23 @@
 
                                       </tr>
                                       <tr>
+                                      <tr>
+                                      <?php 
+
+                                        $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '02'");
+
+                                        $stmt->execute();
+
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+
+                                        ?>
                                         <th scope="row"><br><br><h3><b>No.2</b></h3></th>
-                                        <th><br><br><h3>พรรค...</h3></th>
+                                        <th><br><br><h3><?= $row['name']; ?></h3></th>
                                         <th class="text-center">
                                         <picture>
-                                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1150px-User_icon-cp.svg.png" class="img-fluid img-thumbnail" style="width:110px;">
+                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
                                         </picture>
                                         </th>
                                   
@@ -187,11 +210,23 @@
                                 
                                       </tr>
                                       <tr>
+                                      <tr>
+                                      <?php 
+
+                                        $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '03'");
+
+                                        $stmt->execute();
+
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+
+                                        ?>
                                         <th scope="row"><br><br><h3><b>No.3</b></h3></th>
-                                        <th><br><br><h3>พรรค...</h3></th>
+                                        <th><br><br><h3><?= $row['name']; ?></h3></th>
                                         <th class="text-center">
                                         <picture>
-                                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1150px-User_icon-cp.svg.png" class="img-fluid img-thumbnail" style="width:110px;">
+                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
                                         </picture>
                                         </th>
                                         
@@ -199,11 +234,23 @@
                             
                                       </tr>
                                       <tr>
+                                      <tr>
+                                      <?php 
+
+                                        $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '04'");
+
+                                        $stmt->execute();
+
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+
+                                        ?>
                                         <th scope="row"><br><br><h3><b>No.4</b></h3></th>
-                                        <th><br><br><h3>พรรค...</h3></th>
+                                        <th><br><br><h3><?= $row['name']; ?></h3></th>
                                         <th class="text-center">
                                         <picture>
-                                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1150px-User_icon-cp.svg.png" class="img-fluid img-thumbnail" style="width:110px;">
+                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
                                         </picture>
                                         </th>
                                       

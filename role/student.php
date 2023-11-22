@@ -174,8 +174,23 @@
                                             <div class=" text-center mt-1 mx-5">
                                                             <div class="row">
                                                             <div class="col mx-5" style="border-radius: 25px; border: 2px solid #f7f7f7 ; background-color: #f7f7f7; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                                            <?php 
+
+                                                                    if (isset($_SESSION['student_login'])) {
+
+                                                                        $student_id = $_SESSION['student_login'];
+
+                                                                        $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '01'");
+
+                                                                        $stmt->execute();
+
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                                                    }
+
+                                                                ?> 
                                                                 <h1><b>No.1</b></h1>
-                                                                <h4><p>พรรค...</p></h4>
+                                                                <h4><p><?= $row['name']; ?></p></h4>
 
                                                                 <!-- Modal -->
                                                                 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -186,8 +201,8 @@
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-bodymb-1">
-                                                                        <h2>พรรค...</h2>
-                                                                        <br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" alt="..." class="w-50 p-3">
+                                                                        <h2><?= $row['name']; ?></h2>
+                                                                        <br><img src="uploads/<?= $row['img']; ?>" alt="..." class="w-50 p-3">
                                                                         <form class="form-detail" action="vote/vote01.php" method="post">
                                                                             <div class="form-group">
                                                                             <?php 
@@ -234,14 +249,44 @@
                                                                 </div>
 
                                                                 <div class="text-center">
-                                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
+                                                                <?php 
+
+                                                                if (isset($_SESSION['student_login'])) {
+
+                                                                    $student_id = $_SESSION['student_login'];
+
+                                                                    $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '01'");
+
+                                                                    $stmt->execute();
+
+                                                                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                                                }
+
+                                                                ?> 
+                                                                    <img src="uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
                                                                     <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                                 </div>
                                                             </div>
 
                                                             <div class="col mx-5" style="border-radius: 25px; border: 2px solid #f7f7f7 ; background-color: #f7f7f7;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                                            <?php 
+
+                                                                    if (isset($_SESSION['student_login'])) {
+
+                                                                        $student_id = $_SESSION['student_login'];
+
+                                                                        $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '02'");
+
+                                                                        $stmt->execute();
+
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                                                    }
+
+                                                                ?> 
                                                             <h1><b>No.2</b></h1>
-                                                            <h4><p>พรรค...</p></h4>
+                                                            <h4><p><?= $row['name']; ?></p></h4>
                                                                 <!-- Modal -->
                                                                 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog">
@@ -251,8 +296,8 @@
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-bodymb-1">
-                                                                        <h2>พรรค...</h2>
-                                                                        <br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" alt="..." class="w-50 p-3">
+                                                                        <h2><?= $row['name']; ?></h2>
+                                                                        <br><img src="uploads/<?= $row['img']; ?>" alt="..." class="w-50 p-3">
                                                                         <form class="form-detail" action="vote/vote02.php" method="post">
                                                                             <div class="form-group">
                                                                             <?php 
@@ -297,13 +342,43 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="text-center">
-                                                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
+                                                                <?php 
+
+                                                                if (isset($_SESSION['student_login'])) {
+
+                                                                    $student_id = $_SESSION['student_login'];
+
+                                                                    $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '02'");
+
+                                                                    $stmt->execute();
+
+                                                                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                                                }
+
+                                                                ?> 
+                                                                    <img src="uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
                                                                     <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal2"><h1><i class='bx bx-x-circle'style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                                 </div>
                                                             </div>
                                                             <div class="col mx-5" style="border-radius: 25px; border: 2px solid #f7f7f7 ; background-color: #f7f7f7;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                                            <?php 
+
+                                                            if (isset($_SESSION['student_login'])) {
+
+                                                                $student_id = $_SESSION['student_login'];
+
+                                                                $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '03'");
+
+                                                                $stmt->execute();
+
+                                                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                                            }
+
+                                                            ?> 
                                                             <h1><b>No.3</b></h1>
-                                                            <h4><p>พรรค...</p></h4>
+                                                            <h4><p><?= $row['name']; ?></p></h4>
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog">
@@ -313,8 +388,8 @@
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-bodymb-1">
-                                                                        <h2>พรรค...</h2>
-                                                                        <br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" alt="..." class="w-50 p-3">
+                                                                        <h2><?= $row['name']; ?></h2>
+                                                                        <br><img src="uploads/<?= $row['img']; ?>" alt="..." class="w-50 p-3">
                                                                         <form class="form-detail" action="vote/vote03.php" method="post">
                                                                             <div class="form-group">
                                                                             <?php 
@@ -359,13 +434,43 @@
                                                                     </div>
                                                                 </div>
                                                             <div class="text-center">
-                                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
+                                                            <?php 
+
+                                                            if (isset($_SESSION['student_login'])) {
+
+                                                                $student_id = $_SESSION['student_login'];
+
+                                                                $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '03'");
+
+                                                                $stmt->execute();
+
+                                                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                                            }
+
+                                                            ?> 
+                                                                <img src="uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
                                                                 <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal3"><h1><i class='bx bx-x-circle'style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                             </div>
                                                             </div>
                                                             <div class="col mx-5" style="border-radius: 25px; border: 2px solid #f7f7f7 ; background-color: #f7f7f7;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                                            <?php 
+
+                                                            if (isset($_SESSION['student_login'])) {
+
+                                                                $student_id = $_SESSION['student_login'];
+
+                                                                $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '04'");
+
+                                                                $stmt->execute();
+
+                                                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                                            }
+
+                                                            ?> 
                                                             <h1><b>No.4</b></h1>
-                                                            <h4><p>พรรค...</p></h4>
+                                                            <h4><p><?= $row['name']; ?></p></h4>
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog">
@@ -375,8 +480,8 @@
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-bodymb-1">
-                                                                        <h2>พรรค...</h2>
-                                                                        <br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" alt="..." class="w-50 p-3">
+                                                                        <h2><?= $row['name']; ?></h2>
+                                                                        <br><img src="uploads/<?= $row['img']; ?>" alt="..." class="w-50 p-3">
                                                                         <form class="form-detail" action="vote/vote04.php" method="post">
                                                                             <div class="form-group">
                                                                             <?php 
@@ -421,7 +526,22 @@
                                                                     </div>
                                                                 </div>
                                                             <div class="text-center">
-                                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
+                                                            <?php 
+
+                                                            if (isset($_SESSION['student_login'])) {
+
+                                                                $student_id = $_SESSION['student_login'];
+
+                                                                $stmt = $conn->query("SELECT * FROM vnumber WHERE no = '04'");
+
+                                                                $stmt->execute();
+
+                                                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                                            }
+
+                                                            ?> 
+                                                                <img src="uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
                                                                 <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal4"><h1><i class='bx bx-x-circle'style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                             </div>
                                                         </div>

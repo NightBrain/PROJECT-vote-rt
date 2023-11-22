@@ -171,6 +171,10 @@
 							<i class='bx bxs-dashboard'></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
+                        <li><a href="edit.php" class="ai-icon" aria-expanded="false">
+							<i class='bx bxs-pencil'></i>
+							<span class="nav-text">Edit VOTE</span>
+						</a>
 					</li>
 					
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
