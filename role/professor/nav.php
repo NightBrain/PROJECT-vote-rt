@@ -1,3 +1,26 @@
+ <!--**********************************
+            Nav header start
+        ***********************************-->
+		<div class="nav-header">
+            <a href="index.html" class="brand-logo">
+				<img class="logo-abbr" width="55" height="55" src="../../img/logov.png">
+				<div class="brand-title">
+					<h2 class="">CMRU.</h2>
+					<span class="brand-sub-title">Admin Dashboard</span>
+				</div>
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+
+
 <div class="header border-bottom">
             <div class="header-content">
                 <nav class="navbar navbar-expand">
