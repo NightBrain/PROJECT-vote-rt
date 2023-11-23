@@ -45,7 +45,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Personal information</title>
+    <title>Student info</title>
     <!-- Favicon icon -->
 	<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
@@ -98,7 +98,7 @@
 			</div> -->
 			<div class="container-fluid">
 				<div class="form-head mb-sm-5 mb-3 d-flex flex-wrap align-items-center">
-					<h2 class="font-w600 title mb-2 mr-auto ">Personal information</h2>
+					<h2 class="font-w600 title mb-2 mr-auto ">Student info</h2>
 				</div>
 				
 				<div class="row">

@@ -49,10 +49,10 @@
 	<meta name="format-detection" content="telephone=no">
 	
 	<!-- PAGE TITLE HERE -->
-	<title>Admin Dashboard</title>
+	<title>Student VOTE</title>
 	
 	<!-- FAVICONS ICON -->
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+	<link rel="icon" type="image/png" href="../img/logov.png">
 	<link href="professor/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
 	<link href="professor/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
 	<link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">

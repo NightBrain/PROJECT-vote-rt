@@ -26,10 +26,10 @@
 	<meta name="format-detection" content="telephone=no">
 	
 	<!-- PAGE TITLE HERE -->
-	<title>Admin Dashboard</title>
+	<title>SCORE VOTE REALTIME</title>
 	
 	<!-- FAVICONS ICON -->
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="img/logov.png">
 	<link href="role/professor/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
 	<link href="role/professor/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
 	<link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
@@ -94,9 +94,9 @@
                 <nav class="navbar navbar-expand">
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
-							              <div class="dashboard_bar mx-5">  
-                            VOTE-RT                      
-                            </div>
+							              <a href="index.php" class="dashboard_bar mx-5">  
+                            <i class='bx bxs-circle bx-flashing' style="color: red;"></i>&nbsp; VOTE-RT                 
+                            </a>
                         </div>
                         <ul class="navbar-nav header-right ">
 							
@@ -112,7 +112,7 @@
        
               
 
-								<a class="nav-link" href="" role="button" data-bs-toggle="dropdown">
+								<a class="nav-link" href="index.php" role="button" data-bs-toggle="dropdown">
 									<img src="img/logo.gif" width="56" alt="">
 								</a>
                 
