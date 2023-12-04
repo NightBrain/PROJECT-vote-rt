@@ -8,7 +8,7 @@
 
     require_once '../config/config.php';
 
-    if (!isset($_SESSION['super_admin_login'])) {
+    if (!isset($_SESSION['admin_login'])) {
 
       $_SESSION['error'] = 'กรุณาเข้าสู่ระบบ!';
 
@@ -151,7 +151,7 @@
                                             <form class="form-detail" action="resets.php" method="post">
                                             <td style="display: none;"><h4><input   type="text" readonly value="<?php echo $user['id'] ?>" required class="form-control" name="id"></h4></td>
 											<td class="text-center">
-                                                <button type="submit" name="submitt" class="btn btn-warning">Reset</button> &nbsp; 
+                                                
 
 												<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-danger delete-btn">Delete</a>
 											</td>

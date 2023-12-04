@@ -6,7 +6,7 @@
 
     require_once '../../config/config.php';
 
-	if (!isset($_SESSION['professor_admin_login'])) {
+	if (!isset($_SESSION['professor_login'])) {
 
         $_SESSION['errora'] = 'กรุณาเข้าสู่ระบบ!';
 
@@ -154,9 +154,9 @@
                                                                             </div>
                                                                             <?php 
 
-                                                                            if (isset($_SESSION['professor_admin_login'])) {
+                                                                            if (isset($_SESSION['professor_login'])) {
 
-                                                                                $professor_admin_id = $_SESSION['professor_admin_login'];
+                                                                                $professor_admin_id = $_SESSION['professor_login'];
 
                                                                                 $stmt = $conn->query("SELECT * FROM users WHERE id = $professor_admin_id");
 

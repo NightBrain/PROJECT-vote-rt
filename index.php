@@ -52,12 +52,15 @@
                   <p class="icon"><i class='bx bx-line-chart bx-flashing' style='color:#ffffff;  font-size: 20px;' ></i></p>
                 <a href="score.php" class="buttonn">  &nbsp; &nbsp; &nbsp;ผลคะแนนแบบเรียลไทม์</a>
                 <?php include 'alert.php';?>
+                <a class="mx-3" href="problem.php" style='position: absolute; left: 320px;'><h1><i class='bx bxs-info-circle' style='color:#fff'></i></h1></a>
                 </div>
               </div>
-    
+              
         </div>
       </form>
     </div>
+
+                                        
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

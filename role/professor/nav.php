@@ -2,7 +2,7 @@
             Nav header start
         ***********************************-->
 		<div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="professor.php" class="brand-logo">
 				<img class="logo-abbr" width="55" height="55" src="../../img/logov.png">
 				<div class="brand-title">
 					<h2 class="">CMRU.</h2>
@@ -51,10 +51,29 @@
 								</a>
 								<div class="dropdown-menu dropdown-menu-end">
 									
-									<a href="../logout.php" class="dropdown-item ai-icon">
-										<svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-										<span class="ms-2">Logout </span>
-									</a>
+									<div class="dropdown-item ai-icon">
+                                        <form class="form-detail" action="../logout.php" method="post">
+                           
+                                        <?php 
+
+                                            if (isset($_SESSION['professor_login'])) {
+
+                                                $professor_id = $_SESSION['professor_login'];
+
+                                                $stmt = $conn->query("SELECT * FROM users WHERE id = $professor_id");
+
+                                                $stmt->execute();
+
+                                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                            }
+
+                                        ?> 
+                                        <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
+                                                                                 
+                                        <span class="ml-2"><button type="submit"  name="submit" class="btn btn-danger bttn mt-3"><h4 style='color:#ffffff'><i class='bx bx-log-out'></i> Logout </h4></button></span>
+                                        </form>
+                                    </div>
 								</div>
 							</li>
                         </ul>
@@ -64,7 +83,7 @@
 		</div>
 
 
-
+		
 
 
 
@@ -73,7 +92,7 @@
 				<ul class="metismenu" id="menu">
                    
                   
-                    <li><a href="admin_pro.php" class="" aria-expanded="false">
+                    <li><a href="professor.php" class="" aria-expanded="false">
 						<i class="fas fa-home"></i>
 							<span class="nav-text">Dashboard</span>
 						</a>
@@ -85,7 +104,7 @@
 						</a>
 					</li>
 
-                    <li><a href="index.php" class="" aria-expanded="false">
+                    <li><a href="professor_vote.php" class="" aria-expanded="false">
 							<i class="fas fa-user-check"></i>
 							<span class="nav-text">Vote</span>
 						</a>
@@ -99,9 +118,9 @@
 						</div>
 						<?php 
 
-						if (isset($_SESSION['professor_admin_login'])) {
+						if (isset($_SESSION['professor_login'])) {
 
-							$admin_id = $_SESSION['professor_admin_login'];
+							$admin_id = $_SESSION['professor_login'];
 
 							$stmt = $conn->query("SELECT * FROM users WHERE id = $admin_id");
 

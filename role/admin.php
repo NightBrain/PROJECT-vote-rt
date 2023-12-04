@@ -6,7 +6,7 @@
 
     require_once '../config/config.php';
 
-	if (!isset($_SESSION['super_admin_login'])) {
+	if (!isset($_SESSION['admin_login'])) {
 
         $_SESSION['errora'] = 'กรุณาเข้าสู่ระบบ!';
 
@@ -81,31 +81,27 @@
             Content body start
         ***********************************-->
         <div class="content-body">
-			<!-- <div class="form-head" style="background-image:url('images/background/bg3.jpg');background-position: bottom; ">
-				<div class="container max d-flex align-items-center mt-0">
-					<h2 class="font-w600 title text-white mb-2 mr-auto ">Dashboard</h2>
-					<div class="weather-btn mb-2">
-						<span class="mr-3 font-w600 text-black"><i class="fa fa-cloud mr-2"></i>21</span>
-						<select class="form-control style-1 default-select  mr-3 ">
-							<option>Medan, IDN</option>
-							<option>Jakarta, IDN</option>
-							<option>Surabaya, IDN</option>
-						</select>
-					</div>
-					<a href="javascript:void(0);" class="btn white-transparent mb-2"><i class="las la-calendar scale5 mr-3"></i>Filter Periode</a>
-				</div>
-			</div> -->
 			<div class="container-fluid">
 				<div class="form-head mb-sm-5 mb-3 d-flex flex-wrap align-items-center">
 					<h2 class="font-w600 title mb-2 mr-auto ">Dashboard</h2>
 				</div>
 				<div class="row">
+				<div class="col-xl-3 col-sm-6 m-t35">
+						<div class="card card-coin">
+							<div class="card-body text-center">
+								<img class="mb-3 currency-icon" src="../img/004.png" width="80" height="80">
+								<h4 class="mt-1">Online Now</h4>
+								<h2 class="text-black mb-2 font-w600"><div id="link_wrapper04"></h2>
+								
+							</div>
+						</div>
+					</div>
 					<div class="col-xl-3 col-sm-6 m-t35">
 						<div class="card card-coin">
 							<div class="card-body text-center">
-                                <img class="mb-3 currency-icon" src="../img/01.png" width="80" height="80">
-
-								<h2 class="text-black mb-2 font-w600"><div id="link_wrapper01"></h2>
+                                <img class="mb-3 currency-icon" src="../img/001.png" width="80" height="80">
+								<h4 class="mt-1">Student</h4>
+								<h2 class="text-center text-black mb-2 font-w600"><div id="link_wrapper01"></h2>
 						
 							</div>
 						</div>
@@ -113,8 +109,8 @@
 					<div class="col-xl-3 col-sm-6 m-t35">
 						<div class="card card-coin">
 							<div class="card-body text-center">
-								<img class="mb-3 currency-icon" src="../img/02.png" width="80" height="80">
-									
+								<img class="mb-3 currency-icon" src="../img/002.png" width="80" height="80">
+								<h4 class="mt-1">Professor</h4>
 								<h2 class="text-black mb-2 font-w600"><div id="link_wrapper02"></h2>
 								
 							</div>
@@ -123,19 +119,9 @@
 					<div class="col-xl-3 col-sm-6 m-t35">
 						<div class="card card-coin">
 							<div class="card-body text-center">
-                                <img class="mb-3 currency-icon" src="../img/03.png" width="80" height="80">
-
+                                <img class="mb-3 currency-icon" src="../img/003.png" width="80" height="80">
+								<h4 class="mt-1">Report problem</h4>
 								<h2 class="text-black mb-2 font-w600"><div id="link_wrapper03"></h2>
-								
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-3 col-sm-6 m-t35">
-						<div class="card card-coin">
-							<div class="card-body text-center">
-								<img class="mb-3 currency-icon" src="../img/04.png" width="80" height="80">
-
-								<h2 class="text-black mb-2 font-w600"><div id="link_wrapper04"></h2>
 								
 							</div>
 						</div>
@@ -204,7 +190,7 @@
 											<span class="fs-14">No.1</span>
 										</div>
 										<div>
-											<h5 class="mb-0"><?php include 'server01.php';?></h5>
+											<h5 class="mb-0"><?php include '../server01.php';?></h5>
 										</div>
 									</div>
 									<div class="d-flex justify-content-between mb-2 align-items-center">
@@ -216,7 +202,7 @@
 											<span class="fs-14">No.2</span>
 										</div>
 										<div>
-											<h5 class="mb-0"><?php include 'server02.php';?></h5>
+											<h5 class="mb-0"><?php include '../server02.php';?></h5>
 										</div>
 									</div>
 									<div class="d-flex justify-content-between mb-2 align-items-center">
@@ -227,7 +213,7 @@
 											<span class="fs-14">No.3</span>
 										</div>
 										<div>
-											<h5 class="mb-0"><?php include 'server03.php';?></h5>
+											<h5 class="mb-0"><?php include '../server03.php';?></h5>
 										</div>
 									</div>
 									<div class="d-flex justify-content-between mb-2 align-items-center">
@@ -238,7 +224,7 @@
 											<span class="fs-14">No.4</span>
 										</div>
 										<div>
-											<h5 class="mb-0"><?php include 'server04.php';?></h5>
+											<h5 class="mb-0"><?php include '../server04.php';?></h5>
 										</div>
 									</div>
 								</div>	
@@ -258,7 +244,7 @@
 												<img src="../img/01.png" width="46" height="46">
 													
 												<div class="text-left ml-3">
-													<span class="d-block fs-16 text-black"><?php include 'server01.php';?></span>
+													<span class="d-block fs-16 text-black"><?php include '../server01.php';?></span>
 												</div>
 												<i class="fa fa-angle-down scale5 ml-auto"></i>
 											</div>
@@ -319,7 +305,7 @@
 											<div class="btn  d-flex align-items-center order-bg border-0 rounded" data-toggle="dropdown">
                                             <img src="../img/02.png" width="46" height="46">
 												<div class="text-left ml-3">
-													<span class="d-block fs-16 text-black"><?php include 'server02.php';?></span>
+													<span class="d-block fs-16 text-black"><?php include '../server02.php';?></span>
 												</div>
 												<i class="fa fa-angle-down scale5 ml-auto"></i>
 											</div>
@@ -383,7 +369,7 @@
                                                 <div class="btn  d-flex align-items-center order-bg border-0 rounded" data-toggle="dropdown">
                                                 <img src="../img/03.png" width="46" height="46">
                                                     <div class="text-left ml-3">
-                                                        <span class="d-block fs-16 text-black"><?php include 'server03.php';?></span>
+                                                        <span class="d-block fs-16 text-black"><?php include '../server03.php';?></span>
                                                     </div>
                                                     <i class="fa fa-angle-down scale5 ml-auto"></i>
                                                 </div>
@@ -443,7 +429,7 @@
                                                 <div class="btn  d-flex align-items-center order-bg border-0 rounded" data-toggle="dropdown">
                                                 <img src="../img/04.png" width="46" height="46">
                                                     <div class="text-left ml-3">
-                                                        <span class="d-block fs-16 text-black"><?php include 'server04.php';?></span>
+                                                        <span class="d-block fs-16 text-black"><?php include '../server04.php';?></span>
                                                     </div>
                                                     <i class="fa fa-angle-down scale5 ml-auto"></i>
                                                 </div>

@@ -8,7 +8,7 @@
 
     require_once '../config/config.php';
 
-    if (!isset($_SESSION['super_admin_login'])) {
+    if (!isset($_SESSION['admin_login'])) {
 
       $_SESSION['error'] = 'กรุณาเข้าสู่ระบบ!';
 
@@ -146,14 +146,10 @@
 											<td><h4><?= $user['lastname']; ?></h4></td>
 											<td><h4><?= $user['studentid']; ?></h4></td>
 											<td><h4><?= $user['urole']; ?></h4></td>
-                                            <form class="form-detail" action="add_pro.php" method="post">
-                                            <td style="display: none;"><h4><input   type="text" readonly value="<?php echo $user['id'] ?>" required class="form-control" name="id"></h4></td>
 											<td class="text-center">
-                                                <button type="submit" name="submitt" class="btn btn-warning">Admin</button> &nbsp; 
-
 												<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-danger delete-btn">Delete</a>
 											</td>
-                                            </form>
+                                            
 											</tr>
 											<?php } 
 														} ?>

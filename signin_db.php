@@ -6,6 +6,11 @@
 
     require_once 'config/config.php';
 
+    $stmt = $conn->query("SELECT * FROM users");
+    
+    $stmt->execute();
+
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (isset($_POST['signin'])) {
 
@@ -55,33 +60,126 @@
 
                         if (password_verify($password, $row['password'])) {
 
-                            if ($row['urole'] == 'super_admin') {
+                            if ($row['urole'] == 'admin') {
 
-                                $_SESSION['super_admin_login'] = $row['id'];
+                                $_SESSION['admin_login'] = $row['id'];
 
                                 $_SESSION['successsa'] = 'ยินดีต้อนรับ';
+                            
+                            
+                                if (isset($_POST['signin'])) {
+                            
+                                    $id = $row['id'];
+                            
+                                    $statuss = 'online';
+                            
+                            
+                            
+                                    $sql = $conn->prepare("UPDATE users SET statuss = :statuss WHERE id = :id");
+                            
+                                    $sql->bindParam(":id", $id);
+                            
+                                    $sql->bindParam(":statuss", $statuss);
+                            
+                                    $sql->execute();
+                            
+                            
+                            
+                                    if ($sql) {
+                            
+                                        header("location: role/admin.php");
+                            
+                                    } else {
+                            
+                                        $_SESSION['errorr'] = "มีบางอย่างผิดปกติ";
+                            
+                                        header("location: index.php");
+                            
+                                    }
+                            
+                                }
                     
-                                header("location: role/admin.php");
 
                         //<=============================================================>
     
-                            } else  if ($row['urole'] == 'professor_admin') {
-
-                                $_SESSION['professor_admin_login'] = $row['id'];
-
-                                $_SESSION['successpa'] = 'ยินดีต้อนรับ';
-                    
-                                header("location: role/professor/admin_pro.php");
-
-                        //<=============================================================>
-
                             } else  if ($row['urole'] == 'professor') {
 
                                 $_SESSION['professor_login'] = $row['id'];
 
-                                $_SESSION['successp'] = 'ยินดีต้อนรับ';
+                                $_SESSION['successpa'] = 'ยินดีต้อนรับ';
+                            
+                                if (isset($_POST['signin'])) {
+                            
+                                    $id = $row['id'];
+                            
+                                    $statuss = 'online';
+                            
+                            
+                            
+                                    $sql = $conn->prepare("UPDATE users SET statuss = :statuss WHERE id = :id");
+                            
+                                    $sql->bindParam(":id", $id);
+                            
+                                    $sql->bindParam(":statuss", $statuss);
+                            
+                                    $sql->execute();
+                            
+                            
+                            
+                                    if ($sql) {
+                            
+                                        header("location: role/professor/professor.php");
+                            
+                                    } else {
+                            
+                                        $_SESSION['errorr'] = "มีบางอย่างผิดปกติ";
+                            
+                                        header("location: index.php");
+                            
+                                    }
+                            
+                                }
                     
-                                header("location: role/professor/professor_vote.php");
+
+                        //<=============================================================>
+
+                            } else  if ($row['urole'] == 'professor_c') {
+
+                                $_SESSION['professorc_login'] = $row['id'];
+
+                                $_SESSION['successp'] = 'ยินดีต้อนรับ';
+
+                                if (isset($_POST['signin'])) {
+                            
+                                    $id = $row['id'];
+                            
+                                    $statuss = 'online';
+                            
+                            
+                            
+                                    $sql = $conn->prepare("UPDATE users SET statuss = :statuss WHERE id = :id");
+                            
+                                    $sql->bindParam(":id", $id);
+                            
+                                    $sql->bindParam(":statuss", $statuss);
+                            
+                                    $sql->execute();
+                            
+                            
+                            
+                                    if ($sql) {
+                            
+                                        header("location: role/professorc/professor.php");
+                            
+                                    } else {
+                            
+                                        $_SESSION['errorr'] = "มีบางอย่างผิดปกติ";
+                            
+                                        header("location: index.php");
+                            
+                                    }
+                            
+                                }
 
                         //<=============================================================>
     
@@ -90,9 +188,39 @@
                                 $_SESSION['student_login'] = $row['id'];
 
                                 $_SESSION['successstu'] = 'ยินดีต้อนรับ';
-                    
-                                header("location: role/student.php");
 
+                                if (isset($_POST['signin'])) {
+                            
+                                    $id = $row['id'];
+                            
+                                    $statuss = 'online';
+                            
+                            
+                            
+                                    $sql = $conn->prepare("UPDATE users SET statuss = :statuss WHERE id = :id");
+                            
+                                    $sql->bindParam(":id", $id);
+                            
+                                    $sql->bindParam(":statuss", $statuss);
+                            
+                                    $sql->execute();
+                            
+                            
+                            
+                                    if ($sql) {
+                            
+                                        header("location: role/student.php");
+                            
+                                    } else {
+                            
+                                        $_SESSION['errorr'] = "มีบางอย่างผิดปกติ";
+                            
+                                        header("location: index.php");
+                            
+                                    }
+                            
+                                }
+                    
                         //<=============================================================>
 
     
@@ -101,8 +229,38 @@
                                 $_SESSION['complete_login'] = $row['id'];
 
                                 $_SESSION['successc'] = 'ยินดีต้อนรับ';
-                    
-                                header("location: role/complete.php");
+
+                                if (isset($_POST['signin'])) {
+                            
+                                    $id = $row['id'];
+                            
+                                    $statuss = 'online';
+                            
+                            
+                            
+                                    $sql = $conn->prepare("UPDATE users SET statuss = :statuss WHERE id = :id");
+                            
+                                    $sql->bindParam(":id", $id);
+                            
+                                    $sql->bindParam(":statuss", $statuss);
+                            
+                                    $sql->execute();
+                            
+                            
+                            
+                                    if ($sql) {
+                            
+                                        header("location: role/complete.php");
+                            
+                                    } else {
+                            
+                                        $_SESSION['errorr'] = "มีบางอย่างผิดปกติ";
+                            
+                                        header("location: index.php");
+                            
+                                    }
+                            
+                                }
 
                             }
 
@@ -135,5 +293,11 @@
         }
 
     }
+
+
+
+    
+      
+    
 
 ?>

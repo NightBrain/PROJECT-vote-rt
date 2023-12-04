@@ -4,7 +4,7 @@
 	
  ?>
 <?php 
-		$sql = "SELECT COUNT(*) as vote02 FROM vote02";
+		$sql = "SELECT COUNT(*) as users FROM users WHERE urole = 'professor' or urole = 'professor_c'" ;
 
 		$query = $conn->prepare($sql);
 
@@ -16,7 +16,7 @@
 
 			<tbody>
 				<tr>
-					<td><?= $fetch['vote02'] ?> คะแนน</td>
+					<td><?= $fetch['users'] ?> คน</td>
 				</tr>
 			</tbody>
 <?php 	} ?>

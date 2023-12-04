@@ -70,9 +70,9 @@
 					</div>
 					<?php 
 
-						if (isset($_SESSION['super_admin_login'])) {
+						if (isset($_SESSION['admin_login'])) {
 
-							$admin_id = $_SESSION['super_admin_login'];
+							$admin_id = $_SESSION['admin_login'];
 
 							$stmt = $conn->query("SELECT * FROM users WHERE id = $admin_id");
 
@@ -97,6 +97,10 @@
 							<i class='bx bxs-pencil'></i>
 							<span class="nav-text">Edit VOTE</span>
 						</a>
+                        <li><a href="../rp.php" class="ai-icon" aria-expanded="false">
+                            <i class='bx bxs-info-circle'></i>
+							<span class="nav-text">Report Problem</span>
+						</a>
 					</li>
 					
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -104,8 +108,7 @@
 							<span class="nav-text">personal information</span>
 						</a>
                         <ul aria-expanded="false">
-							<li><a href="../infosuper.php">Super_Admin</a></li>
-                            <li><a href="../infoadmin_pro.php">Professor_Admin</a></li>
+                            <li><a href="../infoadmin.php">Admin</a></li>
                             <li><a href="../infostudent.php">Student</a></li>
                             <li><a href="../infoprofessor.php">Professor</a></li>
                             <li><a href="../infostudentc.php">complete_s</a></li>

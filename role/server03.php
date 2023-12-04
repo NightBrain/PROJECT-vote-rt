@@ -4,7 +4,7 @@
 	
  ?>
 <?php 
-		$sql = "SELECT COUNT(*) as vote03 FROM vote03";
+		$sql = "SELECT COUNT(*) as users FROM users WHERE report = 'กำลังรอดำเนินการ...'";
 
 		$query = $conn->prepare($sql);
 
@@ -16,7 +16,7 @@
 
 			<tbody>
 				<tr>
-					<td><?= $fetch['vote03'] ?> คะแนน</td>
+					<td><?= $fetch['users'] ?> คน</td>
 				</tr>
 			</tbody>
 <?php 	} ?>

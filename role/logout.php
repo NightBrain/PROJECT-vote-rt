@@ -3,14 +3,52 @@
 <?php 
 
     session_start();
-    unset($_SESSION['super_admin_login']);
-    unset($_SESSION['student_login']);
-    unset($_SESSION['professor_admin_login']);
-    unset($_SESSION['professor_login']);
-    unset($_SESSION['complete_login']);
-    $_SESSION['successl'] = 'ออกจากระบบสำเร็จ';
 
-    header("location: ../index.php");
+    require_once "../config/config.php";
 
+    if (isset($_POST['submit'])) {
+
+        $id = $_POST['id'];
+
+        $statuss = 'offline';
+
+
+
+        $sql = $conn->prepare("UPDATE users SET statuss = :statuss WHERE id = :id");
+
+        $sql->bindParam(":id", $id);
+
+        $sql->bindParam(":statuss", $statuss);
+
+        $sql->execute();
+
+
+
+        if ($sql) {
+            
+            unset($_SESSION['admin_login']);
+            unset($_SESSION['student_login']);
+            unset($_SESSION['professor_login']);
+            unset($_SESSION['professorc_login']);
+            unset($_SESSION['complete_login']);
+          
+            $_SESSION['successl'] = 'ออกจากระบบสำเร็จ';
+
+            header("location: ../index.php");
+        } else {
+
+            unset($_SESSION['admin_login']);
+            unset($_SESSION['student_login']);
+            unset($_SESSION['professor_login']);
+            unset($_SESSION['professorc_login']);
+            unset($_SESSION['complete_login']);
+            
+            $_SESSION['successl'] = 'ออกจากระบบสำเร็จ';
+
+            header("location: ../index.php");
+
+        }
+
+    }
 
 ?>

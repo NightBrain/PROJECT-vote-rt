@@ -4,7 +4,7 @@
 	
  ?>
 <?php 
-		$sql = "SELECT COUNT(*) as vote04 FROM vote04";
+		$sql = "SELECT COUNT(*) as users FROM users WHERE statuss = 'online'" ;
 
 		$query = $conn->prepare($sql);
 
@@ -16,7 +16,7 @@
 
 			<tbody>
 				<tr>
-					<td><?= $fetch['vote04'] ?> คะแนน</td>
+					<td><?= $fetch['users'] ?> คน</td>
 				</tr>
 			</tbody>
 <?php 	} ?>

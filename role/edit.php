@@ -8,7 +8,7 @@
 
     require_once '../config/config.php';
 
-    if (!isset($_SESSION['super_admin_login'])) {
+    if (!isset($_SESSION['admin_login'])) {
 
       $_SESSION['error'] = 'กรุณาเข้าสู่ระบบ!';
 

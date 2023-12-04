@@ -145,7 +145,76 @@
                     <h3 class="dashboard_bar mx-3">
                     <b>CMRU.</b> 
                     </h3>
-                    <a type="button" href="logout.php" class="btn btn-danger">LOGOUT</a>
+                    <a class="mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bxs-info-circle' style='color:#9E9DA3'></i></h1></a>
+                    
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                        <h3 class="modal-title" id="exampleModalLabel"><b>Report Problem</b></h3>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-bodymb-1">
+                                                                        <form class="form-detail" action="problem.php" method="post">
+                                                                            <div class="form-group my-3">
+                                                                                <?php 
+
+                                                                                    if (isset($_SESSION['complete_login'])) {
+
+                                                                                        $professor_id = $_SESSION['complete_login'];
+
+                                                                                        $stmt = $conn->query("SELECT * FROM users WHERE id = $professor_id");
+
+                                                                                        $stmt->execute();
+
+                                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                                                                    }
+
+                                                                                ?> 
+                                                                                <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
+                                                                                <input style="display: none;"  type="text" readonly value="กำลังรอดำเนินการ..." required class="form-control" name="report">
+                                                                                <div class="row">
+                                                                                    <div class="col" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 18px;'>
+                                                                                    <textarea name="problem" rows="4" cols="50" required placeholder="problem"></textarea>
+                                                                                    </div>   
+                                                                                    <div class="col" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
+                                                                                    <button type="submit"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h4 style='color:#ffffff'><b>Report</b></h4></button>
+                                                                                    </div>    
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                            <div class="col" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 15px;'>     
+                                                                            <p style='color:#ff0000;'>( <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> กรุณาอย่ารายงานเล่น [ ถ้าจับได้จะโดนตัดสิทธิ์ถาวร ] <i class='bx bxs-error bx-tada' style='color:#ff8300' ></i> )</p>
+                                                                            </div> 
+                                                                           
+                                                                            </div>
+                                                                        </form> 
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                    <form class="form-detail" action="logout.php" method="post">
+                           
+                                        <?php 
+
+                                            if (isset($_SESSION['complete_login'])) {
+
+                                                $admin_id = $_SESSION['complete_login'];
+
+                                                $stmt = $conn->query("SELECT * FROM users WHERE id = $admin_id");
+
+                                                $stmt->execute();
+
+                                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                            }
+
+                                        ?> 
+                                        <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
+                                                                                 
+                                        <span class="ml-2"><button type="submit"  name="submit" class="btn btn-danger bttn mt-3"><h4 style='color:#ffffff'>Logout </h4></button></span>
+                                        </form>
 								
 							</li>
                             <div class="mx-5"></div>
@@ -190,6 +259,7 @@
                         ?>
                         <div class="container text-center">
                               <p>คุณเลือกโหวต <?php echo $row['number'] ?></p>   
+                              <p><?php echo $row['report'] ?></p>   
                               <div style=" display: flex; justify-content: center; align-items: center; color:#ffffff;">
                                     <p class="icon"><i class='bx bx-line-chart bx-flashing' style='color:#ffffff;  font-size: 20px;' ></i></p>
                                     <a href="../score.php" class="buttonn" >  &nbsp; &nbsp; &nbsp;ผลคะแนนแบบเรียลไทม์</a>

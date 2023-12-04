@@ -24,6 +24,14 @@
 
         $urole = 'student';
 
+        $number = '-';
+        
+        $statuss = '-';
+
+        $report = '-';
+        
+        $problem = '-';
+
 
 
        
@@ -66,9 +74,9 @@
 
                     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-                    $stmt = $conn->prepare("INSERT INTO users(firstname, lastname, branch, studentid, password, urole) 
+                    $stmt = $conn->prepare("INSERT INTO users(firstname, lastname, branch, studentid, password, report, problem, number, statuss, urole) 
 
-                                            VALUES(:firstname, :lastname, :branch, :studentid, :password, :urole)");
+                                            VALUES(:firstname, :lastname, :branch, :studentid, :password, :report, :problem, :number, :statuss, :urole)");
 
                     $stmt->bindParam(":firstname", $firstname);
 
@@ -78,6 +86,14 @@
 
                     $stmt->bindParam(":branch", $branch);
 
+                    $stmt->bindParam(":report", $report);
+                    
+                    $stmt->bindParam(":problem", $problem);
+
+                    $stmt->bindParam(":number", $number);
+
+                    $stmt->bindParam(":statuss", $statuss);
+
                     $stmt->bindParam(":password", $passwordHash);
 
                     $stmt->bindParam(":urole", $urole);
@@ -86,13 +102,13 @@
 
                     $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว!";
 
-                    header("location: ../reg_s.php");
+                    header("location: ../reg_p.php");
 
                 } else {
 
                     $_SESSION['error'] = "มีบางอย่างผิดพลาด";
 
-                    header("location: ../reg_s.php");
+                    header("location: ../reg_p.php");
 
                 }
 
