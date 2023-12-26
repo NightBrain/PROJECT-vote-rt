@@ -293,7 +293,7 @@
 										</div>
 									</div>
 									<div class="card-footer border-0 p-0 caret">
-										<a href="coin-details.html" class="btn-link"><i class='bx bxs-chevron-down' aria-hidden="true"></i></a>
+										<a href="data/no1.php" class="btn-link"><i class='bx bxs-chevron-down' aria-hidden="true"></i></a>
 									</div>
 								</div>	
 							</div>
@@ -353,7 +353,7 @@
 										</div>
 									</div>
 									<div class="card-footer border-0 p-0 caret">
-										<a href="coin-details.html" class="btn-link"><i class='bx bxs-chevron-down' aria-hidden="true"></i></a>
+										<a href="data/no2.php" class="btn-link"><i class='bx bxs-chevron-down' aria-hidden="true"></i></a>
 									</div>
 								</div>
 							</div>
@@ -417,7 +417,7 @@
                                             </div>
                                         </div>
                                         <div class="card-footer border-0 p-0 caret">
-                                            <a href="coin-details.html" class="btn-link"><i class='bx bxs-chevron-down' aria-hidden="true"></i></a>
+                                            <a href="data/no3.php" class="btn-link"><i class='bx bxs-chevron-down' aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -477,7 +477,7 @@
                                             </div>
                                         </div>
                                         <div class="card-footer border-0 p-0 caret">
-                                            <a href="coin-details.html" class="btn-link"><i class='bx bxs-chevron-down' aria-hidden="true"></i></a>
+                                            <a href="data/no4.php" class="btn-link"><i class='bx bxs-chevron-down' aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>

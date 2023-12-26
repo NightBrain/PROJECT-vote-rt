@@ -19,13 +19,17 @@
 
         $urole = 'professor';
 
+        $report = '-';
 
 
-        $sql = $conn->prepare("UPDATE users SET urole = :urole WHERE id = :id");
+
+        $sql = $conn->prepare("UPDATE users SET urole = :urole, report = :report WHERE id = :id");
 
         $sql->bindParam(":id", $id);
 
         $sql->bindParam(":urole", $urole);
+
+        $sql->bindParam(":report", $report);
 
         $sql->execute();
 

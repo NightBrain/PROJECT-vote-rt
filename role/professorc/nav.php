@@ -87,7 +87,35 @@
 
 
 
-<div class="dlabnav">
+		<div class="dlabnav">
+		<div class="side-bar-profile">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="side-bar-profile-img">
+							<img src="../../img/logo.gif" alt="">
+						</div>
+						<?php 
+
+						if (isset($_SESSION['professor_login'])) {
+
+							$admin_id = $_SESSION['professor_login'];
+
+							$stmt = $conn->query("SELECT * FROM users WHERE id = $admin_id");
+
+							$stmt->execute();
+
+							$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+						}
+
+						?>
+						<div class="profile-info1">
+							<h4 class="fs-18 font-w500"><?php echo $row['firstname'] ?> <?php echo $row['lastname'] ?></h4>
+							<span><?php echo $row['studentid'] ?></span>
+						</div>
+						
+					</div>	
+					
+				</div>
             <div class="dlabnav-scroll">
 				<ul class="metismenu" id="menu">
                    
@@ -111,43 +139,7 @@
 					</li>
 
                 </ul>
-				<div class="side-bar-profile">
-					<div class="d-flex align-items-center justify-content-between mb-3">
-						<div class="side-bar-profile-img">
-							<img src="../../img/logo.gif" alt="">
-						</div>
-						<?php 
-
-						if (isset($_SESSION['professorc_login'])) {
-
-							$admin_id = $_SESSION['professorc_login'];
-
-							$stmt = $conn->query("SELECT * FROM users WHERE id = $admin_id");
-
-							$stmt->execute();
-
-							$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-						}
-
-						?>
-						<div class="profile-info1">
-							<h4 class="fs-18 font-w500"><?php echo $row['firstname'] ?> <?php echo $row['lastname'] ?></h4>
-							<span><?php echo $row['studentid'] ?></span>
-						</div>
-						<div class="profile-button">
-							<a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-							<i class="fas fa-caret-down scale5 text-light"></i>
-							<div class="dropdown-menu dropdown-menu-end">
-									<a href="../logout.phplogout.html" class="dropdown-item ai-icon">
-										<svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-										<span class="ms-2">Logout </span>
-									</a>
-								</div>
-						</div>
-					</div>	
-					
-				</div>
+				
 				
 				<div class="copyright">
 					<p><strong>Professor Admin</strong> © 2023 All Rights Reserved</p>

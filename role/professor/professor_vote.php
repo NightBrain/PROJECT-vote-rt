@@ -77,13 +77,30 @@
             font-size: 22px;
             
             }
+  
+        body, html {
+                    height: 100%;
+                    margin: 0;
+                    }
+                    .bg {
+                    /* The image used */
+                    background-image: url("../../img/bg.jpg");
+
+                    /* Full height */
+                    height: 100%; 
+
+                    /* Center and scale the image nicely */
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    }
     </style>
     
 	
 </head>
 <body>
-
-    <!--*******************
+    <div class="bg">
+         <!--*******************
         Preloader start
     ********************-->
     <div id="preloader">
@@ -127,7 +144,7 @@
                             }
 
                             ?>
-							<div class="dashboard_bar mx-5">
+							<div class="dashboard_bar mx-5" style='color:#fff'>
                                 VOTE-RT
                             </div>
                         </div>
@@ -135,11 +152,11 @@
 							
 							
 							<li class="nav-item dropdown  header-profile mt-1 mb-1">
-                            <h3><b>ชื่อ :</b>  <?php echo $row['firstname'] ?> <b>สกุล : </b><?php echo $row['lastname'] ?></h3>
+                            <h3 style='color:rgb(58, 58, 58)'><b style='color:#000'>ชื่อ :</b>  <?php echo $row['firstname'] ?> <b style='color:#000'>สกุล : </b><?php echo $row['lastname'] ?></h3>
 								<a class="nav-link" href="" role="button" data-bs-toggle="dropdown">
 									<img src="../../img/logo.gif" width="56" alt="">
 								</a>
-                                <h3 class="dashboard_bar mx-3">
+                                <h3 class="dashboard_bar mx-3" style='color:#fff'>
                                 <b>CMRU.</b> 
                                 </h3>
 								
@@ -160,19 +177,19 @@
         ***********************************-->
         <div class="mt-3 mx-5">
             <!-- row -->
-			<div class="container-fulid ">
+			<div class="container-fulid">
 				<div class="row">
 					<div class="col-xl" >
 						<div class="row">
 							<div class="col-xl">
 								<div class="row">
 									<div class="col-xl-12">
-										<div class="card">
-											<div class="card-body" style="border-radius: 25px; border: 2px solid #fff ; background-color: #fff;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+										<div class="container-fulid">
+											<div class="card-body p-5" style="border-radius: 30px; background-color: rgba(255, 255, 255, 0.55);">
 												
                                             <div class=" text-center mt-1 mx-5">
                                                             <div class="row">
-                                                            <div class="col mx-5" style="border-radius: 25px; border: 2px solid #f7f7f7 ; background-color: #f7f7f7; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                                            <div class="col mx-5" style="border-radius: 25px;  background-color: #f7f7f7a5; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                                                             <?php 
 
                                                             if (isset($_SESSION['professor_login'])) {
@@ -188,8 +205,8 @@
                                                             }
 
                                                             ?> 
-                                                                <h1><b>No.1</b></h1>
-                                                                <h4><p><?= $row['name']; ?></p></h4>
+                                                                <h1 style='color:rgb(91, 91, 91)'><b>No.1</b></h1>
+                                                                <h4 style='color:rgb(91, 91, 91)'><p><?= $row['name']; ?></p></h4>
 
                                                                 <!-- Modal -->
                                                                 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -225,7 +242,7 @@
                                                                            
                                                                             <div class="row">
                                                                                 <div class="col mx-4" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
-                                                                                ชื่อจริงของท่านคือ : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                                Username : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
                                                                                 </div>
                                                                                
                                                                             </div>
@@ -268,7 +285,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col mx-5" style="border-radius: 25px; border: 2px solid #f7f7f7 ; background-color: #f7f7f7;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                                            <div class="col mx-5" style="border-radius: 25px; background-color: #f7f7f7a5;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                                                             <?php 
 
                                                             if (isset($_SESSION['professor_login'])) {
@@ -284,8 +301,8 @@
                                                             }
 
                                                             ?> 
-                                                            <h1><b>No.2</b></h1>
-                                                            <h4><p><?= $row['name']; ?></p></h4>
+                                                            <h1 style='color:rgb(91, 91, 91)'><b>No.2</b></h1>
+                                                            <h4 style='color:rgb(91, 91, 91)'><p><?= $row['name']; ?></p></h4>
                                                                 <!-- Modal -->
                                                                 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog">
@@ -321,7 +338,7 @@
                                                                             
                                                                             <div class="row">
                                                                                 <div class="col mx-4" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
-                                                                                ชื่อจริงของท่านคือ : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                                Username : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
                                                                                 </div>
                                                                                
                                                                             </div>
@@ -360,7 +377,7 @@
                                                                     <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal2"><h1><i class='bx bx-x-circle'style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                                 </div>
                                                             </div>
-                                                            <div class="col mx-5" style="border-radius: 25px; border: 2px solid #f7f7f7 ; background-color: #f7f7f7;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                                            <div class="col mx-5" style="border-radius: 25px; background-color: #f7f7f7a5;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                                                             <?php 
 
                                                             if (isset($_SESSION['professor_login'])) {
@@ -376,8 +393,8 @@
                                                             }
 
                                                             ?> 
-                                                            <h1><b>No.3</b></h1>
-                                                            <h4><p><?= $row['name']; ?></p></h4>
+                                                            <h1 style='color:rgb(91, 91, 91)'><b>No.3</b></h1>
+                                                            <h4 style='color:rgb(91, 91, 91)'><p><?= $row['name']; ?></p></h4>
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog">
@@ -413,7 +430,7 @@
                                                                             
                                                                             <div class="row">
                                                                                 <div class="col mx-4" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
-                                                                                ชื่อจริงของท่านคือ : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                                Username : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
                                                                                 </div>
                                                                                
                                                                             </div>
@@ -452,7 +469,7 @@
                                                                 <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal3"><h1><i class='bx bx-x-circle'style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                             </div>
                                                             </div>
-                                                            <div class="col mx-5" style="border-radius: 25px; border: 2px solid #f7f7f7 ; background-color: #f7f7f7;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                                            <div class="col mx-5" style="border-radius: 25px; background-color: #f7f7f7a5;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                                                             <?php 
 
                                                             if (isset($_SESSION['professor_login'])) {
@@ -468,8 +485,8 @@
                                                             }
 
                                                             ?> 
-                                                            <h1><b>No.4</b></h1>
-                                                            <h4><p><?= $row['name']; ?></p></h4>
+                                                            <h1 style='color:rgb(91, 91, 91)'><b>No.4</b></h1>
+                                                            <h4 style='color:rgb(91, 91, 91)'><p><?= $row['name']; ?></p></h4>
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog">
@@ -505,7 +522,7 @@
                                                                             
                                                                             <div class="row">
                                                                                 <div class="col mx-4" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
-                                                                                ชื่อจริงของท่านคือ : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                                Username : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
                                                                                 </div>
                                                                                
                                                                             </div>
@@ -545,7 +562,7 @@
                                                             </div>
                                                         </div>
                                                         </div>
-                                                            <div class="container-fulid text-center mt-5 mx-4" style="border-radius: 25px; border: 2px solid #f7f7f7 ; background-color: #f7f7f7;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                                            <div class="container-fulid text-center mt-5 mx-4" style="border-radius: 25px; background-color: #f7f7f7a5;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                                                             <div class="row">
                                                             <div class="col justify-content-center">
                                                                 <!-- Modal -->
@@ -582,7 +599,7 @@
                                                                             
                                                                             <div class="row">
                                                                                 <div class="col mx-4" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
-                                                                                ชื่อจริงของท่านคือ : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
+                                                                                Username : <input type="text" readonly value="<?php echo $row['studentid'] ?>" class="form__input" name="ids" >
                                                                                 </div>
                                                                                
                                                                             </div>
@@ -601,7 +618,7 @@
                                                                     </div>
                                                                     </div>
                                                                 </div>
-                                                                    <h1><b>ไม่ประสงค์ลงคะแนน</b></h1>
+                                                                    <h1 style='color:rgb(91, 91, 91)'><b>ไม่ประสงค์ลงคะแนน</b></h1>
                                                                     <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal5"><h1><i class='bx bx-x-circle'style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                             </div>
                                                             </div>
@@ -627,9 +644,9 @@
         <!--**********************************
             Footer start
         ***********************************-->
-        <div class="text-center">
-                <div class="copyright mt-1">
-                    <p>Copyright ©2023 VoteRealTime. All rights reserved Developed by <a href="https://github.com/NightBrain" target="_blank">@NightBrain</a></p>
+        <div class="text-center mt-2">
+                <div class="copyright">
+                    <p style='color: #fff'>Copyright ©2023 VoteRealTime. All rights reserved Developed by <a href="https://github.com/NightBrain" target="_blank" style='color:#ff8300'>@NightBrain</a></p>
                 </div>
         </div>
         
@@ -651,6 +668,8 @@
         Main wrapper end
     ***********************************-->
 
+    </div>
+   
     <!--**********************************
         Scripts
     ***********************************-->

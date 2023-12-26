@@ -4,7 +4,22 @@
 	
  ?>
 <?php 
-		$sql = "SELECT COUNT(*) as users FROM users where branch = 'techweb' and urole = 'student'";
+
+if (isset($_SESSION['professor_login'])) {
+
+	$professor_id = $_SESSION['professor_login'];
+
+	$stmt = $conn->query("SELECT * FROM users WHERE id = $professor_id");
+
+	$stmt->execute();
+
+	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+}
+
+$b = $row['branch'];
+
+		$sql = "SELECT COUNT(*) as users FROM users where branch = '$b' and urole = 'student' or urole = 'complete_s'";
 
 		$query = $conn->prepare($sql);
 

@@ -52,7 +52,7 @@
 	<title>Admin Dashboard</title>
 	
 	<!-- FAVICONS ICON -->
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+	<link rel="icon" type="image/png" href="../img/logov.png">
 	<link href="professor/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
 	<link href="professor/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
 	<link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
@@ -79,13 +79,29 @@
             font-size: 22px;
             
             }
+            body, html {
+                    height: 100%;
+                    margin: 0;
+                    }
+                    .bg {
+                    /* The image used */
+                    background-image: url("../img/bg.jpg");
+
+                    /* Full height */
+                    height: 100%; 
+
+                    /* Center and scale the image nicely */
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    }
     </style>
     
 	
 </head>
 <body>
-
-    <!--*******************
+    <div class="bg">
+                        <!--*******************
         Preloader start
     ********************-->
     <div id="preloader">
@@ -129,7 +145,7 @@
                             }
 
                             ?>
-							<div class="dashboard_bar mx-5">
+							<div class="dashboard_bar mx-5" style='color:#fff'>
                                 VOTE-RT
                             </div>
                         </div>
@@ -137,15 +153,15 @@
 							
 							
 							<li class="nav-item dropdown  header-profile mt-1 mb-1">
-                            <h3><b>ชื่อ :</b>  <?php echo $row['firstname'] ?> <b>สกุล : </b><?php echo $row['lastname'] ?></h3>
+                            <h3 style='color:rgb(58, 58, 58)'><b style='color:#000'>ชื่อ :</b>  <?php echo $row['firstname'] ?> <b style='color:#000'>สกุล : </b><?php echo $row['lastname'] ?></h3>
 								<a class="nav-link" href="" role="button" data-bs-toggle="dropdown">
 									<img src="../img/logo.gif" width="56" alt="">
 								</a>
                 
                     <h3 class="dashboard_bar mx-3">
-                    <b>CMRU.</b> 
+                    <b style='color:#fff'>CMRU.</b> 
                     </h3>
-                    <a class="mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bxs-info-circle' style='color:#9E9DA3'></i></h1></a>
+                    <a class="mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bxs-info-circle' style='color:#fff'></i></h1></a>
                     
                     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog">
@@ -176,7 +192,7 @@
                                                                                 <input style="display: none;"  type="text" readonly value="กำลังรอดำเนินการ..." required class="form-control" name="report">
                                                                                 <div class="row">
                                                                                     <div class="col" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 18px;'>
-                                                                                    <textarea name="problem" rows="4" cols="50" required placeholder="problem"></textarea>
+                                                                                    <textarea name="problem" style="border-radius: 25px; padding: 15px;" rows="4" cols="40" required placeholder="problem"></textarea>
                                                                                     </div>   
                                                                                     <div class="col" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
                                                                                     <button type="submit"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h4 style='color:#ffffff'><b>Report</b></h4></button>
@@ -231,48 +247,42 @@
 		<!--**********************************
             Content body start
         ***********************************-->
-        <div class="mt-5 mx-5">
+        <div class="mt-5 mx-5" >
             <!-- row -->
 			<div class="container">
 				<div class="row">
-					<div class="col-xl" >
-						<div class="row">
-							<div class="col-xl">
 								<div class="row">
 									<div class="col-xl-12">
-										<div class="card">
-											<div class="card-body" style="border-radius: 25px; border: 2px solid #fff ; background-color: #fff;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; height: 500px; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 30px;">
-                      <?php 
+										<div class="container" style="margin-top: 170px;">
+											<div class="card-body" style="border-radius: 25px; background-color: rgba(255, 255, 255, 0.665);box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; height: 500px; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 30px;">
+                                    <?php 
 
-                      if (isset($_SESSION['complete_login'])) {
+                                    if (isset($_SESSION['complete_login'])) {
 
-                            $complete_id = $_SESSION['complete_login'];
+                                            $complete_id = $_SESSION['complete_login'];
 
-                            $stmt = $conn->query("SELECT * FROM users WHERE id = $complete_id");
+                                            $stmt = $conn->query("SELECT * FROM users WHERE id = $complete_id");
 
-                            $stmt->execute();
+                                            $stmt->execute();
 
-                            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                            $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                              }
+                                            }
 
-                        ?>
-                        <div class="container text-center">
-                              <p>คุณเลือกโหวต <?php echo $row['number'] ?></p>   
-                              <p><?php echo $row['report'] ?></p>   
-                              <div style=" display: flex; justify-content: center; align-items: center; color:#ffffff;">
-                                    <p class="icon"><i class='bx bx-line-chart bx-flashing' style='color:#ffffff;  font-size: 20px;' ></i></p>
-                                    <a href="../score.php" class="buttonn" >  &nbsp; &nbsp; &nbsp;ผลคะแนนแบบเรียลไทม์</a>
-                              </div>   
-                              
-                        </div>         
+                                        ?>
+                                        <div class="container text-center" style='color:rgb(91, 91, 91)'>
+                                            <p>คุณเลือกโหวต <?php echo $row['number'] ?></p>   
+                                            <p><?php echo $row['report'] ?></p>   
+                                            <div style=" display: flex; justify-content: center; align-items: center; color:#ffffff;">
+                                                    <p class="icon"><i class='bx bx-line-chart bx-flashing' style='color:#ffffff;  font-size: 20px;' ></i></p>
+                                                    <a href="../../score.php" class="buttonn" >  &nbsp; &nbsp; &nbsp;ผลคะแนนแบบเรียลไทม์</a>
+                                            </div>   
+                                            
+                                        </div>         
 							        </div>
 						        </div>
 					        </div>
 				        </div>
-                    </div>
-                </div>
-            </div>
         <!--**********************************
             Content body end
         ***********************************-->
@@ -283,9 +293,9 @@
         <!--**********************************
             Footer start
         ***********************************-->
-        <div class="text-center">
-                <div class="copyright mt-1">
-                    <p>Copyright ©2023 VoteRealTime. All rights reserved Developed by <a href="https://github.com/NightBrain" target="_blank">@NightBrain</a></p>
+        <div class="text-center mt-2">
+                <div class="copyright">
+                    <p style='color: #fff'>Copyright ©2023 VoteRealTime. All rights reserved Developed by <a href="https://github.com/NightBrain" target="_blank" style='color: #ff8300'>@NightBrain</a></p>
                 </div>
         </div>
         
@@ -306,6 +316,8 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
+    </div>
+    
 
     <!--**********************************
         Scripts

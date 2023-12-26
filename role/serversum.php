@@ -4,7 +4,7 @@
 	
  ?>
 <?php 
-		$sql = "SELECT COUNT(*) as users FROM users";
+		$sql = "SELECT COUNT(*) as users FROM users where urole = 'professor_c' or urole = 'complete_s'";
 
 		$query = $conn->prepare($sql);
 
