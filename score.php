@@ -59,13 +59,29 @@
             font-size: 22px;
             
             }
+            body, html {
+                    height: 100%;
+                    margin: 0;
+                    }
+                    .bg {
+                    /* The image used */
+                    background-image: url("img/bg.jpg");
+
+                    /* Full height */
+                    height: 100%; 
+
+                    /* Center and scale the image nicely */
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    }
     </style>
     
 	
 </head>
 <body>
-
-    <!--*******************
+    <div class="bg">
+         <!--*******************
         Preloader start
     ********************-->
     <div id="preloader">
@@ -94,14 +110,14 @@
                 <nav class="navbar navbar-expand">
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
-							              <a href="index.php" class="dashboard_bar mx-5">  
+							              <a href="index.php" class="dashboard_bar mx-5" style='color:#ffffff'>  
                             <i class='bx bxs-circle bx-flashing' style="color: red;"></i>&nbsp; VOTE-RT                 
                             </a>
                         </div>
                         <ul class="navbar-nav header-right ">
 							
 							
-							<li class="nav-item dropdown  header-profile mt-1 mb-1">
+							<li class="nav-item dropdown  header-profile mt-1 mb-1" style='color:#ffffff'>
               <div class="display-time mt-2 mx-3" style="font-size: 2rem; font-weight: 600;"></div>  
               <div class="display-date mt-2">
                   <span id="day">day</span>,
@@ -116,7 +132,7 @@
 									<img src="img/logo.gif" width="56" alt="">
 								</a>
                 
-                    <h3 class="dashboard_bar mx-3 mt-2">
+                    <h3 class="dashboard_bar mx-3 mt-2" style='color:#ffffff'>
                     <b>CMRU.</b> 
                     </h3>
                     
@@ -136,7 +152,7 @@
 		<!--**********************************
             Content body start
         ***********************************-->
-        <div class="mt-4 mx-5">
+        <div class="mt-3 mx-5">
             <!-- row -->
 			<div class="container-fiuid">
 				<div class="row">
@@ -145,20 +161,20 @@
 							<div class="col-xl">
 								<div class="row">
 									<div class="col-xl-12">
-										<div class="card">
-											<div class="card-body" style="border-radius: 25px; border: 2px solid #fff ; background-color: #fff;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+										<div class="container-fiuid">
+											<div class="card-body" style="border-radius: 25px; background-color:rgba(255, 255, 255, 0.8);box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                       
                       
-                       <div class="container-fluid text-center mt-1">
+                       <div class="container-fluid text-center">
                               <div class="row">
                                 <div class="col justify-content-center">
                                   <table class="table">
                                     <thead>
                                       <tr>
-                                        <th scope="col"><h2><b>หมายเลขพรรค</b></h2></th>
-                                        <th scope="col"><h2><b>ชื่อพรรค</b></h2></th>
-                                        <th scope="col" class="text-center"><h2><b>รูปผู้สมัคร</b></h2></th>
-                                        <th scope="col" class="text-center"><h2><b>คะแนนรวม</b></h2></th>
+                                        <th scope="col" class="fs-1"><b>หมายเลขพรรค</b></th>
+                                        <th scope="col" class="fs-1"><b>ชื่อพรรค</b></th>
+                                        <th scope="col" class="text-center fs-1"><b>รูปผู้สมัคร</b></th>
+                                        <th scope="col" class="text-center fs-1"><b>คะแนนรวม</b></th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -174,16 +190,16 @@
 
 
                                         ?>
-                                        <th scope="row"><br><br><h3><b>No.1</b></h3></th>
-                                        <th><br><br><h3><?= $row['name']; ?></h3></th>
+                                        <th scope="row" class="fs-1"><br><b>No.1</b></th>
+                                        <th class="fs-2"><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
                                           <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
                                         </picture>
                                         </th>
                               
-                                        <th class="text-center"><br><br><h3><b><div id="link_wrapper01"></div></b></h3></th>
-
+                                        <th class="text-center fs-1"><br><b><div id="link_wrapper01"></div></b></th>
+                                    
                                       </tr>
                                       <tr>
                                       <tr>
@@ -198,15 +214,15 @@
 
 
                                         ?>
-                                        <th scope="row"><br><br><h3><b>No.2</b></h3></th>
-                                        <th><br><br><h3><?= $row['name']; ?></h3></th>
+                                        <th scope="row" class="fs-1"><br><b>No.3</b></th>
+                                        <th class="fs-2"><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
                                           <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
                                         </picture>
                                         </th>
                                   
-                                        <th class="text-center"><br><br><h3><b><div id="link_wrapper02"></div></b></h3></th>
+                                        <th class="text-center fs-1"><br><b><div id="link_wrapper02"></div></b></th>
                                 
                                       </tr>
                                       <tr>
@@ -222,15 +238,15 @@
 
 
                                         ?>
-                                        <th scope="row"><br><br><h3><b>No.3</b></h3></th>
-                                        <th><br><br><h3><?= $row['name']; ?></h3></th>
+                                        <th scope="row" class="fs-1"><br><b>No.3</b></th>
+                                        <th class="fs-2"><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
                                           <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
                                         </picture>
                                         </th>
                                         
-                                        <th class="text-center"><br><br><h3><b><div id="link_wrapper03"></div></b></h3></th>
+                                        <th class="text-center fs-1"><br><b><div id="link_wrapper03"></div></b></th>
                             
                                       </tr>
                                       <tr>
@@ -246,21 +262,21 @@
 
 
                                         ?>
-                                        <th scope="row"><br><br><h3><b>No.4</b></h3></th>
-                                        <th><br><br><h3><?= $row['name']; ?></h3></th>
+                                        <th scope="row" class="fs-1"><br><b>No.4</b></th>
+                                        <th class="fs-2"><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
                                           <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
                                         </picture>
                                         </th>
                                       
-                                        <th class="text-center"><br><br><h3><b><div id="link_wrapper04"></div></b></h3></th>
+                                        <th class="text-center fs-1"><br><b><div id="link_wrapper04"></div></b></th>
                             
                                       </tr>
                                       <tr>
-                                        <th colspan="3" class="text-center"><br><h3>ไม่ประสงค์ลงคะแนน</h3></th>
+                                        <th colspan="3" class="text-center fs-1"><br>ไม่ประสงค์ลงคะแนน</th>
                                     
-                                        <th class="text-center"><br><h3><b><div id="link_wrappern"></div></b></h3></th>
+                                        <th class="text-center fs-1"><br><b><div id="link_wrappern"></div></b></th>
                             
                                       </tr>
                                     </tbody>
@@ -288,8 +304,8 @@
             Footer start
         ***********************************-->
         <div class="text-center">
-                <div class="copyright mt-1">
-                    <p>Copyright ©2023 VoteRealTime. All rights reserved Developed by <a href="https://github.com/NightBrain" target="_blank">@NightBrain</a></p>
+                <div class="copyright">
+                    <p style='color: #fff'>Copyright ©2023 VoteRealTime. All rights reserved Developed by <a href="https://github.com/NightBrain" target="_blank" style='color: #ff8300'>@NightBrain</a></p>
                 </div>
         </div>
         
@@ -310,6 +326,8 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
+    </div>
+   
 
     <!--**********************************
         Scripts
