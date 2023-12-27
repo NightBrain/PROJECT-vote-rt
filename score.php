@@ -162,7 +162,7 @@
 								<div class="row">
 									<div class="col-xl-12">
 										<div class="container-fiuid">
-											<div class="card-body" style="border-radius: 25px; background-color:rgba(255, 255, 255, 0.8);box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+											<div class="card-body" style="border-radius: 50px; background-color:rgba(255, 255, 255, 0.8);box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                       
                       
                        <div class="container-fluid text-center">
@@ -171,10 +171,10 @@
                                   <table class="table">
                                     <thead>
                                       <tr>
-                                        <th scope="col" class="fs-1"><b>หมายเลขพรรค</b></th>
-                                        <th scope="col" class="fs-1"><b>ชื่อพรรค</b></th>
-                                        <th scope="col" class="text-center fs-1"><b>รูปผู้สมัคร</b></th>
-                                        <th scope="col" class="text-center fs-1"><b>คะแนนรวม</b></th>
+                                        <th scope="col" class="fs-2"><b>หมายเลขพรรค</b></th>
+                                        <th scope="col" class="fs-2"><b>ชื่อพรรค</b></th>
+                                        <th scope="col" class="text-center fs-2"><b>รูปผู้สมัคร</b></th>
+                                        <th scope="col" class="text-center fs-2"><b>คะแนนรวม</b></th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -190,15 +190,15 @@
 
 
                                         ?>
-                                        <th scope="row" class="fs-1"><br><b>No.1</b></th>
-                                        <th class="fs-2"><br><?= $row['name']; ?></th>
+                                        <th scope="row" class="fs-3"><br><b>No.1</b></th>
+                                        <th class="fs-3"><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
-                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
+                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:85px;">
                                         </picture>
                                         </th>
                               
-                                        <th class="text-center fs-1"><br><b><div id="link_wrapper01"></div></b></th>
+                                        <th class="text-center fs-3"><br><b><div id="link_wrapper01"></div></b></th>
                                     
                                       </tr>
                                       <tr>
@@ -214,15 +214,15 @@
 
 
                                         ?>
-                                        <th scope="row" class="fs-1"><br><b>No.3</b></th>
-                                        <th class="fs-2"><br><?= $row['name']; ?></th>
+                                        <th scope="row" class="fs-3"><br><b>No.3</b></th>
+                                        <th class="fs-3"><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
-                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
+                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:85px;">
                                         </picture>
                                         </th>
                                   
-                                        <th class="text-center fs-1"><br><b><div id="link_wrapper02"></div></b></th>
+                                        <th class="text-center fs-3"><br><b><div id="link_wrapper02"></div></b></th>
                                 
                                       </tr>
                                       <tr>
@@ -238,15 +238,15 @@
 
 
                                         ?>
-                                        <th scope="row" class="fs-1"><br><b>No.3</b></th>
-                                        <th class="fs-2"><br><?= $row['name']; ?></th>
+                                        <th scope="row" class="fs-3"><br><b>No.3</b></th>
+                                        <th class="fs-3"><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
-                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
+                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:85px;">
                                         </picture>
                                         </th>
                                         
-                                        <th class="text-center fs-1"><br><b><div id="link_wrapper03"></div></b></th>
+                                        <th class="text-center fs-3"><br><b><div id="link_wrapper03"></div></b></th>
                             
                                       </tr>
                                       <tr>
@@ -262,21 +262,21 @@
 
 
                                         ?>
-                                        <th scope="row" class="fs-1"><br><b>No.4</b></th>
-                                        <th class="fs-2"><br><?= $row['name']; ?></th>
+                                        <th scope="row" class="fs-3"><br><b>No.4</b></th>
+                                        <th class="fs-3"><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
-                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:110px;">
+                                          <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:85px;">
                                         </picture>
                                         </th>
                                       
-                                        <th class="text-center fs-1"><br><b><div id="link_wrapper04"></div></b></th>
+                                        <th class="text-center fs-3"><br><b><div id="link_wrapper04"></div></b></th>
                             
                                       </tr>
                                       <tr>
-                                        <th colspan="3" class="text-center fs-1"><br>ไม่ประสงค์ลงคะแนน</th>
+                                        <th colspan="3" class="text-center fs-3"><br>ไม่ประสงค์ลงคะแนน</th>
                                     
-                                        <th class="text-center fs-1"><br><b><div id="link_wrappern"></div></b></th>
+                                        <th class="text-center fs-3"><br><b><div id="link_wrappern"></div></b></th>
                             
                                       </tr>
                                     </tbody>

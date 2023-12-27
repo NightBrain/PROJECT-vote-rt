@@ -195,7 +195,7 @@
                                                                                     <textarea name="problem" style="border-radius: 25px; padding: 15px;" rows="4" cols="40" required placeholder="problem"></textarea>
                                                                                     </div>   
                                                                                     <div class="col" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
-                                                                                    <button type="submit"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h4 style='color:#ffffff'><b>Report</b></h4></button>
+                                                                                    <button type="submit"  name="submit" class="buttonn mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal1" style='color:#ffffff; font-weight: bold; font-size: 22px;'><b>Report</b></button>
                                                                                     </div>    
                                                                                 </div>
                                                                             </div>
@@ -253,7 +253,7 @@
 				<div class="row">
 								<div class="row">
 									<div class="col-xl-12">
-										<div class="container" style="margin-top: 170px;">
+										<div class="container" style="margin-top: 90px;">
 											<div class="card-body" style="border-radius: 25px; background-color: rgba(255, 255, 255, 0.665);box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; height: 500px; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 30px;">
                                     <?php 
 
@@ -275,7 +275,7 @@
                                             <p><?php echo $row['report'] ?></p>   
                                             <div style=" display: flex; justify-content: center; align-items: center; color:#ffffff;">
                                                     <p class="icon"><i class='bx bx-line-chart bx-flashing' style='color:#ffffff;  font-size: 20px;' ></i></p>
-                                                    <a href="../../score.php" class="buttonn" >  &nbsp; &nbsp; &nbsp;ผลคะแนนแบบเรียลไทม์</a>
+                                                    <a href="../score.php" class="buttonn" >  &nbsp; &nbsp; &nbsp;ผลคะแนนแบบเรียลไทม์</a>
                                             </div>   
                                             
                                         </div>         

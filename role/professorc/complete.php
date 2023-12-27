@@ -195,8 +195,8 @@
                                                                                     <div class="col" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 18px;'>
                                                                                     <textarea name="problem" style="border-radius: 25px; padding: 15px;" rows="4" cols="40" required placeholder="problem"></textarea>
                                                                                     </div>   
-                                                                                    <div class="col" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 22px;'>
-                                                                                    <button type="submit"  name="submit" class="btn btn-danger bttn mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h4 style='color:#ffffff'><b>Report</b></h4></button>
+                                                                                    <div class="col" style='display: flex; justify-content: center; align-items: center;'>
+                                                                                    <button type="submit"  name="submit" class="buttonn mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal1" style='color:#ffffff; font-weight: bold; font-size: 22px;'><b>Report</b></button>
                                                                                     </div>    
                                                                                 </div>
                                                                             </div>
@@ -234,7 +234,7 @@
 				<div class="row">
 								<div class="row">
 									<div class="col-xl-12">
-										<div class="container" style="margin-top: 200px;">
+										<div class="container" style="margin-top: 90px;">
 											<div class="card-body" style="border-radius: 25px; background-color: rgba(255, 255, 255, 0.665);box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; height: 500px; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 30px;">
                                     <?php 
 

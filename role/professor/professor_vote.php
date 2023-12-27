@@ -185,9 +185,9 @@
 								<div class="row">
 									<div class="col-xl-12">
 										<div class="container-fulid">
-											<div class="card-body p-5" style="border-radius: 30px; background-color: rgba(255, 255, 255, 0.55);">
+											<div class="card-body p-4" style="border-radius: 30px; background-color: rgba(255, 255, 255, 0.55);">
 												
-                                            <div class=" text-center mt-1 mx-5">
+                                            <div class=" text-center mx-5">
                                                             <div class="row">
                                                             <div class="col mx-5" style="border-radius: 25px;  background-color: #f7f7f7a5; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                                                             <?php 
@@ -205,7 +205,7 @@
                                                             }
 
                                                             ?> 
-                                                                <h1 style='color:rgb(91, 91, 91)'><b>No.1</b></h1>
+                                                                <h2 style='color:rgb(91, 91, 91)' class="mt-2"><b>No.1</b></h2>
                                                                 <h4 style='color:rgb(91, 91, 91)'><p><?= $row['name']; ?></p></h4>
 
                                                                 <!-- Modal -->
@@ -280,7 +280,7 @@
                                                                 }
 
                                                                 ?> 
-                                                                    <img src="../uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
+                                                                    <img src="../uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="55%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
                                                                     <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h1><i class='bx bx-x-circle' style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                                 </div>
                                                             </div>
@@ -301,7 +301,7 @@
                                                             }
 
                                                             ?> 
-                                                            <h1 style='color:rgb(91, 91, 91)'><b>No.2</b></h1>
+                                                            <h2 style='color:rgb(91, 91, 91)' class="mt-2"><b>No.2</b></h2>
                                                             <h4 style='color:rgb(91, 91, 91)'><p><?= $row['name']; ?></p></h4>
                                                                 <!-- Modal -->
                                                                 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -373,7 +373,7 @@
                                                                 }
 
                                                                 ?> 
-                                                                    <img src="../uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
+                                                                    <img src="../uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="55%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
                                                                     <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal2"><h1><i class='bx bx-x-circle'style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                                 </div>
                                                             </div>
@@ -393,7 +393,7 @@
                                                             }
 
                                                             ?> 
-                                                            <h1 style='color:rgb(91, 91, 91)'><b>No.3</b></h1>
+                                                            <h2 style='color:rgb(91, 91, 91)' class="mt-2"><b>No.3</b></h2>
                                                             <h4 style='color:rgb(91, 91, 91)'><p><?= $row['name']; ?></p></h4>
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -465,7 +465,7 @@
                                                             }
 
                                                             ?> 
-                                                                <img src="../uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
+                                                                <img src="../uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="55%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
                                                                 <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal3"><h1><i class='bx bx-x-circle'style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                             </div>
                                                             </div>
@@ -485,7 +485,7 @@
                                                             }
 
                                                             ?> 
-                                                            <h1 style='color:rgb(91, 91, 91)'><b>No.4</b></h1>
+                                                            <h2 style='color:rgb(91, 91, 91)' class="mt-2"><b>No.4</b></h2>
                                                             <h4 style='color:rgb(91, 91, 91)'><p><?= $row['name']; ?></p></h4>
                                                             <!-- Modal -->
                                                             <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -557,7 +557,7 @@
                                                             }
 
                                                             ?> 
-                                                                <img src="../uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="80%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
+                                                                <img src="../uploads/<?= $row['img']; ?>" alt="..." class="img-thumbnail" width="55%"style='box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;'>
                                                                 <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal4"><h1><i class='bx bx-x-circle'style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
                                                             </div>
                                                         </div>
@@ -618,14 +618,18 @@
                                                                     </div>
                                                                     </div>
                                                                 </div>
-                                                                    <h1 style='color:rgb(91, 91, 91)'><b>ไม่ประสงค์ลงคะแนน</b></h1>
+                                                                <div class="p-2">
+                                                                    <h2 style='color:rgb(91, 91, 91)'><b>ไม่ประสงค์ลงคะแนน</b></h2>
                                                                     <button type="button" class="btn btn-danger bttn m-3" data-bs-toggle="modal" data-bs-target="#exampleModal5"><h1><i class='bx bx-x-circle'style='color:#ffffff'></i></h1><h4 style='color:#ffffff'>ลงคะแนน</h4></button>
+                                                                </div>  
                                                             </div>
                                                             </div>
                                                         </div>
                                                         </div>
+                                                        
                                             
                                             </div>	
+                                            
                                         </div>
 							        </div>
 						        </div>
@@ -644,16 +648,16 @@
         <!--**********************************
             Footer start
         ***********************************-->
-        <div class="text-center mt-2">
-                <div class="copyright">
-                    <p style='color: #fff'>Copyright ©2023 VoteRealTime. All rights reserved Developed by <a href="https://github.com/NightBrain" target="_blank" style='color:#ff8300'>@NightBrain</a></p>
-                </div>
-        </div>
+       
         
         <!--**********************************
             Footer end
         ***********************************-->
-
+        <div class="text-center">
+            <div class="copyright">
+                <p style='color: #fff'>Copyright ©2023 VoteRealTime. All rights reserved Developed by <a href="https://github.com/NightBrain" target="_blank" style='color:#ff8300'>@NightBrain</a></p>
+             </div>
+        </div>
 		<!--**********************************
            Support ticket button start
         ***********************************-->
