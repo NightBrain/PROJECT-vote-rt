@@ -110,19 +110,20 @@
 										<h3> </h3>
 						
 									</div>
+									<form action="del/coded2" method="POST">
 									<table class="table">
 										<thead>
 											<tr>
 											<th scope="col" style="display: none;"><h2>ID</h2></th>
 											<th scope="col"><h2>Student ID</h2></th>
 											<th scope="col"><h2>Time</h2></th>
-											<th scope="col" class="text-center"><h2>Action</h2></th>
+											<th class="text-center"><button type="submit" name="stud_delete_multiple_btn" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?');">Delete Data All</button></th>
 											</tr>
 										</thead>
 										<tbody>
 										<?php 
 
-											$stmt = $conn->query("SELECT * FROM vote02");
+											$stmt = $conn->query("SELECT * FROM vote02 Order By id DESC");
 
 											$stmt->execute();
 
@@ -138,6 +139,7 @@
 
 											?>
 											<tr>
+											<td style="display: none;"><input type="checkbox" name="stud_delete_id[]" checked value="<?= $user['id']; ?>"></td>
 											<td style="display: none;"><h4><?= $user['id']; ?></h4></td>
 											<td><h4><?= $user['ids']; ?></h4></td>
 											<td><h4><?= $user['time']; ?></h4></td>
@@ -149,6 +151,7 @@
 														} ?>
 										</tbody>
 										</table>
+										</form>
 								</div>
 							</div>
 						</div>
@@ -296,6 +299,6 @@
 	}
 
 	</script>
-
+ <script src="server.js"></script>
 </body>
 </html>

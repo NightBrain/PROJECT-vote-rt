@@ -22,7 +22,7 @@
         <!--**********************************
             Header start
         ***********************************-->
-        <div class="header">
+		<div class="header">
             <div class="header-content">
                 <nav class="navbar navbar-expand">
                     <div class="collapse navbar-collapse justify-content-between">
@@ -38,7 +38,99 @@
 								</div>
 							</div>
                         </div>
+
                         <ul class="navbar-nav header-right main-notification">
+                        <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link bell dz-theme-mode" href="#">
+									<i id="icon-light"><i class='bx bxs-sun' style='color:#ffffff' ></i></i>
+                                    <i id="icon-dark"><i class='bx bxs-moon'></i></i>
+                                </a>
+							</li>
+							<li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link bell dz-fullscreen" href="#">
+                                    <i id="icon-full"><i class='bx bx-fullscreen' style='color:#ffffff' ></i></i>
+                                    <i id="icon-minimize"><i class='bx bx-exit-fullscreen' style='color:#ffffff' ></i></i>
+                                </a>
+							</li>
+							<li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link  ai-icon" href="javascript:void(0)" role="button" data-toggle="dropdown">
+									
+									<div id="link_wrapper"></div>
+                                </a>
+								<div class="dropdown-menu dropdown-menu-right">
+                                    <div id="dlab_W_Notification1" class="widget-media dz-scroll p-3 height380">
+										<ul class="timeline">
+											<li>
+												<div class="timeline-panel">
+													<div class="media mr-2">
+														<img alt="image" width="50" src="images/avatar/1.jpg">
+													</div>
+													<div class="media-body">
+														<h6 class="mb-1">Dr sultads Send you Photo</h6>
+														<small class="d-block">29 July 2020 - 02:26 PM</small>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="timeline-panel">
+													<div class="media mr-2 media-info">
+														KG
+													</div>
+													<div class="media-body">
+														<h6 class="mb-1">Resport created successfully</h6>
+														<small class="d-block">29 July 2020 - 02:26 PM</small>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="timeline-panel">
+													<div class="media mr-2 media-success">
+														<i class="fa fa-home"></i>
+													</div>
+													<div class="media-body">
+														<h6 class="mb-1">Reminder : Treatment Time!</h6>
+														<small class="d-block">29 July 2020 - 02:26 PM</small>
+													</div>
+												</div>
+											</li>
+											 <li>
+												<div class="timeline-panel">
+													<div class="media mr-2">
+														<img alt="image" width="50" src="images/avatar/1.jpg">
+													</div>
+													<div class="media-body">
+														<h6 class="mb-1">Dr sultads Send you Photo</h6>
+														<small class="d-block">29 July 2020 - 02:26 PM</small>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="timeline-panel">
+													<div class="media mr-2 media-danger">
+														KG
+													</div>
+													<div class="media-body">
+														<h6 class="mb-1">Resport created successfully</h6>
+														<small class="d-block">29 July 2020 - 02:26 PM</small>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="timeline-panel">
+													<div class="media mr-2 media-primary">
+														<i class="fa fa-home"></i>
+													</div>
+													<div class="media-body">
+														<h6 class="mb-1">Reminder : Treatment Time!</h6>
+														<small class="d-block">29 July 2020 - 02:26 PM</small>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+                                    <a class="all-notification" href="javascript:void(0)">See all notifications <i class="ti-arrow-right"></i></a>
+                                </div>
+							</li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                                     <img src="../img/logo.gif" width="20" alt="">
@@ -178,3 +270,4 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
+		

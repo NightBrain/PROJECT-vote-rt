@@ -125,7 +125,7 @@
 										<tbody>
 										<?php 
 
-											$stmt = $conn->query("SELECT * FROM users where urole = 'student'");
+											$stmt = $conn->query("SELECT * FROM users where urole = 'student' Order By id DESC");
 
 											$stmt->execute();
 
@@ -305,6 +305,6 @@
 	}
 
 	</script>
-
+ <script src="server.js"></script>
 </body>
 </html>

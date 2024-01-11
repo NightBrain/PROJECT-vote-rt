@@ -6,6 +6,36 @@
 
     require_once 'config/config.php';
 
+    $paginationCtrls = '';
+ 
+    if($last != 1){
+  
+    if ($pagenum > 1) {
+  $previous = $pagenum - 1;
+      $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$previous.'" class="btn btn-info">Previous</a> &nbsp; &nbsp; ';
+  
+      for($i = $pagenum-4; $i < $pagenum; $i++){
+        if($i > 0){
+      $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-primary">'.$i.'</a> &nbsp; ';
+        }
+    }
+  }
+  
+    $paginationCtrls .= ''.$pagenum.' &nbsp; ';
+  
+    for($i = $pagenum+1; $i <= $last; $i++){
+      $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'" class="btn btn-primary">'.$i.'</a> &nbsp; ';
+      if($i >= $pagenum+4){
+        break;
+      }
+    }
+  
+  if ($pagenum != $last) {
+  $next = $pagenum + 1;
+  $paginationCtrls .= ' &nbsp; &nbsp; <a href="'.$_SERVER['PHP_SELF'].'?pn='.$next.'" class="btn btn-info">Next</a> ';
+  }
+    }
+
 ?>
 
 
@@ -171,10 +201,10 @@
                                   <table class="table">
                                     <thead>
                                       <tr>
-                                        <th scope="col" class="fs-2"><b>หมายเลขพรรค</b></th>
-                                        <th scope="col" class="fs-2"><b>ชื่อพรรค</b></th>
-                                        <th scope="col" class="text-center fs-2"><b>รูปผู้สมัคร</b></th>
-                                        <th scope="col" class="text-center fs-2"><b>คะแนนรวม</b></th>
+                                        <th scope="col" class="fs-2" style='color:#000'><b>หมายเลขพรรค</b></th>
+                                        <th scope="col" class="fs-2" style='color:#000'><b>ชื่อพรรค</b></th>
+                                        <th scope="col" class="text-center fs-2" style='color:#000'><b>รูปผู้สมัคร</b></th>
+                                        <th scope="col" class="text-center fs-2" style='color:#000'><b>คะแนนรวม</b></th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -190,18 +220,18 @@
 
 
                                         ?>
-                                        <th scope="row" class="fs-3"><br><b>No.1</b></th>
-                                        <th class="fs-3"><br><?= $row['name']; ?></th>
+                                        <th scope="row" class="fs-3" style='color:#000'><br><b>No.1</b></th>
+                                        <th class="fs-3" style='color:#000'><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
                                           <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:85px;">
                                         </picture>
                                         </th>
                               
-                                        <th class="text-center fs-3"><br><b><div id="link_wrapper01"></div></b></th>
+                                        <th class="text-center fs-3" style='color:#000'><br><b><div id="link_wrapper_1"></div></b></th>
                                     
                                       </tr>
-                                      <tr>
+                                    
                                       <tr>
                                       <?php 
 
@@ -214,18 +244,18 @@
 
 
                                         ?>
-                                        <th scope="row" class="fs-3"><br><b>No.3</b></th>
-                                        <th class="fs-3"><br><?= $row['name']; ?></th>
+                                        <th scope="row" class="fs-3" style='color:#000'><br><b>No.3</b></th>
+                                        <th class="fs-3" style='color:#000'><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
                                           <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:85px;">
                                         </picture>
                                         </th>
                                   
-                                        <th class="text-center fs-3"><br><b><div id="link_wrapper02"></div></b></th>
+                                        <th class="text-center fs-3" style='color:#000'><br><b><div id="link_wrapper_2"></div></b></th>
                                 
                                       </tr>
-                                      <tr>
+                                      
                                       <tr>
                                       <?php 
 
@@ -238,18 +268,18 @@
 
 
                                         ?>
-                                        <th scope="row" class="fs-3"><br><b>No.3</b></th>
-                                        <th class="fs-3"><br><?= $row['name']; ?></th>
+                                        <th scope="row" class="fs-3" style='color:#000'><br><b>No.3</b></th>
+                                        <th class="fs-3" style='color:#000'><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
                                           <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:85px;">
                                         </picture>
                                         </th>
                                         
-                                        <th class="text-center fs-3"><br><b><div id="link_wrapper03"></div></b></th>
+                                        <th class="text-center fs-3" style='color:#000'><br><b><div id="link_wrapper_3"></div></b></th>
                             
                                       </tr>
-                                      <tr>
+                                      
                                       <tr>
                                       <?php 
 
@@ -262,25 +292,30 @@
 
 
                                         ?>
-                                        <th scope="row" class="fs-3"><br><b>No.4</b></th>
-                                        <th class="fs-3"><br><?= $row['name']; ?></th>
+                                        <th scope="row" class="fs-3" style='color:#000'><br><b>No.4</b></th>
+                                        <th class="fs-3" style='color:#000'><br><?= $row['name']; ?></th>
                                         <th class="text-center">
                                         <picture>
                                           <img src="role/uploads/<?= $row['img']; ?>" class="img-fluid img-thumbnail" style="width:85px;">
                                         </picture>
                                         </th>
                                       
-                                        <th class="text-center fs-3"><br><b><div id="link_wrapper04"></div></b></th>
+                                        <th class="text-center fs-3" style='color:#000'><br><b><div id="link_wrapper_4"></div></b></th>
                             
                                       </tr>
+                                      
                                       <tr>
-                                        <th colspan="3" class="text-center fs-3"><br>ไม่ประสงค์ลงคะแนน</th>
+                                        <th colspan="3" class="text-center fs-3" style='color:#000'><br>ไม่ประสงค์ลงคะแนน</th>
                                     
-                                        <th class="text-center fs-3"><br><b><div id="link_wrappern"></div></b></th>
+                                        <th class="text-center fs-3" style='color:#000'><br><b><div id="link_wrapper_n"></div></b></th>
                             
                                       </tr>
+
                                     </tbody>
                                   </table>
+
+                                  <div id="pagination_controls"><?php echo $paginationCtrls; ?></div>
+
                                 </div>
                               </div>
                               </div>
@@ -333,11 +368,7 @@
         Scripts
     ***********************************-->
     <script src="role/time.js"></script>
-    <script src="sv01.js"></script>
-    <script src="sv02.js"></script>
-    <script src="sv03.js"></script>
-    <script src="sv04.js"></script>
-    <script src="svnone.js"></script>
+    <script src="sv_score.js"></script>
     <!-- Required vendors -->
     <script src="role/professor/vendor/global/global.min.js"></script>
 	<script src="role/professor/vendor/chart.js/Chart.bundle.min.js"></script>

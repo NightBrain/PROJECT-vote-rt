@@ -1,4 +1,4 @@
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php 
 
@@ -16,25 +16,7 @@
 
   }
 
-  if (isset($_GET['delete'])) {
-
-	$delete_id = $_GET['delete'];
-
-	$deletestmt = $conn->query("DELETE FROM vote01 WHERE id = $delete_id");
-
-	$deletestmt->execute();
-
-	if ($deletestmt) {
-
-		echo "<script>alert('Data has been deleted successfully');</script>";
-
-		$_SESSION['success'] = "Data has been deleted succesfully";
-
-		header("refresh:1; url=no1.php");
-
-	}
-
-}
+  
 
 ?>
 
@@ -53,6 +35,9 @@
     <link rel="icon" type="image/png" href="../../img/logov.png">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<link href='button.css' rel='stylesheet'>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 	
 </head>
 <body>
@@ -96,59 +81,25 @@
 					<a href="javascript:void(0);" class="btn white-transparent mb-2"><i class="las la-calendar scale5 mr-3"></i>Filter Periode</a>
 				</div>
 			</div> -->
-			<div class="container-fluid">
+			<div class="container-fluid" >
 				<div class="form-head mb-sm-5 mb-3 d-flex flex-wrap align-items-center">
 					<h2 class="font-w600 title mb-2 mr-auto ">No.1</h2><a href="export/01.php" class="button-87" role="button">EXPORT VOTE NO.1</a>
 				</div>
 				
 				<div class="row">
-					<div class="col-xl col-xxl">
-						<div class="card">
-							<div class="table-data">
+					<div class="col-xl col-xxl" >
+						<div class="">
+							<div class="table-data" style="height: 800px">
 								<div class="order">
-									<div class="head">
+									<div class="head" >
 										<h3> </h3>
 						
 									</div>
-									<table class="table">
-										<thead>
-											<tr>
-											<th scope="col" style="display: none;"><h2>ID</h2></th>
-											<th scope="col"><h2>Student ID</h2></th>
-											<th scope="col"><h2>Time</h2></th>
-											<th scope="col" class="text-center"><h2>Action</h2></th>
-											</tr>
-										</thead>
-										<tbody>
-										<?php 
-
-											$stmt = $conn->query("SELECT * FROM vote01");
-
-											$stmt->execute();
-
-											$userss = $stmt->fetchAll();
-
-											if (!$userss) {
-
-											echo "<tr><td colspan='6' class='text-center'>None vote</td></tr>";
-
-											} else {
-
-											foreach ($userss as $user) {
-
-											?>
-											<tr>
-											<td style="display: none;"><h4><?= $user['id']; ?></h4></td>
-											<td><h4><?= $user['ids']; ?></h4></td>
-											<td><h4><?= $user['time']; ?></h4></td>
-											<td class="text-center">
-												<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-danger delete-btn">ลบ</a>
-											</td>
-											</tr>
-											<?php } 
-														} ?>
-										</tbody>
-										</table>
+									
+									<iframe src="t01.php" width="100%" height="100%" class="rounded-5" ></iframe>
+										
+									
+									
 								</div>
 							</div>
 						</div>
@@ -187,6 +138,9 @@
     <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../vendor/global/global.min.js"></script>
 	<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	<script src="../vendor/chart.js/Chart.bundle.min.js"></script>
+
+	
+	<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 	
 	<!-- Chart piety plugin files -->
     <script src="../vendor/peity/jquery.peity.min.js"></script>
@@ -202,100 +156,16 @@
 	<script src="../js/deznav-init.js"></script>
     <script src="../js/demo.js"></script>
 
-
-	<script>
-		jQuery(document).ready(function(){
+  <script>
+	jQuery(document).ready(function(){
 			setTimeout(function() {
 				dezSettingsOptions.version = 'dark';
 				new dezSettings(dezSettingsOptions);
 			},1500)
 		});
 
-
-
-	$(".delete-btn").click(function(e) {
-
-	var userId = $(this).data('id');
-
-	e.preventDefault();
-
-	deleteConfirm(userId);
-
-	})
-
-
-
-	function deleteConfirm(userId) {
-
-	Swal.fire({
-
-		title: 'Are you sure?',
-
-		text: "It will be deleted permanently!",
-
-		showCancelButton: true,
-
-		confirmButtonColor: '#3085d6',
-
-		cancelButtonColor: '#d33',
-
-		confirmButtonText: 'Yes, delete it!',
-
-		showLoaderOnConfirm: true,
-
-		preConfirm: function() {
-
-			return new Promise(function(resolve) {
-
-				$.ajax({
-
-						url: 'no1.php',
-
-						type: 'GET',
-
-						data: 'delete=' + userId,
-
-					})
-
-					.done(function() {
-
-						Swal.fire({
-
-							title: 'success',
-
-							text: 'Data deleted successfully!',
-
-							icon: 'success',
-
-							timer: 2000,
-                                 
-							timerProgressBar: true,
-
-						}).then(() => {
-
-							document.location.href = 'no1.php';
-
-						})
-
-					})
-
-					.fail(function() {
-
-						Swal.fire('Oops...', 'Something went wrong with ajax !', 'error')
-
-						window.location.reload();
-
-					});
-
-			});
-
-		},
-
-	});
-
-	}
-
-	</script>
-
+  </script>
+	
+ <script src="server.js"></script>
 </body>
 </html>

@@ -76,7 +76,7 @@
 
                     $_SESSION['error'] = "มีบางอย่างผิดพลาด";
 
-                    header("location: index.php");
+                    header("location: indexx.php");
 
                 }
 

@@ -16,7 +16,7 @@
 
 			<tbody>
 				<tr>
-					<td><?= $fetch['users'] ?></td>
+					<td>Total <?= $fetch['users'] ?> people</td>
 				</tr>
 			</tbody>
 <?php 	} ?>

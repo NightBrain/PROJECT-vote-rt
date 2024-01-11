@@ -153,7 +153,7 @@
 											<td class="text-center">
                                                 <button type="submit" name="submitt" class="btn btn-warning">Reset</button> &nbsp; 
 
-												<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-danger delete-btn">Delete</a>
+												<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-success delete-btn">Successful</a>
 											</td>
                                             </form>
 											</tr>
@@ -213,6 +213,7 @@
     <script src="js/custom.min.js"></script>
 	<script src="js/deznav-init.js"></script>
     <script src="js/demo.js"></script>
+	<script src="server.js"></script>
 
 
 	<script>
@@ -241,17 +242,17 @@
 
 	Swal.fire({
 
-		title: 'Are you sure?',
+		title: 'Edited successfully',
 
-		text: "It will be deleted permanently!",
+		text: "yes or no?",
 
 		showCancelButton: true,
 
-		confirmButtonColor: '#3085d6',
+		confirmButtonColor: '#02d602',
 
 		cancelButtonColor: '#d33',
 
-		confirmButtonText: 'Yes, delete it!',
+		confirmButtonText: 'Yes successfully',
 
 		showLoaderOnConfirm: true,
 
@@ -275,7 +276,7 @@
 
 							title: 'success',
 
-							text: 'Data deleted successfully!',
+							text: 'Data Edited successfully!',
 
 							icon: 'success',
 

@@ -47,7 +47,6 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="../img/logov.png">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-	
 </head>
 <body>
 
@@ -101,7 +100,7 @@
 							<div class="card-body text-center">
                                 <img class="mb-3 currency-icon" src="../img/001.png" width="80" height="80">
 								<h4 class="mt-1">Student</h4>
-								<h2 class="text-center text-black mb-2 font-w600"><div id="link_wrapper01"></h2>
+								<h2 class="text-black mb-2 font-w600"><div id="link_wrapper01"></h2>
 						
 							</div>
 						</div>
@@ -177,7 +176,7 @@
 					<div class="col-xl-3 col-xxl-4">
 						<div class="card">
 							<div class="card-header border-0 pb-0">
-								<h4 class="fs-20 text-black">Total <?php include 'serversum.php';?> people</h4>
+								<h4 class="fs-20 text-black"> <div id="link_wrapper05"> </h4>
 							</div>
 							<div class="card-body pb-0">
 								<div id="currentChart" class="current-chart"></div>
@@ -190,7 +189,7 @@
 											<span class="fs-14">No.1</span>
 										</div>
 										<div>
-											<h5 class="mb-0"><?php include '../server01.php';?></h5>
+											<h5 class="mb-0"><div id="link_wrapper_11"></h5>
 										</div>
 									</div>
 									<div class="d-flex justify-content-between mb-2 align-items-center">
@@ -202,7 +201,7 @@
 											<span class="fs-14">No.2</span>
 										</div>
 										<div>
-											<h5 class="mb-0"><?php include '../server02.php';?></h5>
+											<h5 class="mb-0"><div id="link_wrapper_22"></h5>
 										</div>
 									</div>
 									<div class="d-flex justify-content-between mb-2 align-items-center">
@@ -213,7 +212,7 @@
 											<span class="fs-14">No.3</span>
 										</div>
 										<div>
-											<h5 class="mb-0"><?php include '../server03.php';?></h5>
+											<h5 class="mb-0"><div id="link_wrapper_33"></h5>
 										</div>
 									</div>
 									<div class="d-flex justify-content-between mb-2 align-items-center">
@@ -224,7 +223,7 @@
 											<span class="fs-14">No.4</span>
 										</div>
 										<div>
-											<h5 class="mb-0"><?php include '../server04.php';?></h5>
+											<h5 class="mb-0"><div id="link_wrapper_44"></h5>
 										</div>
 									</div>
 								</div>	
@@ -243,9 +242,7 @@
 											<div class="btn  d-flex align-items-center border-0 order-bg rounded " data-toggle="dropdown">
 												<img src="../img/01.png" width="46" height="46">
 													
-												<div class="text-left ml-3">
-													<span class="d-block fs-16 text-black"><?php include '../server01.php';?></span>
-												</div>
+												<h5 class="ml-2 mb-0"><div id="link_wrapper_t1"></h5>
 												<i class="fa fa-angle-down scale5 ml-auto"></i>
 											</div>
 											<div class="dropdown-menu dropdown-menu-right">
@@ -279,11 +276,11 @@
 											} else {
 
 											foreach ($userss as $user) {
-
+											$text = $user['ids']; 
 											?>
 											<tr>
 											<td class="text-center"><?= $user['id']; ?></td>
-											<td class="text-centert"><?= $user['ids']; ?></td>
+											<td class="text-centert"><?php echo mb_strimwidth($text, 0, 10, '...');?></td>
 											<td class="text-centert"><?= $user['time']; ?></td>
 											</tr>
 											<?php } 
@@ -304,9 +301,7 @@
 										<div class="dropdown custom-dropdown d-block tbl-orders">
 											<div class="btn  d-flex align-items-center order-bg border-0 rounded" data-toggle="dropdown">
                                             <img src="../img/02.png" width="46" height="46">
-												<div class="text-left ml-3">
-													<span class="d-block fs-16 text-black"><?php include '../server02.php';?></span>
-												</div>
+											<h5 class="ml-2 mb-0"><div id="link_wrapper_t2"></h5>
 												<i class="fa fa-angle-down scale5 ml-auto"></i>
 											</div>
 											<div class="dropdown-menu dropdown-menu-right">
@@ -339,11 +334,11 @@
 											} else {
 
 											foreach ($userss as $user) {
-
+											$text = $user['ids']; 
 											?>
 											<tr>
 											<td class="text-center"><?= $user['id']; ?></td>
-											<td class="text-centert"><?= $user['ids']; ?></td>
+											<td class="text-centert"><?php echo mb_strimwidth($text, 0, 10, '...');?></td>
 											<td class="text-centert"><?= $user['time']; ?></td>
 											</tr>
 											<?php } 
@@ -368,9 +363,7 @@
                                             <div class="dropdown custom-dropdown d-block tbl-orders">
                                                 <div class="btn  d-flex align-items-center order-bg border-0 rounded" data-toggle="dropdown">
                                                 <img src="../img/03.png" width="46" height="46">
-                                                    <div class="text-left ml-3">
-                                                        <span class="d-block fs-16 text-black"><?php include '../server03.php';?></span>
-                                                    </div>
+												<h5 class="ml-2 mb-0"><div id="link_wrapper_t3"></h5>
                                                     <i class="fa fa-angle-down scale5 ml-auto"></i>
                                                 </div>
                                                 <div class="dropdown-menu dropdown-menu-right">
@@ -403,11 +396,11 @@
 											} else {
 
 											foreach ($userss as $user) {
-
+											$text = $user['ids']; 
 											?>
 											<tr>
 											<td class="text-center"><?= $user['id']; ?></td>
-											<td class="text-centert"><?= $user['ids']; ?></td>
+											<td class="text-centert"><?php echo mb_strimwidth($text, 0, 10, '...');?></td>
 											<td class="text-centert"><?= $user['time']; ?></td>
 											</tr>
 											<?php } 
@@ -428,9 +421,7 @@
                                             <div class="dropdown custom-dropdown d-block tbl-orders">
                                                 <div class="btn  d-flex align-items-center order-bg border-0 rounded" data-toggle="dropdown">
                                                 <img src="../img/04.png" width="46" height="46">
-                                                    <div class="text-left ml-3">
-                                                        <span class="d-block fs-16 text-black"><?php include '../server04.php';?></span>
-                                                    </div>
+												<h5 class="ml-2 mb-0"><div id="link_wrapper_t4"></h5>
                                                     <i class="fa fa-angle-down scale5 ml-auto"></i>
                                                 </div>
                                                 <div class="dropdown-menu dropdown-menu-right">
@@ -463,11 +454,11 @@
 											} else {
 
 											foreach ($userss as $user) {
-
+											$text = $user['ids']; 
 											?>
 											<tr>
 											<td class="text-center"><?= $user['id']; ?></td>
-											<td class="text-centert"><?= $user['ids']; ?></td>
+											<td class="text-centert"><?php echo mb_strimwidth($text, 0, 10, '...');?></td>
 											<td class="text-centert"><?= $user['time']; ?></td>
 											</tr>
 											<?php } 
@@ -514,17 +505,8 @@
     <!--**********************************
         Scripts
     ***********************************-->
-    <script src="sv01.js"></script>
-    <script src="sv02.js"></script>
-    <script src="sv03.js"></script>
-    <script src="sv04.js"></script>
-    <script src="svnone.js"></script>
+    <script src="server.js"></script>
 
-    <script src="sv/sv011.js"></script>
-    <script src="sv/sv022.js"></script>
-    <script src="sv/sv033.js"></script>
-    <script src="sv/sv044.js"></script>
-    <script src="sv/svnone1.js"></script>
     <!-- Required vendors -->
     <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
 	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
