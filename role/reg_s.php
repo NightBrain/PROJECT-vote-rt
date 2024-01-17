@@ -74,7 +74,7 @@
     ***********************************-->
     <div id="main-wrapper">
 
-        <?php include 'nav.php';?>
+        <?php include 'nav1.php';?>
 		
 		<!--**********************************
             Content body start
@@ -113,7 +113,25 @@
                                             <span class="login100-form-title p-b-34 p-t-27">
                                                 Register
                                             </span>
+											<?php 
 
+											if (isset($_SESSION['admin_login'])) {
+
+												$admin_login = $_SESSION['admin_login'];
+
+												$stmt = $conn->query("SELECT * FROM users WHERE id = $admin_login");
+
+												$stmt->execute();
+
+												$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+											}
+
+											?>
+											<div class="wrap-input100 validate-input d-none" data-validate = "Enter Firstname">
+												<input class="input100" type="text" name="regby" placeholder="Enter Firstname" value="<?php echo $row['firstname'] ?>">
+												<span class="focus-input100" data-placeholder="&#xf1f3;"></span>
+											</div>
                                             <div class="wrap-input100 validate-input" data-validate = "Enter Firstname">
                                                 <input class="input100" type="text" name="firstname" placeholder="Enter Firstname">
                                                 <span class="focus-input100" data-placeholder="&#xf1f3;"></span>

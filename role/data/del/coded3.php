@@ -15,7 +15,7 @@ error_reporting(0);
             $all = implode(",", $_POST['stud_delete_id']);
             $sql = mysqli_query($con, "DELETE FROM vote03 WHERE id in ($all)");
             if ($sql) {
-                header("Location: no1.php");
+                header("Location: ../t02.php");
 
             } else {
                 header("Location: no.php");

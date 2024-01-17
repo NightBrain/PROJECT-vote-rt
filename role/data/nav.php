@@ -34,6 +34,33 @@
 							</div>
                         </div>
                         <ul class="navbar-nav header-right main-notification">
+                        <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link bell dz-theme-mode" href="#">
+									<i id="icon-light"><i class='bx bxs-sun' style='color:#ffffff' ></i></i>
+                                    <i id="icon-dark"><i class='bx bxs-moon'></i></i>
+                                </a>
+							</li>
+							<li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link bell dz-fullscreen" href="#">
+                                    <i id="icon-full"><i class='bx bx-fullscreen' style='color:#ffffff' ></i></i>
+                                    <i id="icon-minimize"><i class='bx bx-exit-fullscreen' style='color:#ffffff' ></i></i>
+                                </a>
+							</li>
+							<li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link  ai-icon" href="javascript:void(0)" role="button" data-toggle="dropdown">
+									<div id="link_wrapper"></div>
+                                </a>
+								<div class="dropdown-menu dropdown-menu-right">
+                                    <div id="dlab_W_Notification1" class="widget-media dz-scroll p-3 height380">
+										<ul class="timeline">
+										<a href="../rp.php">
+											<div id="link_wrapper_text"></div>
+										</a>
+										</ul>
+									</div>
+                                    <a class="all-notification" href="../rp.php">See all notifications <i class="ti-arrow-right"></i></a>
+                                </div>
+							</li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                                     <img src="../../img/logo.gif" width="20" alt="">
@@ -43,10 +70,29 @@
 									</div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="../logout.php" class="dropdown-item ai-icon">
-                                        <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                                        <span class="ml-2">Logout </span>
-                                    </a>
+                                <div class="dropdown-item ai-icon">
+                                        <form class="form-detail" action="../logout.php" method="post">
+                           
+                                        <?php 
+
+                                            if (isset($_SESSION['admin_login'])) {
+
+                                                $admin_id = $_SESSION['admin_login'];
+
+                                                $stmt = $conn->query("SELECT * FROM users WHERE id = $admin_id");
+
+                                                $stmt->execute();
+
+                                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                            }
+
+                                        ?> 
+                                        <input style="display: none;"  type="text" readonly value="<?php echo $row['id'] ?>" required class="form-control" name="id">
+                                                                                 
+                                        <span class="ml-2"><button type="submit"  name="submit" class="btn btn-danger bttn mt-3"><h4 style='color:#ffffff'><i class='bx bx-log-out'></i> Logout </h4></button></span>
+                                        </form>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -109,7 +155,7 @@
 							<span class="nav-text">personal information</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="../infoadmin.php">Admin</a></li>
+                            <li><a href="../sinfo/password.php"><i class='bx bxs-lock'></i>Admin</a></li>
                             <li><a href="../infostudent.php">Student</a></li>
                             <li><a href="../infoprofessor.php">Professor</a></li>
                             <li><a href="../infostudentc.php">complete_s</a></li>
@@ -138,6 +184,7 @@
 							<span class="nav-text">Register</span>
 						</a>
                         <ul aria-expanded="false">
+                            <li><a href="../sreg/password.php"><i class='bx bxs-lock'></i>Admin</a></li>
                             <li><a href="../reg_p.php">Professor</a></li>
                             <li><a href="../reg_s.php">Student</a></li>
                         </ul>

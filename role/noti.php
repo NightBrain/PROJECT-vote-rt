@@ -14,7 +14,6 @@
         $noti = $fetch['users'];
 			
                     if ($noti > 0) {
-                        include 'notify.php';
                         echo "<i class='bx bxs-bell-ring bx-tada' style='color:#ffffff' ></i>";
                         echo "<div class='badge light text-white bg-danger rounded-circle'> {$noti} </div>";
 

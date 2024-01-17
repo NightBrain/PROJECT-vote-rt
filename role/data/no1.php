@@ -34,7 +34,7 @@
     <link href="../css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/logov.png">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-	<link href='button.css' rel='stylesheet'>
+	<link href='btn.css' rel='stylesheet'>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
@@ -130,12 +130,13 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
-
+    <script src="server.js"></script>
     <!--**********************************
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../vendor/global/global.min.js"></script>
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="../vendor/global/global.min.js"></script>
 	<script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	<script src="../vendor/chart.js/Chart.bundle.min.js"></script>
 
@@ -166,6 +167,6 @@
 
   </script>
 	
- <script src="server.js"></script>
+
 </body>
 </html>

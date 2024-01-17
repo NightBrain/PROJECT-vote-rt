@@ -42,8 +42,16 @@
         <div class="form-group my-3">
                 <h2 class="text-center" style='color:#ff0000'><b>Report Problem</b></h2><br>
                 <input style="display: none;"  type="text" readonly value="กำลังรอดำเนินการ..." required class="form-control" name="report">
+                <div class="row">
+                    <div class="col">
+                    <input type="text" style="border-radius: 30px; padding: 15px; opacity: 0.6; border: none;" required placeholder="รหัสนักศึกษา" class="form-control" name="sid">
+                </div>
+                <div class="col">
+                     <input type="text" style="border-radius: 30px; padding: 15px; opacity: 0.6; border: none;" required placeholder="สถานภาพ" class="form-control" name="role">
+                </div>
+                </div><br>
                 <div class="col" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 25px;'>
-                <textarea name="problem" style="border-radius: 30px; padding: 15px; opacity: 0.6; border: none;" rows="6" cols="100" required placeholder="กรุณากรอกรหัสนักศึกษาลงไปด้วย"></textarea>
+                <textarea name="problem" style="border-radius: 30px; padding: 15px; opacity: 0.6; border: none;" rows="6" cols="100" required placeholder="ปัญหาที่พบ"></textarea>
                 </div><br>
                 <div class="col" style='display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 18px;'>
                 <button type="submit"  name="submit" class="buttonn" ><h4 style='color:#ffffff'><b>Report</b></h4></button>

@@ -39,7 +39,7 @@
 
             $_SESSION['successr'] = "เพิ่มข้อมูลสำเร็จ";
 
-            header("location: rp.php");
+            header("location: table/dstudentc.php");
 
         } else {
 

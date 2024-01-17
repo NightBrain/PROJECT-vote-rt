@@ -37,6 +37,7 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="btn.css">
 </head>
 <body>
     <div class="container mt-5">
@@ -46,7 +47,7 @@
         <tr class="text-center">
             <th><h2>Student ID</h2></th>
             <th><h2>Time</h2></th>
-            <th class="text-center"><button type="submit" name="stud_delete_multiple_btn" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?');">Delete Data All</button></th>
+            <th class="text-center"><button type="submit" name="stud_delete_multiple_btn" class="button-71" role="button" onClick="return confirm('Are you sure you want to delete?');">Delete Data All</button></th>
             <th style="display: none;"><h2>ID</h2></th>
             <th style="display: none;"><h2>IDD</h2></th>
         </tr>
@@ -70,10 +71,10 @@
 
         ?>
         <tr>
-            <td><?= $user['ids']; ?></td>
-            <td><?= $user['time']; ?></td>
+            <td><h4><?= $user['ids']; ?></h4></td>
+            <td><h4><?= $user['time']; ?></h4></td>
             <td class="text-center">
-				<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-danger delete-btn">Delete</a>
+				<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="button-62 delete-btn">Delete</a>
 			</td>
             <td style="display: none;"><?= $user['id']; ?></td>
             <td style="display: none;"><input type="checkbox" name="stud_delete_id[]" checked value="<?= $user['id']; ?>"></td>

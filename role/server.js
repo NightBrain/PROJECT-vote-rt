@@ -250,3 +250,40 @@ setInterval(function(){
 
 window.onload = loadXMLDoc14;
   // ----------------------------------------------------------------------------------
+function loadXMLDoc15() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("link_wrapper_nn").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "../servernone.php", true);
+  xhttp.send();
+}
+setInterval(function(){
+  loadXMLDoc15();
+  // 1sec
+},1000);
+
+window.onload = loadXMLDoc15;
+  // ----------------------------------------------------------------------------------
+  // ----------------------------------------------------------------------------------
+function loadXMLDoc17() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("link_wrapper_text").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "noti/text.php", true);
+  xhttp.send();
+}
+setInterval(function(){
+  loadXMLDoc17();
+  // 1sec
+},1000);
+
+window.onload = loadXMLDoc17;
+  // ----------------------------------------------------------------------------------

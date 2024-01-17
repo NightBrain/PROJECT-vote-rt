@@ -54,7 +54,7 @@
     <link rel="icon" type="image/png" href="../img/logov.png">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href='upload.css' rel='stylesheet'>
-    <link href="data/button.css" rel="stylesheet">
+    <link href="data/btn.css" rel="stylesheet">
 	
 </head>
 <body>
@@ -162,7 +162,7 @@
                                         <th class="text-center"><br><br> 
                                         <div class="d-flex">
                                         <div class="upload-btn-wrapper mt-2">
-                                            <button class="btn">Upload a file</button>
+                                            <button class="button-87">Upload a file</button>
                                             <input type="file"  name="img" />
                                         </div>
                                         <button type="submit" name="update" class="button-87 mx-5">UPDATE</button>
@@ -208,12 +208,13 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
-
+    <script src="server.js"></script>
     <!--**********************************
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>
+    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="vendor/global/global.min.js"></script>
 	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
 	

@@ -28,19 +28,13 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
 							<div class="input-group search-area right d-lg-inline-flex d-none">
-								<input type="text" class="form-control" placeholder="Find something here...">
-								<div class="input-group-append">
-									<span class="input-group-text">
-										<a href="javascript:void(0)">
-											<i class="flaticon-381-search-2"></i>
-										</a>
-									</span>
-								</div>
+		
+								
 							</div>
                         </div>
 
                         <ul class="navbar-nav header-right main-notification">
-                        <li class="nav-item dropdown notification_dropdown">
+                        	<li class="nav-item dropdown notification_dropdown">
                                 <a class="nav-link bell dz-theme-mode" href="#">
 									<i id="icon-light"><i class='bx bxs-sun' style='color:#ffffff' ></i></i>
                                     <i id="icon-dark"><i class='bx bxs-moon'></i></i>
@@ -54,81 +48,17 @@
 							</li>
 							<li class="nav-item dropdown notification_dropdown">
                                 <a class="nav-link  ai-icon" href="javascript:void(0)" role="button" data-toggle="dropdown">
-									
 									<div id="link_wrapper"></div>
                                 </a>
 								<div class="dropdown-menu dropdown-menu-right">
                                     <div id="dlab_W_Notification1" class="widget-media dz-scroll p-3 height380">
 										<ul class="timeline">
-											<li>
-												<div class="timeline-panel">
-													<div class="media mr-2">
-														<img alt="image" width="50" src="images/avatar/1.jpg">
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Dr sultads Send you Photo</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media mr-2 media-info">
-														KG
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Resport created successfully</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media mr-2 media-success">
-														<i class="fa fa-home"></i>
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Reminder : Treatment Time!</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											 <li>
-												<div class="timeline-panel">
-													<div class="media mr-2">
-														<img alt="image" width="50" src="images/avatar/1.jpg">
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Dr sultads Send you Photo</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media mr-2 media-danger">
-														KG
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Resport created successfully</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media mr-2 media-primary">
-														<i class="fa fa-home"></i>
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Reminder : Treatment Time!</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
+										<a href="rp.php">
+											<div id="link_wrapper_text"></div>
+										</a>
 										</ul>
 									</div>
-                                    <a class="all-notification" href="javascript:void(0)">See all notifications <i class="ti-arrow-right"></i></a>
+                                    <a class="all-notification" href="rp.php">See all notifications <i class="ti-arrow-right"></i></a>
                                 </div>
 							</li>
                             <li class="nav-item dropdown header-profile">
@@ -228,7 +158,7 @@
 							<span class="nav-text">personal information</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="infoadmin.php">Admin</a></li>
+                        <li><a href="sinfo/password.php"><i class='bx bxs-lock'></i>Admin</a></li>
                             <li><a href="infostudent.php">Student</a></li>
                             <li><a href="infoprofessor.php">Professor</a></li>
                             <li><a href="infostudentc.php">complete_s</a></li>
@@ -257,13 +187,14 @@
 							<span class="nav-text">Register</span>
 						</a>
                         <ul aria-expanded="false">
+                            <li><a href="sreg/password.php"><i class='bx bxs-lock'></i>Admin</a></li>
                             <li><a href="reg_p.php">Professor</a></li>
                             <li><a href="reg_s.php">Student</a></li>
                         </ul>
                     </li>
 			
 				<div class="copyright">
-					<p><strong>Super Admin VoteRealTime</strong><br> © 2023 All Rights Reserved</p>
+					<p><strong>Super Admin VoteRealTime</strong><br> © 2023 All Rights Reserved</p><br><p id="countdown">Session Timeout in: 30:00</p>
 				</div>
 			</div>
         </div>

@@ -3,16 +3,55 @@
 <?php 
 
     session_start();
-
-    require_once '../config/config.php';
+	
+	require_once '../config/config.php';
 
 	if (!isset($_SESSION['admin_login'])) {
 
-        $_SESSION['errora'] = 'กรุณาเข้าสู่ระบบ!';
+		$_SESSION['errora'] = 'กรุณาเข้าสู่ระบบ!';
 
-        header("location: ../index.php");
+		header("location: ../index.php");
 
-    }
+	}
+
+	// ตั้งเวลา timeout เป็น 1800 วินาที (30 นาที)
+	$timeout = 60;
+
+	if (isset($_SESSION['admin_login'])) {
+
+		$admin_id = $_SESSION['admin_login'];
+
+		$stmt = $conn->query("SELECT * FROM users WHERE id = $admin_id");
+
+		$stmt->execute();
+
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+	}
+
+	// เช็คว่า session เป็นครั้งแรกหรือไม่
+	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $timeout)) {
+		// ถ้าเวลาที่ผ่านมามากกว่า timeout ให้ทำการ logout
+		$id = $row['id'];
+        $statuss = 'offline';
+
+
+
+        $sql = $conn->prepare("UPDATE users SET statuss = :statuss WHERE id = :id");
+        $sql->bindParam(":id", $id);
+        $sql->bindParam(":statuss", $statuss);
+        $sql->execute();
+
+		session_unset();     // ลบทุกตัวแปรใน session
+		session_destroy();   // ทำลาย session
+
+		header("Location: ../index.php"); // ส่งกลับไปที่หน้า login หรือหน้าที่คุณต้องการ
+		exit();
+	}
+
+	// รีเซ็ตเวลาใน session เมื่อมีกิจกรรมใดๆ
+	$_SESSION['LAST_ACTIVITY'] = time();
+
 
 ?>
 <?php if(isset($_SESSION['successsa'])) { ?>
@@ -39,7 +78,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>SUPER ADMIN VOTE-RT</title>
+    <title>ADMIN VOTE-RT</title>
     <!-- Favicon icon -->
 	<link rel="stylesheet" href="vendor/chartist/css/chartist.min.css">
     <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
@@ -72,7 +111,6 @@
 
 		
 	<?php include 'nav.php';?>
-	
 
       
 		
@@ -127,103 +165,77 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xl-9 col-xxl-8">
+					<div class="col-xl-8 col-xxl-8">
 						<div class="card">
-							<div class="card-header border-0 flex-wrap pb-0">
-								<div class="mb-3">
-									<h4 class="fs-20 text-black">Vote Chart</h4>
-									<p class="mb-0 fs-12 text-black">The display is not real time.</p>
+							<div class="p-3">
+								<div class="p-2 px-2 d-flex justify-content-center" style="background-color: #FFF; border-radius: 50px">
+									<iframe src="chart/index.php" width="900px" height="450px"></iframe>
 								</div>
-								<div class="d-flex flex-wrap mb-2">
-									<div class="custom-control check-switch custom-checkbox mr-4 mb-2">
-										<input type="checkbox" class="custom-control-input" id="customCheck9">
-										<label class="custom-control-label" for="customCheck9">
-											<span class="d-block  font-w500 mt-2">No.1</span>
-										</label>
-									</div>
-									<div class="custom-control check-switch custom-checkbox mr-4 mb-2">
-										<input type="checkbox" class="custom-control-input" id="customCheck91">
-										<label class="custom-control-label" for="customCheck91">
-											<span class="d-block  font-w500 mt-2">No.2</span>
-										</label>
-									</div>
-									<div class="custom-control check-switch custom-checkbox mr-4 mb-2">
-										<input type="checkbox" class="custom-control-input" id="customCheck92">
-										<label class="custom-control-label" for="customCheck92">
-											<span class="d-block font-w500 mt-2">No.3</span>
-										</label>
-									</div>
-									<div class="custom-control check-switch custom-checkbox mr-4 mb-2">
-										<input type="checkbox" class="custom-control-input" id="customCheck93">
-										<label class="custom-control-label" for="customCheck93">
-											<span class="d-block font-w500 mt-2">No.4</span>
-										</label>
-									</div>
-									<div class="custom-control check-switch custom-checkbox mr-4 mb-2">
-										<input type="checkbox" class="custom-control-input" id="customCheck93">
-										<label class="custom-control-label" for="customCheck93">
-											<span class="d-block font-w500 mt-2">None</span>
-										</label>
-									</div>
-								</div>
-								
-							</div>
-							<div class="card-body pb-2 px-3">
-								<div id="marketChart" class="market-line"></div>
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-3 col-xxl-4">
+					<div class="col-xl-4 col-xxl-4">
 						<div class="card">
-							<div class="card-header border-0 pb-0">
-								<h4 class="fs-20 text-black"> <div id="link_wrapper05"> </h4>
-							</div>
-							<div class="card-body pb-0">
-								<div id="currentChart" class="current-chart"></div>
+							<div class="card pb-0 mt-2 px-5">
 								<div class="chart-content">	
-									<div class="d-flex justify-content-between mb-2 align-items-center">
+									<div class="text-center p-1">
+										<h4 class="fs-20 text-black"> <div id="link_wrapper05"> </h4>
+									</div>
+									<hr>
+									<div class="d-flex justify-content-between mb-4 align-items-center mt-4">
 										<div>
 											<svg class="mr-2" width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<rect width="15" height="15" rx="7.5" fill="#EB8153"></rect>
+												<rect width="15" height="15" rx="7.5" fill="#FF6384"></rect>
 											</svg>
-											<span class="fs-14">No.1</span>
+											<span class="fs-14 text-black">No.1</span>
 										</div>
 										<div>
 											<h5 class="mb-0"><div id="link_wrapper_11"></h5>
 										</div>
 									</div>
-									<div class="d-flex justify-content-between mb-2 align-items-center">
+									<div class="d-flex justify-content-between mb-4 align-items-center">
 										<div>
 											<svg class="mr-2" width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<rect width="15" height="15" rx="7.5" fill="#71B945"></rect>
+												<rect width="15" height="15" rx="7.5" fill="#36A2EB"></rect>
 											</svg>
 
-											<span class="fs-14">No.2</span>
+											<span class="fs-14 text-black">No.2</span>
 										</div>
 										<div>
 											<h5 class="mb-0"><div id="link_wrapper_22"></h5>
 										</div>
 									</div>
-									<div class="d-flex justify-content-between mb-2 align-items-center">
+									<div class="d-flex justify-content-between mb-4 align-items-center">
 										<div>
 											<svg class="mr-2" width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<rect width="15" height="15" rx="7.5" fill="#4A8CDA"></rect>
+												<rect width="15" height="15" rx="7.5" fill="#FFCE56"></rect>
 											</svg>
-											<span class="fs-14">No.3</span>
+											<span class="fs-14 text-black">No.3</span>
 										</div>
 										<div>
 											<h5 class="mb-0"><div id="link_wrapper_33"></h5>
 										</div>
 									</div>
-									<div class="d-flex justify-content-between mb-2 align-items-center">
+									<div class="d-flex justify-content-between mb-4 align-items-center">
 										<div>
 											<svg class="mr-2" width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<rect width="15" height="15" rx="7.5" fill="#6647BF"></rect>
+												<rect width="15" height="15" rx="7.5" fill="#4BC0C0"></rect>
 											</svg>
-											<span class="fs-14">No.4</span>
+											<span class="fs-14 text-black">No.4</span>
 										</div>
 										<div>
 											<h5 class="mb-0"><div id="link_wrapper_44"></h5>
+										</div>
+									</div>
+									<div class="d-flex justify-content-between mb-4 align-items-center">
+										<div>
+											<svg class="mr-2" width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<rect width="15" height="15" rx="7.5" fill="#9966FF"></rect>
+											</svg>
+											<span class="fs-14 text-black">None</span>
+										</div>
+										<div>
+											<h5 class="mb-0"><div id="link_wrapper_nn"></h5>
 										</div>
 									</div>
 								</div>	
@@ -506,6 +518,7 @@
         Scripts
     ***********************************-->
     <script src="server.js"></script>
+    <script src="timeout.js"></script>
 
     <!-- Required vendors -->
     <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/global/global.min.js"></script>

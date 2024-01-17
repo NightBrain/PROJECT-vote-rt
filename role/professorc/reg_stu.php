@@ -142,7 +142,25 @@
                                                                             <span class="login100-form-title p-b-34 p-t-27">
                                                                                 Register
                                                                             </span>
+																			<?php 
 
+																			if (isset($_SESSION['professorc_login'])) {
+
+																				$professorc_login = $_SESSION['professorc_login'];
+
+																				$stmt = $conn->query("SELECT * FROM users WHERE id = $professorc_login");
+
+																				$stmt->execute();
+
+																				$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+																			}
+
+																			?>
+																			<div class="wrap-input100 validate-input d-none" data-validate = "Enter Firstname">
+																				<input class="input100" type="text" name="regby" placeholder="Enter Firstname" value="<?php echo $row['firstname'] ?>">
+																				<span class="focus-input100" data-placeholder="&#xf1f3;"></span>
+																			</div>
                                                                             <div class="wrap-input100 validate-input" data-validate = "Enter Firstname">
                                                                                 <input class="input100" type="text" name="firstname" placeholder="Enter Firstname">
                                                                                 <span class="focus-input100" data-placeholder="&#xf1f3;"></span>

@@ -52,7 +52,8 @@
     <link href="../css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="../../img/logov.png">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-	<link href='button.css' rel='stylesheet'>
+	<link href='btn.css' rel='stylesheet'>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	
 </head>
 <body>
@@ -103,55 +104,14 @@
 				
 				<div class="row">
 					<div class="col-xl col-xxl">
-						<div class="card">
-							<div class="table-data">
+						<div class="">
+							<div class="table-data" style="height: 800px">
 								<div class="order">
 									<div class="head">
 										<h3> </h3>
 						
 									</div>
-									<form action="del/coded2" method="POST">
-									<table class="table">
-										<thead>
-											<tr>
-											<th scope="col" style="display: none;"><h2>ID</h2></th>
-											<th scope="col"><h2>Student ID</h2></th>
-											<th scope="col"><h2>Time</h2></th>
-											<th class="text-center"><button type="submit" name="stud_delete_multiple_btn" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?');">Delete Data All</button></th>
-											</tr>
-										</thead>
-										<tbody>
-										<?php 
-
-											$stmt = $conn->query("SELECT * FROM vote02 Order By id DESC");
-
-											$stmt->execute();
-
-											$userss = $stmt->fetchAll();
-
-											if (!$userss) {
-
-											echo "<tr><td colspan='6' class='text-center'>None vote</td></tr>";
-
-											} else {
-
-											foreach ($userss as $user) {
-
-											?>
-											<tr>
-											<td style="display: none;"><input type="checkbox" name="stud_delete_id[]" checked value="<?= $user['id']; ?>"></td>
-											<td style="display: none;"><h4><?= $user['id']; ?></h4></td>
-											<td><h4><?= $user['ids']; ?></h4></td>
-											<td><h4><?= $user['time']; ?></h4></td>
-											<td class="text-center">
-												<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-danger delete-btn">ลบ</a>
-											</td>
-											</tr>
-											<?php } 
-														} ?>
-										</tbody>
-										</table>
-										</form>
+									<iframe src="t02.php" width="100%" height="100%" class="rounded-5" ></iframe>
 								</div>
 							</div>
 						</div>
@@ -182,7 +142,7 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
-
+	<script src="server.js"></script>
     <!--**********************************
         Scripts
     ***********************************-->
@@ -299,6 +259,6 @@
 	}
 
 	</script>
- <script src="server.js"></script>
+
 </body>
 </html>

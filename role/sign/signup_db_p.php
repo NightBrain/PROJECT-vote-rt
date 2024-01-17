@@ -24,6 +24,8 @@
 
         $urole = 'professor';
 
+        $regby = $_POST['regby'];
+
         $number = '-';
         
         $statuss = '-';
@@ -74,9 +76,9 @@
 
                     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-                    $stmt = $conn->prepare("INSERT INTO users(firstname, lastname, branch, studentid, password, report, problem, number, statuss, urole) 
+                    $stmt = $conn->prepare("INSERT INTO users(firstname, lastname, branch, studentid, password, report, problem, number, statuss, urole, regby) 
 
-                                            VALUES(:firstname, :lastname, :branch, :studentid, :password, :report, :problem, :number, :statuss, :urole)");
+                                            VALUES(:firstname, :lastname, :branch, :studentid, :password, :report, :problem, :number, :statuss, :urole, :regby)");
 
                     $stmt->bindParam(":firstname", $firstname);
 
@@ -97,6 +99,8 @@
                     $stmt->bindParam(":password", $passwordHash);
 
                     $stmt->bindParam(":urole", $urole);
+
+                    $stmt->bindParam(":regby", $regby);
 
                     $stmt->execute();
 

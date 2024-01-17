@@ -128,68 +128,8 @@
 														</div>
 												</div>	
 											</div>
-											<div class="card-body">
-												
-											<table class="table">
-										<thead>
-											<tr>
-											<th scope="col" style="display: none;"><h2>ID</h2></th>
-											<th scope="col"><h2>Firstname</h2></th>
-											<th scope="col"><h2>lastname</h2></th>
-											<th scope="col"><h2>Student ID</h2></th>
-											<th scope="col"><h2>Role</h2></th>
-											<th scope="col"><h2>branch</h2></th>
-											</tr>
-										</thead>
-										<tbody>
-										<?php 
-
-											if (isset($_SESSION['professorc_login'])) {
-
-												$professor_id = $_SESSION['professorc_login'];
-
-												$stmt = $conn->query("SELECT * FROM users WHERE id = $professor_id");
-
-												$stmt->execute();
-
-												$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-											}
-
-											?>
-										<?php 
-											$b = $row['branch'];
-
-											$stmt = $conn->query("SELECT * FROM users where branch = '$b' and urole = 'student' or urole = 'complete_s'");
-
-											$stmt->execute();
-
-											$userss = $stmt->fetchAll();
-
-											if (!$userss) {
-
-											echo "<tr><td colspan='6' class='text-center'>None user</td></tr>";
-
-											} else {
-
-											foreach ($userss as $user) {
-
-											?>
-											<tr>
-											<td style="display: none;"><h4><?= $user['id']; ?></h4></td>
-											<td><h4><?= $user['firstname']; ?></h4></td>
-											<td><h4><?= $user['lastname']; ?></h4></td>
-											<td><h4><?= $user['studentid']; ?></h4></td>
-											<td><h4><?= $user['urole']; ?></h4></td>
-											<td><h4><?= $user['branch']; ?></h4></td>
-                                            
-											
-                                            
-											</tr>
-											<?php } 
-														} ?>
-										</tbody>
-										</table>
+											<div class="card-body" style="height: 800px">
+												<iframe src="../professor/dstu.php" width="100%" height="100%" class="rounded-5" ></iframe>
 											</div>
 										</div>
 									</div>

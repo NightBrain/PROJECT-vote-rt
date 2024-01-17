@@ -88,29 +88,21 @@
             transition: all 0.3s;
             font-size: 22px;
             
-            }
+          }
             body, html {
-                    height: 100%;
-                    margin: 0;
-                    }
-                    .bg {
+        
                     /* The image used */
                     background-image: url("img/bg.jpg");
-
-                    /* Full height */
-                    height: 100%; 
-
                     /* Center and scale the image nicely */
                     background-position: center;
-                    background-repeat: no-repeat;
                     background-size: cover;
+                    
                     }
     </style>
     
 	
 </head>
 <body>
-    <div class="bg">
          <!--*******************
         Preloader start
     ********************-->
@@ -317,6 +309,9 @@
                                   <div id="pagination_controls"><?php echo $paginationCtrls; ?></div>
 
                                 </div>
+                                <div class="col d-flex align-items-center">
+                                  <iframe src="role/chart/index.php" width="900px" height="460px" style="background-color: #FFF; border-radius: 50px; padding: 10px;"></iframe>
+                              </div>
                               </div>
                               </div>
 

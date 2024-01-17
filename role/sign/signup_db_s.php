@@ -24,6 +24,8 @@
 
         $urole = 'student';
 
+        $regby = $_POST['regby'];
+
         $number = '-';
         
         $statuss = '-';
@@ -40,13 +42,13 @@
 
             $_SESSION['errorpc'] = 'รหัสผ่านต้องมีความยาวระหว่าง 5 ถึง 20 ตัวอักษร';
 
-            header("location: ../reg_p.php");
+            header("location: ../reg_s.php");
 
         } else if ($password != $c_password) {
 
             $_SESSION['errornm'] = 'รหัสผ่านไม่ตรงกัน';
 
-            header("location: ../reg_p.php");
+            header("location: ../reg_s.php");
 
         } else {
 
@@ -68,15 +70,15 @@
 
                     $_SESSION['warning'] = "มีอีเมลนี้อยู่ในระบบแล้ว <a href='index.php'>คลิ๊กที่นี่</a> เพื่อเข้าสู่ระบบ";
 
-                    header("location: ../reg_p.php");
+                    header("location: ../reg_s.php");
 
                 } else if (!isset($_SESSION['error'])) {
 
                     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-                    $stmt = $conn->prepare("INSERT INTO users(firstname, lastname, branch, studentid, password, report, problem, number, statuss, urole) 
+                    $stmt = $conn->prepare("INSERT INTO users(firstname, lastname, branch, studentid, password, report, problem, number, statuss, urole, regby) 
 
-                                            VALUES(:firstname, :lastname, :branch, :studentid, :password, :report, :problem, :number, :statuss, :urole)");
+                                            VALUES(:firstname, :lastname, :branch, :studentid, :password, :report, :problem, :number, :statuss, :urole, :regby)");
 
                     $stmt->bindParam(":firstname", $firstname);
 
@@ -98,17 +100,19 @@
 
                     $stmt->bindParam(":urole", $urole);
 
+                    $stmt->bindParam(":regby", $regby);
+
                     $stmt->execute();
 
                     $_SESSION['success'] = "สมัครสมาชิกเรียบร้อยแล้ว!";
 
-                    header("location: ../reg_p.php");
+                    header("location: ../reg_s.php");
 
                 } else {
 
                     $_SESSION['error'] = "มีบางอย่างผิดพลาด";
 
-                    header("location: ../reg_p.php");
+                    header("location: ../reg_s.php");
 
                 }
 

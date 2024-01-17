@@ -53,6 +53,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="../img/logov.png">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	
 </head>
 <body>
@@ -76,8 +77,7 @@
     ***********************************-->
     <div id="main-wrapper">
 
-		<?php include 'nav.php';?>
-		<?php include '../alert.php';?>
+		<?php include 'nav1.php';?>
 		<!--**********************************
             Content body start
         ***********************************-->
@@ -103,64 +103,17 @@
 				
 				<div class="row">
 					<div class="col-xl col-xxl">
-						<div class="card">
-							<div class="table-data">
-								<div class="order">
-									<div class="head">
-										<h3> </h3>
-						
+								<div class="">
+										<div class="table-data" style="height: 800px">
+											<div class="order">
+												<div class="head">
+													<h3> </h3>
+									
+												</div>
+												<iframe src="table/dstudentc.php" width="100%" height="100%" class="rounded-5" ></iframe>
+											</div>
+										</div>
 									</div>
-									<table class="table">
-										<thead>
-											<tr>
-											<th scope="col" style="display: none;"><h2>ID</h2></th>
-											<th scope="col"><h2>Firstname</h2></th>
-											<th scope="col"><h2>lastname</h2></th>
-											<th scope="col"><h2>Student ID</h2></th>
-											<th scope="col"><h2>urole</h2></th>
-											<th scope="col"><h2>VOTE</h2></th>
-											<th scope="col" style="display: none;" ><h2>id</h2></th>
-											<th scope="col" class="text-center"><h2>Action</h2></th>
-											</tr>
-										</thead>
-										<tbody>
-										<?php 
-
-											$stmt = $conn->query("SELECT * FROM users where urole = 'complete_s' Order By id DESC");
-
-											$stmt->execute();
-
-											$userss = $stmt->fetchAll();
-
-											if (!$userss) {
-
-											echo "<tr><td colspan='6' class='text-center'>None user</td></tr>";
-
-											} else {
-
-											foreach ($userss as $user) {
-
-											?>
-											<tr>
-											<td style="display: none;"><h4><?= $user['id']; ?></h4></td>
-											<td><h4><?= $user['firstname']; ?></h4></td>
-											<td><h4><?= $user['lastname']; ?></h4></td>
-											<td><h4><?= $user['studentid']; ?></h4></td>
-											<td><h4><?= $user['urole']; ?></h4></td>
-											<td><h4><?= $user['number']; ?></h4></td>
-                                            <form class="form-detail" action="resets.php" method="post">
-                                            <td style="display: none;"><h4><input   type="text" readonly value="<?php echo $user['id'] ?>" required class="form-control" name="id"></h4></td>
-											<td class="text-center">
-                                                
-
-												<a data-id="<?= $user['id']; ?>" href="?delete=<?= $user['id']; ?>" class="btn btn-danger delete-btn">Delete</a>
-											</td>
-                                            </form>
-											</tr>
-											<?php } 
-														} ?>
-										</tbody>
-										</table>
 								</div>
 							</div>
 						</div>
@@ -308,6 +261,5 @@
 	}
 
 	</script>
- <script src="server.js"></script>
 </body>
 </html>

@@ -39,7 +39,7 @@
 
             $_SESSION['successr'] = "เพิ่มข้อมูลสำเร็จ";
 
-            header("location: infoprofessor.php");
+            header("location: table/dprofessorc.php");
 
         } else {
 

@@ -19,7 +19,7 @@ if (isset($_SESSION['professorc_login'])) {
 
 $b = $row['branch'];
 
-		$sql = "SELECT COUNT(*) as users FROM users where branch = '$b' and urole = 'student' or urole = 'complete_s'";
+		$sql = "SELECT COUNT(*) as users FROM users where branch = '$b' and urole = 'student' or branch = '$b' and urole = 'complete_s'";
 
 		$query = $conn->prepare($sql);
 
