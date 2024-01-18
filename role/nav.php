@@ -28,8 +28,7 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
 							<div class="input-group search-area right d-lg-inline-flex d-none">
-		
-								
+                                
 							</div>
                         </div>
 
@@ -134,7 +133,7 @@
 
 						?>
 					<h5 class="name"><span class="font-w400">Hello,</span> <?php echo $row['firstname'] ?></h5>
-					<p class="email"><p class="__cf_email__"><?= $row['studentid']; ?></p></p>
+					<p class="email"><p class="__cf_email__"><?= $row['studentid']; ?></p><p id="countdown">Session Timeout in: 30:00</p></p>
 				</div>
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
@@ -194,7 +193,7 @@
                     </li>
 			
 				<div class="copyright">
-					<p><strong>Super Admin VoteRealTime</strong><br> © 2023 All Rights Reserved</p><br><p id="countdown">Session Timeout in: 30:00</p>
+					<p><strong>Super Admin VoteRealTime</strong><br> © 2023 All Rights Reserved</p>
 				</div>
 			</div>
         </div>

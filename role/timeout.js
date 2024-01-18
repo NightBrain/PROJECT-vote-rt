@@ -1,5 +1,5 @@
 // Set the session timeout duration in seconds
-var sessionTimeout = 60; // 30 minutes
+var sessionTimeout = 1800; // 30 minutes
 
 // Initialize countdown timer
 var countdown = sessionTimeout;

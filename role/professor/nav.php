@@ -142,7 +142,7 @@
 				
 				
 				<div class="copyright">
-					<p><strong>Professor Admin</strong> © 2023 All Rights Reserved</p>
+					<p><strong>Professor Admin</strong> © 2023 All Rights Reserved</p><br><p id="countdown">Session Timeout in: 30:00</p>
 					
 				</div>
 			</div>

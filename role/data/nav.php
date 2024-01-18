@@ -131,7 +131,7 @@
 
 						?>
 					<h5 class="name"><span class="font-w400">Hello,</span> <?php echo $row['firstname'] ?></h5>
-					<p class="email"><p class="__cf_email__"><?= $row['studentid']; ?></p></p>
+					<p class="email"><p class="__cf_email__"><?= $row['studentid']; ?></p><p id="countdown">Session Timeout in: 30:00</p></p>
 				</div>
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>

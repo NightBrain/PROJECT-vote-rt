@@ -16,6 +16,45 @@
 
   }
 
+  // ตั้งเวลา timeout เป็น 1800 วินาที (30 นาที)
+	$timeout = 1800;
+
+	if (isset($_SESSION['admin_login'])) {
+
+		$admin_id = $_SESSION['admin_login'];
+
+		$stmt = $conn->query("SELECT * FROM users WHERE id = $admin_id");
+
+		$stmt->execute();
+
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+	}
+
+	// เช็คว่า session เป็นครั้งแรกหรือไม่
+	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $timeout)) {
+		// ถ้าเวลาที่ผ่านมามากกว่า timeout ให้ทำการ logout
+		$id = $row['id'];
+        $statuss = 'offline';
+
+
+
+        $sql = $conn->prepare("UPDATE users SET statuss = :statuss WHERE id = :id");
+        $sql->bindParam(":id", $id);
+        $sql->bindParam(":statuss", $statuss);
+        $sql->execute();
+
+		session_unset();     // ลบทุกตัวแปรใน session
+		session_destroy();   // ทำลาย session
+
+		header("Location: ../index.php"); // ส่งกลับไปที่หน้า login หรือหน้าที่คุณต้องการ
+		exit();
+	}
+
+	// รีเซ็ตเวลาใน session เมื่อมีกิจกรรมใดๆ
+	$_SESSION['LAST_ACTIVITY'] = time();
+
+
   if (isset($_GET['delete'])) {
 
 	$delete_id = $_GET['delete'];
@@ -144,7 +183,7 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
-
+	<script src="timeout.js"></script>
     <!--**********************************
         Scripts
     ***********************************-->

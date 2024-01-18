@@ -15,7 +15,7 @@
 	}
 
 	// ตั้งเวลา timeout เป็น 1800 วินาที (30 นาที)
-	$timeout = 60;
+	$timeout = 1800;
 
 	if (isset($_SESSION['admin_login'])) {
 
